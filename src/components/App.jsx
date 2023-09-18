@@ -1,33 +1,36 @@
-import { useState } from 'react';
-import reactLogo from '../assets/react.svg';
-import viteLogo from '/vite.svg';
+import { Routes, Route } from 'react-router-dom';
+import React, { useState, lazy } from 'react';
+// import reactLogo from '../assets/react.svg';
+// import viteLogo from '/vite.svg';
 import './App.css';
 
+// const Home = lazy(() => import('./pages/home/Home'));
+
 const App = () => {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount(count => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    Tekst
+      {/* <Routes>
+        <Route path="/" element={<Login />}>
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/wallet" element={<SharedLayout />}>
+            <Route index element={<NavBar />} />
+            <Route index element={<Transactions />}>
+              <Route path="add" element={<AddTransaction />} />
+              <Route
+                path="/:transactionId/edit"
+                element={<EditTransaction />}
+              />
+              <Route path="/:transactionId/delete" element={<DeleteTransaction />} />
+            </Route>
+            <Route path="/currency" element={<Currency />} />
+            <Route path="/statistics" element={<Currency />} />
+          </Route>
+          <Route path="*" element={<Home trendingList={trendList} />} />
+        </Route>
+      </Routes> */}
     </>
   );
 };
