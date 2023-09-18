@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const signup = props => {
+const Signup = props => {
   return (
-    <div>signup</div>
+    <div>Signup</div>
   )
 }
 
-signup.propTypes = {}
+Signup.propTypes = {}
 
-export default signup
+export default Signup
