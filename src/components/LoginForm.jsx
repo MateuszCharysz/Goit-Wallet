@@ -21,9 +21,9 @@ const LoginForm = () => {
           value={value}
           placeholder='password'
           onChange={handleOnChange}></input>
-        <button onClick={handleOnClick}>Login</button>
-        <button onClick={handleOnClick}>Register</button>
       </label>
+      <button onClick={handleOnClick}>LOG IN</button>
+      <button onClick={handleOnClick}>REGISTER</button>
     </form>
   );
 };

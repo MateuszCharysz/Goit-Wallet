@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
-// import reactLogo from '../assets/react.svg';
-// import viteLogo from '/vite.svg';
-import './App.css';
+import '../styles/App.css';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
