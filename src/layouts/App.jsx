@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <>
-    Tekst
+      Tekst
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
