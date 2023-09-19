@@ -6,7 +6,9 @@ const Login = () => {
   return (
     <div>
       <Routes>
-        <Route path='/' element={<LoginForm />}></Route>
+        <Route
+          path='/login'
+          element={<LoginForm />}></Route>
       </Routes>
     </div>
   );
