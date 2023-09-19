@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
 import '../styles/App.css';
 import Login from '../pages/login';
-import Registration from '../pages/Registration';
+import Registration from '../pages/registration';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
