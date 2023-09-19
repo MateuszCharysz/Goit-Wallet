@@ -2,6 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
 import '../styles/App.css';
 import Login from '../pages/Login';
+import Registration from '../pages/Registration';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
