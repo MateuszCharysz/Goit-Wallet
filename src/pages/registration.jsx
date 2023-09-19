@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
+import RegistrationForm from '../components/RegistrationForm';
 
-const RegistrationForm = () => {
+const Registration = () => {
   return (
     <div>
       <Routes>
@@ -13,4 +14,4 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+export default Registration;

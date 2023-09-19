@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
 import '../styles/App.css';
+import Login from '../pages/Login';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -9,7 +10,12 @@ const App = () => {
 
   return (
     <>
-      Tekst
+      <Routes>
+        <Route path='/' element={<Login />}></Route>
+        <Route
+          path='/register'
+          element={<Registration />}></Route>
+      </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
