@@ -4,13 +4,11 @@ import RegistrationForm from '../components/RegistrationForm';
 
 const Registration = () => {
   return (
-    <div>
-      <Routes>
-        <Route
-          path='/register'
-          element={<RegistrationForm />}></Route>
-      </Routes>
-    </div>
+    <Routes>
+      <Route
+        path='/register'
+        element={<RegistrationForm />}></Route>
+    </Routes>
   );
 };
 
