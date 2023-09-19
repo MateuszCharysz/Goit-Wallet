@@ -1,0 +1,35 @@
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 100%;
+}
+.barWrapper{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    padding: 0;
+}
+
+.list{
+    display: flex;
+    width: 715px;
+    background-color: white;
+    border-radius: 30px;
+    color:red;
+    gap: 1em;
+    align-items: start;
+    padding: 0;
+}
+
+.element{
+    width: 100px;
+    list-style: none;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+}

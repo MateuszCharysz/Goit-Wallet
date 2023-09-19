@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
+import { Dashboard } from './Dashboard/Dashboard';
 // import reactLogo from '../assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
@@ -12,6 +13,7 @@ const App = () => {
   return (
     <>
     Tekst
+    <Dashboard/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
