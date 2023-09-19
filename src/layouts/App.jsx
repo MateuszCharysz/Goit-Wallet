@@ -1,8 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import React, { useState, lazy } from 'react';
-// import reactLogo from '../assets/react.svg';
-// import viteLogo from '/vite.svg';
-import './App.css';
+import '../styles/App.css';
+import Login from '../pages/login';
+import Registration from '../pages/Registration';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -11,7 +12,11 @@ const App = () => {
 
   return (
     <>
-    Tekst
+      <Routes>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Registration />}></Route>
+        <Route path="*" element={<Login />} />
+      </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
@@ -28,7 +33,6 @@ const App = () => {
             <Route path="/currency" element={<Currency />} />
             <Route path="/statistics" element={<Currency />} />
           </Route>
-          <Route path="*" element={<Home trendingList={trendList} />} />
         </Route>
       </Routes> */}
     </>
