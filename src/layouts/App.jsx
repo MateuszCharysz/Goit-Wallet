@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
 import React, { useState, lazy } from 'react';
 import '../styles/App.css';
-import Login from '../pages/Login';
+import Login from '../pages/login';
 import Registration from '../pages/Registration';
 
 // const Home = lazy(() => import('./pages/home/Home'));
@@ -16,6 +17,7 @@ const App = () => {
         <Route
           path='/register'
           element={<Registration />}></Route>
+      <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
@@ -33,7 +35,6 @@ const App = () => {
             <Route path="/currency" element={<Currency />} />
             <Route path="/statistics" element={<Currency />} />
           </Route>
-          <Route path="*" element={<Home trendingList={trendList} />} />
         </Route>
       </Routes> */}
     </>

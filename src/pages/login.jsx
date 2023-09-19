@@ -1,12 +1,12 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
 import LoginForm from '../components/LoginForm';
 
 const Login = () => {
   return (
-    <Routes>
-      <Route path='/login' element={<LoginForm />}></Route>
-    </Routes>
+<>
+<LoginForm />
+</>
   );
 };
 
