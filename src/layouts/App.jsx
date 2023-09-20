@@ -3,6 +3,7 @@ import React, { useState, lazy } from 'react';
 import '../stylesheet/App.css';
 import Login from '../pages/login';
 import Registration from '../pages/registration';
+import Navigation from '../components/Navigation';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
