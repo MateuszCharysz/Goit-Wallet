@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import TextField from '@mui/material/TextField';
+import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import css from './LoginForm.module.css';
@@ -14,31 +14,13 @@ const LoginForm = () => {
   return (
     <div className={css.dashboard}>
       <form className={css.loginForm}>
-        {/* <label htmlFor='Enter Email'>
-        <input
-          type='text'
-          value={value}
-          placeholder='Email'
-          onChange={handleOnChange}></input>
-      </label> */}
-        <TextField
-          id='standard-basic'
-          label='Email'
-          variant='standard'
+        <Input
+          text='Email'
           value={value}
           onChange={handleOnChange}
         />
-        {/* <label>
-        <input
-          type='text'
-          value={value}
-          placeholder='password'
-          onChange={handleOnChange}></input>
-      </label> */}
-        <TextField
-          id='standard-basic'
-          label='Password'
-          variant='standard'
+        <Input
+          text='Password'
           value={value}
           onChange={handleOnChange}
         />
