@@ -8,11 +8,14 @@ const ColorButton = styled(Button)(() => ({
   borderRadius: 20,
   backgroundColor: 'white',
   border: '1px solid #4A56E2',
+  '&:hover': {
+    backgroundColor: 'white',
+  },
 }));
 
 const ButtonSecondary = ({ text }) => (
   <>
-    <ColorButton variant='contained'>{text}</ColorButton>;
+    <ColorButton variant='contained'>{text}</ColorButton>
   </>
 );
 

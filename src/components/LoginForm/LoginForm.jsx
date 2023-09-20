@@ -12,41 +12,43 @@ const LoginForm = () => {
   const handleOnClick = () => setValue('');
 
   return (
-    <form className={css.loginForm}>
-      {/* <label htmlFor='Enter Email'>
+    <div className={css.dashboard}>
+      <form className={css.loginForm}>
+        {/* <label htmlFor='Enter Email'>
         <input
           type='text'
           value={value}
           placeholder='Email'
           onChange={handleOnChange}></input>
       </label> */}
-      <TextField
-        id='standard-basic'
-        label='Email'
-        variant='standard'
-        value={value}
-        onChange={handleOnChange}
-      />
-      {/* <label>
+        <TextField
+          id='standard-basic'
+          label='Email'
+          variant='standard'
+          value={value}
+          onChange={handleOnChange}
+        />
+        {/* <label>
         <input
           type='text'
           value={value}
           placeholder='password'
           onChange={handleOnChange}></input>
       </label> */}
-      <TextField
-        id='standard-basic'
-        label='Password'
-        variant='standard'
-        value={value}
-        onChange={handleOnChange}
-      />
-      <ButtonMain text='LOG IN' onClick={handleOnClick} />
-      <ButtonSecondary
-        text='REGISTER'
-        onClick={handleOnClick}
-      />
-    </form>
+        <TextField
+          id='standard-basic'
+          label='Password'
+          variant='standard'
+          value={value}
+          onChange={handleOnChange}
+        />
+        <ButtonMain text='LOG IN' onClick={handleOnClick} />
+        <ButtonSecondary
+          text='REGISTER'
+          onClick={handleOnClick}
+        />
+      </form>
+    </div>
   );
 };
 

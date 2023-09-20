@@ -7,11 +7,14 @@ const ColorButton = styled(Button)(() => ({
   height: 50,
   borderRadius: 20,
   backgroundColor: '#24cca7',
+  '&:hover': {
+    backgroundColor: '#24cca7',
+  },
 }));
 
 const ButtonMain = ({ text }) => (
   <>
-    <ColorButton variant='contained'>{text}</ColorButton>;
+    <ColorButton variant='contained'>{text}</ColorButton>
   </>
 );
 

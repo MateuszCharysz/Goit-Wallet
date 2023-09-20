@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import React, { useState, lazy } from 'react';
 import '../stylesheet/App.css';
 import Login from '../pages/login';
