@@ -3,6 +3,8 @@
     border-collapse: collapse;
     color: black;
     text-transform: capitalize;
+    text-align: left;
+    /* background-color: rgb(236, 246, 255); */
 }
 
 .dashboardClass td,
@@ -13,6 +15,9 @@
     background-color: white;
     min-width: 100px;
 }
+.dashboardClass th:nth-child(4) {
+    min-width: 120px;
+}
 .dashboardClass th:first-child {
     background-color: white;
     border-radius: 30px 0 0 30px ;
@@ -21,16 +26,10 @@
     background-color: white;
     border-radius: 0 30px 30px 0;
 }
-.dashboardClass tr:hover {
-    background: none;
-    cursor: pointer;
-}
-
 .dashboardClass th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: none;
   }
 .dashboardClassBody tr{
     border-bottom: 1px solid #DCDCDC;
@@ -38,11 +37,40 @@
 .dashboardClassBody tr:last-child{
     border-bottom: none;
 }
-  .red{
+.dashboardClass tr:hover {
+    cursor: default;
+    box-shadow: -4px 0px 32px -19px rgba(66, 68, 90, 1);
+}
+.dashboardClass td:nth-child(5){
+    text-align: right;
+}
+.dashboardClass th:nth-child(5){
+    text-align: right;
+}
+
+.red{
     color:#FF6596;
     font-weight: bold;
 }
 .green{
     color: #24CCA7;
     font-weight: bold;
+}
+.ico{
+    margin-left: 10px;
+}
+.button{
+    background-color: #24CCA7;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 25px;
+    font-weight: 200;
+}
+.ico:hover,
+.button:hover{
+    cursor: pointer;
+}
+.buttonContainer {
+    display: flex;
+    gap: 15px;
 }

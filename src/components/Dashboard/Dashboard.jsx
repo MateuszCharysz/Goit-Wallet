@@ -1,27 +1,16 @@
 import styles from "./Dashboard.module.css"
+import editImage from "../../assets/edit.svg"
 
-// import balance from '../../balance.json'
-
-// export const Dashboard = () => {
-//     return (
-//             <section className={styles.wrapper} >
-//                 <DashboardBar/>
-//                 <DashboardList/>
-//             </section>
-//     )
-// }
-
-
+const handleDelete = () => {
+    alert(`Zapytanie czy usunąć wpis z bazy danych.`)
+}
+const handleEdit = () => {
+    alert(`Tu pojawi się modal do edycji danych.`)
+}
 export const Dashboard = ({ items }) => {
-    const setTime = (time) => {
-    const day = getDay(time);
-    const month = getMonth(time)
-    const year = getYear(time)
-    const finalDate = `${day}.${month}.${year}`
-    return finalDate
-    
-    }
+
     return (
+
       <table className={styles.dashboardClass}>
     <thead>
       <tr>
@@ -30,6 +19,7 @@ export const Dashboard = ({ items }) => {
         <th>Category</th>
         <th>Comment</th>
         <th>Sum</th>
+        <th></th>
       </tr>
     </thead>
     <tbody className={styles.dashboardClassBody}>
@@ -48,7 +38,7 @@ export const Dashboard = ({ items }) => {
                 } return month
             }
         const year = new Date(time).getYear()-100
-        if (type=='+') {
+        if (type == '+') {
             return(
             <tr key={id}>
                 <td>
@@ -60,6 +50,12 @@ export const Dashboard = ({ items }) => {
                 <td>{category}</td>
                 <td>{comment}</td>
                 <td className={styles.green}>{sum}</td>
+                <td>
+                <span className={styles.buttonContainer}>
+                    <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
+                    <button className={styles.button} onClick={handleDelete}>Delete</button>
+                    </span>
+                </td>
             </tr>
             )
         }
@@ -74,6 +70,12 @@ export const Dashboard = ({ items }) => {
                 <td>{category}</td>
                 <td>{comment}</td>
                 <td className={styles.red}>{sum}</td>
+                <td>
+                <span className={styles.buttonContainer}>
+                <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
+                    <button className={styles.button} onClick={handleDelete}>Delete</button>
+                    </span>
+                </td>
             </tr>
             )
       })}

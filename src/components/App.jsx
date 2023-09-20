@@ -1,9 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
-import { Dashboard } from './Dashboard/Dashboard';
 // import reactLogo from '../assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
+
+import { Dashboard } from './Dashboard/Dashboard';
 import balance from '../../balance.json'
 
 // const Home = lazy(() => import('./pages/home/Home'));
