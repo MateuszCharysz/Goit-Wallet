@@ -50,9 +50,9 @@ font-weight: 400;
     content: "";
     height: 44px;
     width: 44px;
-    left: 0px;
+    right: 0px;
     bottom: -2px;
-    background-color: #24CCA7;
+    background-color: #FF6596;
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
@@ -67,8 +67,8 @@ font-weight: 400;
   } */
   
   input:checked + .slider:before {
-    transform: translateX(36px);
-    background-color: #FF6596;
+    transform: translateX(-36px);
+    background-color: #24CCA7;
   }
 
   .greenText{

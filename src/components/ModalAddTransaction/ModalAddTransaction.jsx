@@ -4,7 +4,7 @@ import styles from "../ModalAddTransaction/ModalAddTransaction.module.css"
 
 export const ModalAddTransaction = () => {
 
-const [count, setCount] = useState(0)
+const [count, setCount] = useState(1)
 if (count==0) {
     return (
         <section className={styles.wrapper}>
