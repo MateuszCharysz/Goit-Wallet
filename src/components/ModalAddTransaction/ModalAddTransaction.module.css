@@ -47,15 +47,18 @@ font-weight: 400;
   
   .slider:before {
     position: absolute;
-    content: "";
+    content: "-";
     height: 44px;
     width: 44px;
     right: 0px;
-    bottom: -2px;
+    bottom: -3px;
     background-color: #FF6596;
     -webkit-transition: .4s;
     transition: .4s;
     border-radius: 50%;
+    color:white;
+    font-size: 25px;
+    box-shadow: 10px 10px 20px -10px rgba(255, 101, 150, 1);
   }
   
   /* input:checked + .slider {
@@ -68,7 +71,9 @@ font-weight: 400;
   
   input:checked + .slider:before {
     transform: translateX(-36px);
+    content: "+";
     background-color: #24CCA7;
+    box-shadow: -10px 10px 20px -10px rgba(36, 204, 167, 1);
   }
 
   .greenText{
@@ -139,6 +144,7 @@ font-weight: 400;
   }
 
   .formDate{
+    position: relative;
       padding: 5px;
       background-color: white;
       text-align: center;
@@ -148,6 +154,19 @@ font-weight: 400;
       border: 1px solid white;
       border-bottom: 1px solid rgba(0,0,0, 0.1);
     fill: black;
+  }
+  .formDate::before{
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    right: 5px;
+    bottom: 5px;
+    background-color: white;
+    border: solid 2px #4A56E2;
+    border-radius: 2px;
+    pointer-events: none;
+
   }
 
   .formComment{
