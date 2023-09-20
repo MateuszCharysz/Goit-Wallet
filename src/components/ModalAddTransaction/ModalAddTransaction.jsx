@@ -60,16 +60,16 @@ if (!count) {
             <section className={styles.modalForm}>
                 <label name="addTransForm">
                     <select className={styles.formCategory}>
-                    <option value='' disabled="disabled" selected="selected">Select a category</option>
-                    <option value='0'>Main expenses</option>
-                    <option value='1'>Products</option>
-                    <option value='2'>Car</option>
-                    <option value='3'>Self care</option>
-                    <option value='4'>Child care</option>
-                    <option value='5'>Household products</option>
-                    <option value='6'>Education</option>
-                    <option value='7'>Leisure</option>
-                    <option value='8'>Other expenses</option>
+                    <option value='' disabled="disabled" selected="selected" hidden>Select a category</option>
+                    <option value='Main expenses'>Main expenses</option>
+                    <option value='Products'>Products</option>
+                    <option value='Car'>Car</option>
+                    <option value='Self care'>Self care</option>
+                    <option value='Child care'>Child care</option>
+                    <option value='Household products'>Household products</option>
+                    <option value='Education'>Education</option>
+                    <option value='Leisure'>Leisure</option>
+                    <option value='Other expenses'>Other expenses</option>
 
                     </select>
                     <div  className={styles.formWrapper}>
