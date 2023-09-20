@@ -1,5 +1,6 @@
 import styles from "./Dashboard.module.css"
 import editImage from "../../assets/edit.svg"
+import balance from "../../../balance.json"
 
 const handleDelete = () => {
     alert(`Zapytanie czy usunąć wpis z bazy danych.`)
@@ -7,7 +8,7 @@ const handleDelete = () => {
 const handleEdit = () => {
     alert(`Tu pojawi się modal do edycji danych.`)
 }
-export const Dashboard = ({ items }) => {
+export const Dashboard = () => {
 
     return (
 
@@ -23,28 +24,38 @@ export const Dashboard = ({ items }) => {
       </tr>
     </thead>
     <tbody className={styles.dashboardClassBody}>
-      {items.map(({ id, date, type, category, comment, sum })=>{
-        const time = Date(date)
+      {balance.map(({ id, date, type, category, comment, sum })=>{
+        const time = new Date(parseInt(date))
         const getDay = (time) => {
         const day = new Date(time).getDate()
             if (day<10) {
                 return `0${day}`
-            } return day
+            }   return day
         }
         const getMonth = (time) => {
-            const month = new Date(time).getMonth()
+            const month = new Date(time).getMonth()+1
                 if (month<10) {
                     return `0${month}`
                 } return month
             }
-        const year = new Date(time).getYear()-100
+        const getYear = (time) => {
+            const trim = (number) => {
+                if (number<10) {
+                    return `0${number}`
+                }   return number
+            }
+            const year = new Date(time).getYear()
+                if (year<100) {
+                    return trim(year)
+                } return trim(year-100)
+        }
         if (type == '+') {
             return(
             <tr key={id}>
                 <td>
                     {getDay(time)}.
                     {getMonth(time)}.
-                    {year}
+                    {getYear(time)}
                 </td>
                 <td>{type}</td>
                 <td>{category}</td>
@@ -64,7 +75,7 @@ export const Dashboard = ({ items }) => {
                 <td>
                     {getDay(time)}.
                     {getMonth(time)}.
-                    {year}
+                    {getYear(time)}
                 </td>
                 <td>{type}</td>
                 <td>{category}</td>

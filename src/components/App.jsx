@@ -5,7 +5,6 @@ import React, { useState, lazy } from 'react';
 import './App.css';
 
 import { Dashboard } from './Dashboard/Dashboard';
-import balance from '../../balance.json'
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -15,7 +14,7 @@ const App = () => {
   return (
     <>
     Tekst
-    <Dashboard items={balance}/>
+    <Dashboard/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
