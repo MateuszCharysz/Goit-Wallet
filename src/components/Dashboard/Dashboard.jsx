@@ -1,6 +1,7 @@
 import styles from "./Dashboard.module.css"
 import editImage from "../../assets/edit.svg"
 import balance from "../../../balance.json"
+import { DeleteButton } from "../DeleteButton/DeleteButton"
 
 const handleDelete = () => {
     console.log(`Zapytanie czy usunąć wpis z bazy danych o id`)
@@ -64,7 +65,7 @@ export const Dashboard = () => {
                 <td>
                 <span className={styles.buttonContainer}>
                     <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
-                    <button className={styles.button} onClick={handleDelete}>Delete</button>
+                    <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>
             </tr>
@@ -84,7 +85,7 @@ export const Dashboard = () => {
                 <td>
                 <span className={styles.buttonContainer}>
                 <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
-                    <button className={styles.button} onClick={handleDelete}>Delete</button>
+                    <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>
             </tr>

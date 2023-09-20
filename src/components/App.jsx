@@ -16,7 +16,7 @@ const App = () => {
     <>
     {/* Tekst */}
     <Dashboard/>
-    {/* <ModalAddTransaction/> */}
+    <ModalAddTransaction/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />

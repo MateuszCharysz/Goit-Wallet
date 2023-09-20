@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from "../ModalAddTransaction/ModalAddTransaction.module.css"
-
+import { GreenButton } from "../Greenbutton/GreenButton";
+import { CancelButton } from "../CancelButton/CancelButton";
 
 export const ModalAddTransaction = () => {
 
@@ -36,8 +37,9 @@ if (count==0) {
                     placeholder="Comment"
                     className={styles.formComment}></input>
                     <ul className={styles.modalList}>
-                    <li><button type="submit" className={styles.modalButtonSubmit}>ADD</button></li>
-                    <li><button type="reset" className={styles.modalButtonCancel}>CANCEL</button></li>
+                    <li><GreenButton name="ADD"/></li>
+                    <li><CancelButton name="CANCEL"/></li>
+                    
                     </ul>
                 </label>
             </section>
@@ -87,8 +89,8 @@ if (count==0) {
                     placeholder="Comment"
                     className={styles.formComment}></input>
                     <ul className={styles.modalList}>
-                    <li><button type="submit" className={styles.modalButtonSubmit}>ADD</button></li>
-                    <li><button type="reset" className={styles.modalButtonCancel}>CANCEL</button></li>
+                    <li><GreenButton name="ADD"/></li>
+                    <li><CancelButton name="CANCEL"/></li>
                     </ul>
                 </label>
             </section>

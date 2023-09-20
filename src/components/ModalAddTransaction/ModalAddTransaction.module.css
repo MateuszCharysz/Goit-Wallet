@@ -109,21 +109,7 @@ font-weight: 400;
     align-items: center;
     padding: 0;
   }
-  
-  .modalButtonSubmit{
-    width: 300px;
-    border-radius: 20px;
-    border: 1px solid #24CCA7;
-    background-color: #24CCA7;
-    color: white
-  }
-  .modalButtonCancel{
-    width: 300px;
-    border-radius: 20px;
-    border: 1px solid #4A56E2;
-    background-color: white;
-    color:#4A56E2
-  }
+
   .formWrapper{
     /* background-color: yellow; */
     display: flex;
