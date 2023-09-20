@@ -5,7 +5,7 @@ import styles from "../ModalAddTransaction/ModalAddTransaction.module.css"
 export const ModalAddTransaction = () => {
 
 const [count, setCount] = useState(0)
-if (!count) {
+if (count==0) {
     return (
         <section className={styles.wrapper}>
             <h2 className={styles.header}>Add transaction</h2>
@@ -13,7 +13,7 @@ if (!count) {
                 <span className={styles.greenText}>Income</span>
                 <label className={styles.switch}>
                     <input 
-                    type="checkbox" 
+                    type="checkbox"
                     className={styles.checkbox}
                     onClick={()=>setCount(count+1)}/>
                     <span className={styles.slider}></span>
@@ -59,6 +59,7 @@ if (!count) {
             </div>
             <section className={styles.modalForm}>
                 <label name="addTransForm">
+                    <div className={styles.formCategoryContainer}>
                     <select className={styles.formCategory}>
                     <option value='' disabled="disabled" selected="selected" hidden>Select a category</option>
                     <option value='Main expenses'>Main expenses</option>
@@ -70,8 +71,8 @@ if (!count) {
                     <option value='Education'>Education</option>
                     <option value='Leisure'>Leisure</option>
                     <option value='Other expenses'>Other expenses</option>
-
                     </select>
+                    </div>
                     <div  className={styles.formWrapper}>
                         <input 
                         type="number" 
