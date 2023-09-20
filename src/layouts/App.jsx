@@ -13,7 +13,6 @@ const App = () => {
 
   return (
     <>
-      <Navigation/>
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Registration />}></Route>

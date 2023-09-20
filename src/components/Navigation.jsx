@@ -1,19 +1,19 @@
 import { NavLink } from 'react-router-dom';
-const mysvg = './icons.svg#wallet'
-const mysvg2 = './icons.svg#password'
+const mysvg = './icons.svg#calendar'
+const mysvg2 = './icons.svg#wallet'
 // css
 
 const Navigation = () => {
   return (
     <nav>
-      <svg width="24" height="24">
-        <use href={mysvg}></use>
+      {/* <svg width="24" height="24">
+        <use href={mysvg} stroke="blue"></use>
         <br />
       </svg>
       <svg width="42" height="42">
         <use href={mysvg2} fill="purple"></use>
       </svg>
-      <br />
+      <br /> */}
       <NavLink to="/">
         Home
       </NavLink>
