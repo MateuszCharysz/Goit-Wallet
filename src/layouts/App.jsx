@@ -1,7 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import React, { useState, lazy } from 'react';
-import '../styles/App.css';
+import '../stylesheet/App.css';
 import Login from '../pages/login';
 import Registration from '../pages/registration';
 
@@ -13,9 +12,11 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
-        <Route path="/register" element={<Registration />}></Route>
-        <Route path="*" element={<Login />} />
+        <Route path='/login' element={<Login />}></Route>
+        <Route
+          path='/register'
+          element={<Registration />}></Route>
+        <Route path='*' element={<Login />} />
       </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
