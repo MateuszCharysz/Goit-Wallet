@@ -3,10 +3,10 @@ import editImage from "../../assets/edit.svg"
 import balance from "../../../balance.json"
 
 const handleDelete = () => {
-    alert(`Zapytanie czy usunąć wpis z bazy danych.`)
+    console.log(`Zapytanie czy usunąć wpis z bazy danych o id`)
 }
 const handleEdit = () => {
-    alert(`Tu pojawi się modal do edycji danych.`)
+    console.log(`Tu pojawi się modal do edycji danych.`)
 }
 export const Dashboard = () => {
 
