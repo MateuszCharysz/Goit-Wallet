@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import ButtonMain from '../components/ButtonMain';
+import ButtonMain from '../ButtonMain';
+import ButtonSecondary from '../ButtonSecondary';
+import css from './LoginForm.module.css';
 
 const LoginForm = () => {
   const [value, setValue] = useState('');
@@ -10,7 +12,7 @@ const LoginForm = () => {
   const handleOnClick = () => setValue('');
 
   return (
-    <form>
+    <form className={css.loginForm}>
       {/* <label htmlFor='Enter Email'>
         <input
           type='text'
@@ -39,14 +41,11 @@ const LoginForm = () => {
         value={value}
         onChange={handleOnChange}
       />
-      {/* <button onClick={handleOnClick}>LOG IN</button> */}
-      {/* <button onClick={handleOnClick}>REGISTER</button> */}
       <ButtonMain text='LOG IN' onClick={handleOnClick} />
-      {/* <ColorButton
-        variant='contained'
-        onClick={handleOnClick}>
-        LOG IN
-      </ColorButton> */}
+      <ButtonSecondary
+        text='REGISTER'
+        onClick={handleOnClick}
+      />
     </form>
   );
 };
