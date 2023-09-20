@@ -63,7 +63,7 @@ export const Dashboard = () => {
                 <td>
                 <span className={styles.buttonContainer}>
                     {/* <img className={styles.ico} src = {editImage} alt="edit icon" id={id} onClick={handleEdit} /> */}
-                    <EditPen id={id}/>
+                    <EditPen id={id} type={type}/>
                     <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>
@@ -83,7 +83,7 @@ export const Dashboard = () => {
                 <td className={styles.red}>{sum}</td>
                 <td>
                 <span className={styles.buttonContainer}>
-                    <EditPen id={id}/>
+                    <EditPen id={id} type={type}/>
                     <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>
