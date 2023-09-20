@@ -4,6 +4,7 @@ import { Dashboard } from './Dashboard/Dashboard';
 // import reactLogo from '../assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
+import balance from '../../balance.json'
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -13,7 +14,7 @@ const App = () => {
   return (
     <>
     Tekst
-    <Dashboard/>
+    <Dashboard items={balance}/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
