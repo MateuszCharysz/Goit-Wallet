@@ -1,13 +1,19 @@
 import { NavLink } from 'react-router-dom';
-import { ReactSVG } from 'react-svg';
-const mysvg = './public/vite.svg'
+const mysvg = './icons.svg#wallet'
+const mysvg2 = './icons.svg#password'
 // css
 
 const Navigation = () => {
   return (
     <nav>
-      <img src={mysvg} alt="svg"/>
-        <br></br>
+      <svg width="24" height="24">
+        <use href={mysvg}></use>
+        <br />
+      </svg>
+      <svg width="42" height="42">
+        <use href={mysvg2} fill="purple"></use>
+      </svg>
+      <br />
       <NavLink to="/">
         Home
       </NavLink>
