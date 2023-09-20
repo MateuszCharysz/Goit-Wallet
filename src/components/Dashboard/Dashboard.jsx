@@ -2,12 +2,10 @@ import styles from "./Dashboard.module.css"
 import editImage from "../../assets/edit.svg"
 import balance from "../../../balance.json"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
+import { EditPen } from "../EditPen/EditPen"
 
-const handleDelete = () => {
-    console.log(`Zapytanie czy usunąć wpis z bazy danych o id`)
-}
-const handleEdit = () => {
-    console.log(`Tu pojawi się modal do edycji danych.`)
+const handleEdit = ({id}) => {
+    console.log(`Tu pojawi się modal do edycji danych. ${id}`)
 }
 export const Dashboard = () => {
 
@@ -64,7 +62,8 @@ export const Dashboard = () => {
                 <td className={styles.green}>{sum}</td>
                 <td>
                 <span className={styles.buttonContainer}>
-                    <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
+                    {/* <img className={styles.ico} src = {editImage} alt="edit icon" id={id} onClick={handleEdit} /> */}
+                    <EditPen id={id}/>
                     <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>
@@ -84,7 +83,7 @@ export const Dashboard = () => {
                 <td className={styles.red}>{sum}</td>
                 <td>
                 <span className={styles.buttonContainer}>
-                <img className={styles.ico} src = {editImage} alt="edit icon" onClick={handleEdit}/>
+                    <EditPen id={id}/>
                     <DeleteButton name="DELETE" id={id}/>
                     </span>
                 </td>

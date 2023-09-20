@@ -56,21 +56,9 @@
     color: #24CCA7;
     font-weight: bold;
 }
-.ico{
-    margin-left: 10px;
-}
-.button{
-    background-color: #24CCA7;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 25px;
-    font-weight: 200;
-}
-.ico:hover,
-.button:hover{
-    cursor: pointer;
-}
+
 .buttonContainer {
+    position: relative;
     display: flex;
     gap: 15px;
 }
