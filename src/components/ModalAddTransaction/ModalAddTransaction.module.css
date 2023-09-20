@@ -7,6 +7,7 @@
 }
 .header{
 color: black;
+font-weight: 400;
 }
 .sliderContainer{
     display: flex;
@@ -71,11 +72,105 @@ color: black;
   }
 
   .greenText{
-    color:green;
+    color:#24CCA7;
     font-weight: bold;
   }
 
   .redText{
-    color:red;
+    color:#FF6596;
     font-weight: bold;
+  }
+  .greyText{
+    color:#dfdfdf;
+    font-weight: bold;
+  }
+
+  .modalForm{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+  }
+  .modalList{
+    /* background-color: blue; */
+    list-style: none;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+  
+  .modalButtonSubmit{
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #24CCA7;
+    background-color: #24CCA7;
+    color: white
+  }
+  .modalButtonCancel{
+    width: 300px;
+    border-radius: 20px;
+    border: 1px solid #4A56E2;
+    background-color: white;
+    color:#4A56E2
+  }
+  .formWrapper{
+    /* background-color: yellow; */
+    display: flex;
+    gap:20px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  .formValue{
+    padding: 5px;
+    background-color: white;
+    text-align: center;
+    outline: none;
+    border: 1px solid white;
+    color: #979797;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(0,0,0, 0.1);
+  }
+
+  .formDate{
+      padding: 5px;
+      background-color: white;
+      text-align: center;
+      outline: none;
+       color: #979797;
+      font-weight: 400;
+      border: 1px solid white;
+      border-bottom: 1px solid rgba(0,0,0, 0.1);
+    fill: black;
+  }
+
+  .formComment{
+    padding: 5px;
+    margin-top: 20px;
+    background-color: white;
+    width: 95%;
+    text-align: center;
+    outline: none;
+    color: #979797;
+    font-weight: 400;
+    border: 1px solid white;
+    border-bottom: 1px solid rgba(0,0,0, 0.1);
+  }
+  .formCategory{
+    padding: 5px;
+    margin-top: 20px;
+    background-color: white;
+    width: 95%;
+    text-align: center;
+    outline: none;
+    color: #979797;
+    font-weight: 400;
+    border: 1px solid white;
+    border-bottom: 1px solid rgba(0,0,0, 0.1);
   }
