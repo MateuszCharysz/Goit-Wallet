@@ -5,6 +5,7 @@ import React, { useState, lazy } from 'react';
 import './App.css';
 
 import { Dashboard } from './Dashboard/Dashboard';
+import { ModalAddTransaction } from './ModalAddTransaction/ModalAddTransaction';
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -15,6 +16,7 @@ const App = () => {
     <>
     Tekst
     <Dashboard/>
+    <ModalAddTransaction/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
