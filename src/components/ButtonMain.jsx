@@ -12,9 +12,11 @@ const ColorButton = styled(Button)(() => ({
   },
 }));
 
-const ButtonMain = ({ text }) => (
+const ButtonMain = ({ text, onClick }) => (
   <>
-    <ColorButton variant='contained'>{text}</ColorButton>
+    <ColorButton variant='contained' onClick={onClick}>
+      {text}
+    </ColorButton>
   </>
 );
 
