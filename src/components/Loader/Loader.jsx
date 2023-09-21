@@ -2,7 +2,7 @@ import React from "react";
 import { Circles } from "react-loader-spinner";
 import css from "./Loader.module.css"
 
-const LoaderComponent = () => {
+const Loader = () => {
 	return (
 		<Circles
 			className={css.loader}
@@ -15,5 +15,5 @@ const LoaderComponent = () => {
 	);
 };
 
-export default LoaderComponent;
+export default Loader;
 
