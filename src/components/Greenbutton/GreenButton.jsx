@@ -1,7 +1,7 @@
 import styles from "../Greenbutton/GreenButton.module.css"
-export const GreenButton = ({name}) => {
+export const GreenButton = ({name, onClick}) => {
 
     return (
-        <button type="submit" className={styles.modalButtonSubmit}>{name}</button>
+        <button type="submit" onClick={onClick}  className={styles.modalButtonSubmit}>{name}</button>
     )
 }

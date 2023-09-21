@@ -3,11 +3,13 @@ import styles from "../ModalAddTransaction/ModalAddTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
 
-export const ModalAddTransaction = () => {
+export const ModalAddTransaction = ({onCancel, onClose, onSubmit}) => {
 
 const [count, setCount] = useState(1)
 if (count==0) {
     return (
+<div className={styles.modalWrapper}>
+    
         <section className={styles.wrapper}>
             <h2 className={styles.header}>Add transaction</h2>
             <div className={styles.sliderContainer}>
@@ -37,15 +39,18 @@ if (count==0) {
                     placeholder="Comment"
                     className={styles.formComment}></input>
                     <ul className={styles.modalList}>
-                    <li><GreenButton name="ADD"/></li>
-                    <li><CancelButton name="CANCEL"/></li>
-                    
+                    <li><GreenButton name="ADD" onClick={()=>onSubmit()}/></li>
+                    <li><CancelButton name="CANCEL" onClick={()=>onCancel()}/></li>
+                    <li><button className={styles.closeButton} onClick={()=>onClose()}></button></li>
                     </ul>
                 </label>
             </section>
         </section>
+        <div className={styles.shadow}  onClick={()=>onClose()}></div>
+        </div>
     )}
     return (
+<div className={styles.modalWrapper}>
         <section className={styles.wrapper}>
             <h2 className={styles.header}>Add transaction</h2>
             <div className={styles.sliderContainer}>
@@ -89,11 +94,14 @@ if (count==0) {
                     placeholder="Comment"
                     className={styles.formComment}></input>
                     <ul className={styles.modalList}>
-                    <li><GreenButton name="ADD"/></li>
-                    <li><CancelButton name="CANCEL"/></li>
+                    <li><GreenButton name="ADD" onClick={()=>onSubmit()}/></li>
+                    <li><CancelButton name="CANCEL" onClick={()=>onCancel()}/></li>
+                    <li><button className={styles.closeButton} onClick={()=>onClose()}></button></li>
                     </ul>
                 </label>
             </section>
         </section>
+        <div className={styles.shadow} onClick={()=>onClose()}></div>
+        </div>
     )};   
 

@@ -6,7 +6,8 @@ import './App.css';
 
 import { Dashboard } from './Dashboard/Dashboard';
 import { ModalAddTransaction } from './ModalAddTransaction/ModalAddTransaction';
-
+import { ModalEditTransaction } from './ModalEditTransaction/ModalEditTransaction'
+import { AddTransactionButton } from './AddTransactionButton/AddTransactionButton';
 // const Home = lazy(() => import('./pages/home/Home'));
 
 const App = () => {
@@ -16,7 +17,9 @@ const App = () => {
     <>
     {/* Tekst */}
     <Dashboard/>
-    <ModalAddTransaction/>
+    {/* <ModalAddTransaction/>
+    <ModalEditTransaction/> */}
+    <AddTransactionButton/>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
