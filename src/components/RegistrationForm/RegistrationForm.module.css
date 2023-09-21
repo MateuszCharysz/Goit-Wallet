@@ -1,4 +1,4 @@
-.loginForm {
+.registerForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,10 +6,11 @@
 }
 
 .logo {
+  margin-top: 30px;
   margin-bottom: 40px;
 }
 
-.loginLabel {
+.registerLabel {
   display: flex;
   align-items: center;
   color: #bdbdbd;
