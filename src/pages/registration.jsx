@@ -13,7 +13,7 @@ const Registration = () => {
     ev.preventDefault();
   };
 
-  const handleOnClick = () => setValue('');
+  const handleOnClick = () => console.log('register');
 
   return (
     <>
@@ -26,7 +26,7 @@ const Registration = () => {
       <RegistrationForm
         value={value}
         change={handleOnChange}
-        click={handleOnClick}
+        click={() => handleOnClick()}
         submit={handleSubmit}
       />
     </>

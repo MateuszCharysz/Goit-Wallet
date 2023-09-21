@@ -18,12 +18,12 @@ const Login = () => {
     }
   };
 
-  const handleOnClick = () => console.log('hi');
+  const handleOnClick = () => console.log('login');
   // setValue('');
 
   const handleSubmit = ev => {
     console.log('hello');
-    // ev.preventDefault();
+    ev.preventDefault();
     // if (email && password) {
     //   setEmail('');
     //   setPassword('');
@@ -64,8 +64,8 @@ const Login = () => {
       </div>
       <LoginForm
         value={value}
-        change={handleOnChange}
-        click={handleOnClick}
+        change={() => handleOnChange}
+        click={() => handleOnClick()}
         submit={handleSubmit}
       />
     </>

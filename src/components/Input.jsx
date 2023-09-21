@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 
-const Input = ({ text }) => (
+const Input = ({ text, value }) => (
   <TextField
     style={{
       width: 280,
@@ -11,6 +11,7 @@ const Input = ({ text }) => (
     id='standard-basic'
     label={text}
     variant='standard'
+    value={value}
   />
 );
 
