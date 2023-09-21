@@ -1,30 +1,28 @@
-import { Routes, Route } from 'react-router-dom';
-import React, { useState, lazy } from 'react';
-import './App.css';
-// import Login from '../pages/login';
-// import Registration from '../pages/registration';
-import { DashBoard }  from '../pages/dashboard'
-
+import { Routes, Route } from "react-router-dom";
+import React, { useState, lazy } from "react";
+import "../stylesheet/App.css";
+import Login from "../pages/login";
+import Registration from "../pages/registration";
+import DashBoard from "../components/Dashboard/Dashboard";
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
 const App = () => {
   // const [count, setCount] = useState(0);
 
-  
   return (
     <>
-      <Routes>
-        {/* <Route
+      {/* <Route
           path='Goit-Wallet/login'
           element={<Login />}></Route>
         <Route
           path='Goit-Wallet/register'
           element={<Registration />}></Route> */}
-        <Route
-          path='Goit-Wallet/dashboard'
-          element={<DashBoard />}></Route>
-        {/* <Route path='*' element={<Login />} /> */}
+      <Routes>
+        <Route path="Goit-Wallet/login" element={<Login />}></Route>
+        <Route path="Goit-Wallet/register" element={<Registration />}></Route>
+        <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
+        <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
