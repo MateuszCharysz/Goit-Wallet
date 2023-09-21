@@ -11,15 +11,12 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
-  const handleOnChange = ev => {
-    const value = ev.target.value;
-    if (value === 'password' || 'email') {
-      setValue(ev.target.value);
-    }
-  };
+  const handleOnChange = ev => setValue(ev.target.value);
 
-  const handleOnClick = () => console.log('login');
-  // setValue('');
+  const handleOnClick = () => {
+    console.log('login');
+    return setValue('');
+  };
 
   const handleSubmit = ev => {
     console.log('hello');
@@ -64,7 +61,7 @@ const Login = () => {
       </div>
       <LoginForm
         value={value}
-        change={() => handleOnChange}
+        change={() => handleOnChange()}
         click={() => handleOnClick()}
         submit={handleSubmit}
       />
