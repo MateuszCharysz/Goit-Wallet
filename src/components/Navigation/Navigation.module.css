@@ -1,0 +1,38 @@
+.nav {
+	display: flex;
+	@media screen and (min-width: 768px) {
+		flex-direction: column;
+	}
+}
+.icon {
+	@media screen and (min-width: 768px) {
+		height: 24px;
+		width: 24px;
+	}
+}
+.icon:hover,
+.navLink:focus .icon {
+	fill: #4a56e2;
+}
+.navLink:is:active {
+	font-style: bold;
+}
+.text {
+	/* margin: 12px 0; */
+	font-size: 18px;
+	display: none;
+	@media screen and (min-width: 768px) {
+		display: block;
+	}
+}
+.navLink:global.active {
+	border: 2px solid red;
+}
+.active {
+	border: 2px dashed deeppink;
+}
+a {
+	display: flex;
+	align-items: center;
+	height: 27px;
+}

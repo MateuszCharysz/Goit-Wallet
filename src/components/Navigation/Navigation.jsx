@@ -5,16 +5,25 @@ import css from './Navigation.module.css';
 const Navigation = () => {
   return (
     <nav className={css.nav}>
-      <NavLink to="/">
-        <Svg class={'home'} icon='home' fill='#4A56E2' size='44' />
-        <p className="text">Home</p>
+      <NavLink to="/" className={({ isActive }) => (isActive ? css.active : css.inactive)}>
+        <Svg className={css.icon}
+          icon='home'
+          fill='#6E78E8'
+          size='44' />
+        <p className={css.text}>Home</p>
       </NavLink>
-      <NavLink to="/diagram">
-        <Svg class='diagram' icon='diagram' fill='#4A56E2' size='44' />
-        <p className="text">Statistics</p>
+      <NavLink to="/diagram" className={css.navLink}>
+        <Svg className={css.icon}
+          icon='diagram'
+          fill='#6E78E8'
+          size='44' />
+        <p className={css.text}>Statistics</p>
       </NavLink>
-      <NavLink to="/currency">
-        <Svg class='currency' icon='currency' fill='#4A56E2' size='44' />
+      <NavLink to="/currency" className={css.navLink}>
+        <Svg className={css.icon}
+          icon='currency'
+          fill='#6E78E8'
+          size='44' />
       </NavLink>
     </nav>
   )
