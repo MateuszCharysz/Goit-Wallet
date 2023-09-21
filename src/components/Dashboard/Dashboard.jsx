@@ -62,7 +62,6 @@ export const Dashboard = () => {
                 <td className={styles.green}>{sum}</td>
                 <td>
                 <span className={styles.buttonContainer}>
-                    {/* <img className={styles.ico} src = {editImage} alt="edit icon" id={id} onClick={handleEdit} /> */}
                     <EditPen id={id} type={type}/>
                     <DeleteButton name="DELETE" id={id}/>
                     </span>

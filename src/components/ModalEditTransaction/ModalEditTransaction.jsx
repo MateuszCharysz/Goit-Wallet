@@ -3,10 +3,8 @@ import styles from "../ModalEditTransaction/ModalEditTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
 
-export const ModalEditTransaction = ({onSubmit, onCancel, onClose, type}) => {
+ export const ModalEditTransaction = ({onSubmit, onCancel, onClose, type}) => {
 
-    // const {register, handleSubmit} = useForm
-    // const onSubmit = data => console.log(data)
 
 if (type=='+') {
     return (
@@ -56,12 +54,12 @@ if (type=='+') {
     return (
         <div className={styles.modalWrapper}>
             <section className={styles.wrapper}>
-            <h2 className={styles.header}>Edit transaction</h2>
-            <div className={styles.sliderContainer}>
-                <span className={styles.greyText}>Income</span>
-                <span className={styles.greyText}>/</span>
-                <span className={styles.redText}>Expense</span>
-            </div>
+                <h2 className={styles.header}>Edit transaction</h2>
+                <div className={styles.sliderContainer}>
+                    <span className={styles.greyText}>Income</span>
+                    <span className={styles.greyText}>/</span>
+                    <span className={styles.redText}>Expense</span>
+                </div>
             <form onSubmit={onSubmit}>
             <section className={styles.modalForm}>
                 <label name="addTransForm">
@@ -103,4 +101,3 @@ if (type=='+') {
         <div className={styles.shadow}  onClick={onClose}></div>
         </div>
     )};   
-

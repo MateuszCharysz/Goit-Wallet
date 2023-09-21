@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import styles from "../EditPen/EditPen.module.css"
 import editImage from "../../assets/edit.svg"
-import { ModalEditTransaction } from "../ModalEditTransaction/ModalEditTransaction"
+import { ModalEditTransaction }  from "../ModalEditTransaction/ModalEditTransaction"
 
 export const EditPen = ({id, type}) => {
 
@@ -9,11 +9,15 @@ export const EditPen = ({id, type}) => {
 
     const toogleModal = () => setModal(!modal)
 
-    const submitModal = () => {
+    const submitModal = (ev) => {
+        ev.preventDefault()
         setModal(!modal)
         const dane = {
             id: id,
-            type: type
+            type: type,
+            // sum: formData.sum,
+            // date:formData.date,
+            // comment: formData.comment
         }
         console.log(dane)
     }
