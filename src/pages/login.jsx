@@ -61,7 +61,7 @@ const Login = () => {
       </div>
       <LoginForm
         value={value}
-        change={() => handleOnChange()}
+        change={handleOnChange}
         click={() => handleOnClick()}
         submit={handleSubmit}
       />

@@ -16,6 +16,7 @@ const LoginForm = ({ submit, value, change, click }) => {
             <span>E-mail</span>
           </div>
         }
+        name='email'
         value={value}
         onChange={change}
       />
@@ -26,6 +27,7 @@ const LoginForm = ({ submit, value, change, click }) => {
             <span>Password</span>
           </div>
         }
+        name='password'
         value={value}
         onChange={change}
       />
