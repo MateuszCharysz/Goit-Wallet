@@ -12,12 +12,7 @@ const App = () => {
 
   return (
     <>
-      {/* <Route
-          path='Goit-Wallet/login'
-          element={<Login />}></Route>
-        <Route
-          path='Goit-Wallet/register'
-          element={<Registration />}></Route> */}
+      {/* <Navigation/> */}
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
