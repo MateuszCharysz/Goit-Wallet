@@ -33,23 +33,23 @@ const Login = () => {
     // }
   };
 
-  // const validation = () => {
-  //   if (email.indexOf('@') !== -1 && email.length > 3) {
-  //     setEmail = true;
-  //   } else {
-  //     return Notiflix.Notify.warning(
-  //       "Email must have '@' and be at least 3 letters long!"
-  //     );
-  //   }
+  const validation = () => {
+    if (email.indexOf('@') !== -1 && email.length > 3) {
+      // setEmail = true;
+    } else {
+      return Notiflix.Notify.warning(
+        "Email must have '@' and be at least 3 letters long!"
+      );
+    }
 
-  //   if (password.length >= 6 && password.length < 12) {
-  //     setPassword = true;
-  //   } else {
-  //     Notiflix.Notify.warning(
-  //       'Password must be min. 6 and max. 12 letters long!'
-  //     );
-  //   }
-  // };
+    if (password.length >= 6 && password.length < 12) {
+      // setPassword = true;
+    } else {
+      Notiflix.Notify.warning(
+        'Password must be min. 6 and max. 12 letters long!'
+      );
+    }
+  };
 
   return (
     <>

@@ -1,0 +1,47 @@
+[
+    {
+        "id": "1",
+        "date": "926781350000",
+        "type": "-",
+        "category": "Other",
+        "comment": "Gift for your wife",
+        "sum": "300.00",
+        "owner": "A1B2C3D4E5"
+    },
+    {
+        "id": "2",
+        "date": "1695206212000",
+        "type": "+",
+        "category": "Income",
+        "comment": "January Bonus",
+        "sum": "8000.00",
+        "owner": "A1B2C3D4E5"
+    },
+    {
+        "id": "3",
+        "date": "568048550000",
+        "type": "-",
+        "category": "Car",
+        "comment": "Oil",
+        "sum": "1000.00",
+        "owner": "A1B2C3D4E5"
+    },
+    {
+        "id": "4",
+        "date": "952125803000",
+        "type": "-",
+        "category": "Products",
+        "comment": "Vegetable for the week",
+        "sum": "280.00",
+        "owner": "A1B2C3D4E5"
+    },
+    {
+        "id": "5",
+        "date": "1648163750000",
+        "type": "+",
+        "category": "Income",
+        "comment": "Gift",
+        "sum": "1000.00",
+        "owner": "A1B2C3D4E5"
+    }
+]

@@ -1,0 +1,11 @@
+[
+    {
+        "id": "A1B2C3D4E5",
+        "email": "terster@tester.pl",
+        "password": "123kjb235kb324k5b",
+        "token": "null",
+        "avatarURL": "http://www.gravatar.com/avatar/179daefe20f61028fac9839f1b56c730?s=100&r=x&d=robohash",
+        "verify": "true",
+        "verificationToken": "null"
+    }
+]
