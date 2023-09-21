@@ -13,11 +13,9 @@ const ColorButton = styled(Button)(() => ({
   },
 }));
 
-const ButtonSecondary = ({ text, onClick }) => (
+const ButtonSecondary = ({ text }) => (
   <>
-    <ColorButton variant='contained' onClick={onClick}>
-      {text}
-    </ColorButton>
+    <ColorButton variant='contained'>{text}</ColorButton>
   </>
 );
 

@@ -26,7 +26,7 @@ const Registration = () => {
       <RegistrationForm
         value={value}
         change={handleOnChange}
-        click={() => handleOnClick()}
+        onClick={() => handleOnClick()}
         submit={handleSubmit}
       />
     </>

@@ -7,9 +7,9 @@ import Notiflix from 'notiflix';
 
 const Login = () => {
   const [value, setValue] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [error, setError] = useState(false);
 
   const handleOnChange = ev => setValue(ev.target.value);
 
@@ -62,7 +62,7 @@ const Login = () => {
       <LoginForm
         value={value}
         change={handleOnChange}
-        click={() => handleOnClick()}
+        onClick={() => handleOnClick()}
         submit={handleSubmit}
       />
     </>
