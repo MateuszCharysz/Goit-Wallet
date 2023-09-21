@@ -5,6 +5,7 @@ import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import email from '../../images/email.svg';
 import lock from '../../images/lock.svg';
+import user from '../../images/user.svg';
 
 const RegistrationForm = ({
   submit,
@@ -47,7 +48,7 @@ const RegistrationForm = ({
       <Input
         text={
           <div className={css.registerLabel}>
-            <img src={lock} alt='lock'></img>
+            <img src={user} alt='user'></img>
             <span>First Name</span>
           </div>
         }

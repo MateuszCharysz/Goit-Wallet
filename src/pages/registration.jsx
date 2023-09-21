@@ -1,6 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useState } from 'react';
+import css from '../components/RegistrationForm/RegistrationForm.module.css';
+import logo from '../images/logo.svg';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 const Registration = () => {
@@ -16,6 +17,12 @@ const Registration = () => {
 
   return (
     <>
+      <div>
+        <img
+          className={css.logo}
+          src={logo}
+          alt='wallet-logo'></img>
+      </div>
       <RegistrationForm
         value={value}
         change={handleOnChange}
