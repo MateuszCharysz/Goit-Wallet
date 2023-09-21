@@ -1,6 +1,6 @@
 import styles from "./Dashboard.module.css"
 import editImage from "../../assets/edit.svg"
-import balance from "../../../balance.json"
+import balance from "../../../src/balance.json"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 
