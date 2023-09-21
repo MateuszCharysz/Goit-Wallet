@@ -7,8 +7,10 @@ export const EditPen = ({id, type}) => {
 
     const [modal, setModal] = useState(false)
 
-    const toogleModal = () => setModal(!modal)
-
+    const toogleModal = (ev) => {
+        ev.preventDefault()
+        setModal(!modal)
+    }
     const submitModal = (ev) => {
         ev.preventDefault()
         setModal(!modal)

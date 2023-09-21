@@ -1,13 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
-// import reactLogo from '../assets/react.svg';
-// import viteLogo from '/vite.svg';
-import './App.css';
+import '../layouts/App.css';
+// import Login from '../pages/login';
+// import Registration from '../pages/registration';
+import { DashBoard }  from '../../pages/dashboard'
 
-import { Dashboard } from './Dashboard/Dashboard';
-import { ModalAddTransaction } from './ModalAddTransaction/ModalAddTransaction';
-import { ModalEditTransaction } from './ModalEditTransaction/ModalEditTransaction'
-import { AddTransactionButton } from './AddTransactionButton/AddTransactionButton';
+
 // const Home = lazy(() => import('./pages/home/Home'));
 
 const App = () => {
@@ -15,11 +13,18 @@ const App = () => {
 
   return (
     <>
-    {/* Tekst */}
-    <Dashboard/>
-    {/* <ModalAddTransaction/>
-    <ModalEditTransaction/> */}
-    <AddTransactionButton/>
+      <Routes>
+        {/* <Route
+          path='Goit-Wallet/login'
+          element={<Login />}></Route>
+        <Route
+          path='Goit-Wallet/register'
+          element={<Registration />}></Route> */}
+        <Route
+          path='Goit-Wallet/dashboard'
+          element={<DashBoard />}></Route>
+        {/* <Route path='*' element={<Login />} /> */}
+      </Routes>
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />
@@ -36,7 +41,6 @@ const App = () => {
             <Route path="/currency" element={<Currency />} />
             <Route path="/statistics" element={<Currency />} />
           </Route>
-          <Route path="*" element={<Home trendingList={trendList} />} />
         </Route>
       </Routes> */}
     </>
