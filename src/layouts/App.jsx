@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import React, { useState, lazy } from 'react';
-import '../layouts/App.css';
+import './App.css';
 // import Login from '../pages/login';
 // import Registration from '../pages/registration';
-import { DashBoard }  from '../../pages/dashboard'
+import { DashBoard }  from '../pages/dashboard'
 
 
 // const Home = lazy(() => import('./pages/home/Home'));
