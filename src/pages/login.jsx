@@ -7,9 +7,9 @@ import Notiflix from 'notiflix';
 
 const Login = () => {
   const [value, setValue] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(false);
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [error, setError] = useState(false);
 
   const handleOnChange = ev => setValue(ev.target.value);
 
@@ -33,23 +33,23 @@ const Login = () => {
     // }
   };
 
-  const validation = () => {
-    if (email.indexOf('@') !== -1 && email.length > 3) {
-      setEmail = true;
-    } else {
-      return Notiflix.Notify.warning(
-        "Email must have '@' and be at least 3 letters long!"
-      );
-    }
+  // const validation = () => {
+  //   if (email.indexOf('@') !== -1 && email.length > 3) {
+  //     setEmail = true;
+  //   } else {
+  //     return Notiflix.Notify.warning(
+  //       "Email must have '@' and be at least 3 letters long!"
+  //     );
+  //   }
 
-    if (password.length >= 6 && password.length < 12) {
-      setPassword = true;
-    } else {
-      Notiflix.Notify.warning(
-        'Password must be min. 6 and max. 12 letters long!'
-      );
-    }
-  };
+  //   if (password.length >= 6 && password.length < 12) {
+  //     setPassword = true;
+  //   } else {
+  //     Notiflix.Notify.warning(
+  //       'Password must be min. 6 and max. 12 letters long!'
+  //     );
+  //   }
+  // };
 
   return (
     <>
@@ -62,7 +62,7 @@ const Login = () => {
       <LoginForm
         value={value}
         change={handleOnChange}
-        click={() => handleOnClick()}
+        onClick={() => handleOnClick()}
         submit={handleSubmit}
       />
     </>

@@ -5,8 +5,9 @@ import ButtonSecondary from '../ButtonSecondary';
 import css from './LoginForm.module.css';
 import email from '../../images/email.svg';
 import lock from '../../images/lock.svg';
+import { Link } from 'react-router-dom';
 
-const LoginForm = ({ submit, value, change, click }) => {
+const LoginForm = ({ submit, value, change, onClick }) => {
   return (
     <form className={css.loginForm} onSubmit={submit}>
       <Input
@@ -31,8 +32,10 @@ const LoginForm = ({ submit, value, change, click }) => {
         value={value}
         onChange={change}
       />
-      <ButtonMain text='LOG IN' onClick={click} />
-      <ButtonSecondary text='REGISTER' onClick={click} />
+      <ButtonMain text='LOG IN' onClick={onClick} />
+      <Link to='/Goit-Wallet/register'>
+        <ButtonSecondary text='REGISTER' />
+      </Link>
     </form>
   );
 };

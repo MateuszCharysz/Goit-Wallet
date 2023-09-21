@@ -6,12 +6,13 @@ import ButtonSecondary from '../ButtonSecondary';
 import email from '../../images/email.svg';
 import lock from '../../images/lock.svg';
 import user from '../../images/user.svg';
+import { Link } from 'react-router-dom';
 
 const RegistrationForm = ({
   submit,
   value,
   change,
-  click,
+  onClick,
 }) => {
   return (
     <form className={css.registerForm} onSubmit={submit}>
@@ -56,8 +57,10 @@ const RegistrationForm = ({
         onChange={change}
       />
 
-      <ButtonMain text='REGISTER' onClick={click} />
-      <ButtonSecondary text='LOG IN' onClick={click} />
+      <ButtonMain text='REGISTER' onClick={onClick} />
+      <Link to='/Goit-Wallet/login'>
+        <ButtonSecondary text='LOG IN' />
+      </Link>
     </form>
   );
 };
