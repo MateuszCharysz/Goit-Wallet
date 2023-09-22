@@ -1,18 +1,49 @@
+.loginContainer {
+  width: 80vw;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 70vw;
+  }
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  width: 118px;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .loginForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
-}
-
-.logo {
-  margin-bottom: 40px;
+  gap: 25px;
 }
 
 .loginLabel {
   display: flex;
   align-items: center;
   color: #bdbdbd;
-  gap: 15px;
+  gap: 18px;
   font-size: 18px;
+  margin-left: 10px;
+}
+
+.spacing {
+  margin-top: 20px;
+}
+
+.loginButton {
+  margin-bottom: 20px;
+  margin-top: 30px;
 }

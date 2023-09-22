@@ -3,9 +3,16 @@ import TextField from '@mui/material/TextField';
 const Input = ({ text, value, onChange, name }) => (
   <TextField
     style={{
-      width: 280,
-      '&:hover': {
-        border: '#e0e0e0',
+      root: {
+        '&:before': {
+          borderBottom: '2px solid #e0e0e0)',
+        },
+        '&:hover:not(.Mui-disabled, .Mui-error):before': {
+          borderBottom: '2px solid #e0e0e0',
+        },
+        '&.Mui-focused:after': {
+          borderBottom: '2px solid #e0e0e0',
+        },
       },
     }}
     id='standard-basic'

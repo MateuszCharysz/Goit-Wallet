@@ -17,7 +17,7 @@ const Registration = () => {
 
   return (
     <>
-      <div>
+      <div className={css.logoContainer}>
         <img
           className={css.logo}
           src={logo}
