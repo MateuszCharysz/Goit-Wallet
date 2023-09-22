@@ -11,7 +11,6 @@ const LoginForm = ({ submit, value, change, onClick }) => {
   return (
     <form className={css.loginForm} onSubmit={submit}>
       <Input
-        className={css.muiInput}
         text={
           <div className={css.loginLabel}>
             <img src={email} alt='email'></img>
