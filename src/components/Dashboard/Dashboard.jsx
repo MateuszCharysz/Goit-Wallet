@@ -3,6 +3,7 @@ import editImage from "../../assets/edit.svg"
 import balance from "../../../src/balance.json"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
+// import { BalanceComponent } from "../Balance/Balance"
 
 const handleEdit = ({id}) => {
     console.log(`Tu pojawi się modal do edycji danych. ${id}`)
@@ -10,8 +11,7 @@ const handleEdit = ({id}) => {
 export const Dashboard = () => {
 
     return (
-
-      <table className={styles.dashboardClass}>
+        <table className={styles.dashboardClass}>
     <thead>
       <tr>
         <th>Date</th>
@@ -92,4 +92,5 @@ export const Dashboard = () => {
   
     </tbody>
       </table>
+      
   )};
