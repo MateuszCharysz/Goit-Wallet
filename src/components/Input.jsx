@@ -14,7 +14,6 @@ const Input = ({ text, value, onChange, name }) => (
           borderBottom: '2px solid #e0e0e0',
         },
       },
-      width: 280,
     }}
     id='standard-basic'
     label={text}

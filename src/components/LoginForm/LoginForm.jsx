@@ -11,6 +11,7 @@ const LoginForm = ({ submit, value, change, onClick }) => {
   return (
     <form className={css.loginForm} onSubmit={submit}>
       <Input
+        className={css.loginInput}
         text={
           <div className={css.loginLabel}>
             <img src={email} alt='email'></img>
@@ -33,14 +34,13 @@ const LoginForm = ({ submit, value, change, onClick }) => {
         onChange={change}
       />
       <div className={css.spacing}></div>
-      <ButtonMain
-        className={css.buttonLogin}
-        text='LOG IN'
-        onClick={onClick}
-      />
-      <Link to='/Goit-Wallet/register'>
-        <ButtonSecondary text='REGISTER' />
-      </Link>
+      <div className={css.buttons}>
+        <ButtonMain text='LOG IN' onClick={onClick} />
+        <div className={css.spacing}></div>
+        <Link to='/Goit-Wallet/register'>
+          <ButtonSecondary text='REGISTER' />
+        </Link>
+      </div>
     </form>
   );
 };

@@ -1,19 +1,33 @@
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 25px;
+.loginContainer {
+  width: 80vw;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 70vw;
+  }
 }
 
 .logo {
   display: flex;
   justify-content: center;
   margin-bottom: 40px;
+  width: 118px;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
 }
 
 .logoContainer {
   display: flex;
   justify-content: center;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
 }
 
 .loginLabel {
@@ -26,5 +40,10 @@
 }
 
 .spacing {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+.loginButton {
+  margin-bottom: 20px;
+  margin-top: 30px;
 }

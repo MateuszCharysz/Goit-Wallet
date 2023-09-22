@@ -11,11 +11,12 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleOnChange = ev => setValue(ev.target.value);
+  const handleOnChange = ev => {
+    setValue(ev.target.value);
+  };
 
   const handleOnClick = () => {
     console.log('login');
-    return setValue('');
   };
 
   const handleSubmit = ev => {
@@ -39,24 +40,24 @@ const Login = () => {
     if (email.indexOf('@') !== -1 && email.length > 3) {
       setEmail(ev.target.value);
     } else {
-      setEmail('');
       Notiflix.Notify.warning(
         "Email must include '@' and be at least 3 letters long!"
       );
+      setEmail('');
     }
 
     if (password.length >= 6 && password.length < 12) {
       setPassword(ev.target.value);
     } else {
-      setPassword('');
       Notiflix.Notify.warning(
         'Password must be min 6 and max 12 letters long!'
       );
+      setPassword('');
     }
   };
 
   return (
-    <>
+    <div className={css.loginContainer}>
       <div className={css.logoContainer}>
         <img
           className={css.logo}
@@ -66,10 +67,10 @@ const Login = () => {
       <LoginForm
         value={value}
         change={handleOnChange}
-        onClick={() => handleOnClick()}
+        onClick={handleOnClick}
         submit={handleSubmit}
       />
-    </>
+    </div>
   );
 };
 
