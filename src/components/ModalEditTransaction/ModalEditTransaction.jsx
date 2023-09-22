@@ -8,13 +8,25 @@ import { CancelButton } from "../CancelButton/CancelButton";
     const [modal, setModal] = useState(false)
     const [data, setData] = useState()
 
-    const submitModal = () => {
+    const dateTrim = (e) => {
+        const selectedData = e.target.value.toString()
+        const day = selectedData.substr(8,2)
+        const month = selectedData.substr(5,2)
+        const year = selectedData.substr(2,2)
+        setData({ ...data, date:
+            {day: day,
+            month: month,
+            year: year
+        } 
+    })}
 
+    const submitModal = () => {
         setModal(!modal)
         console.log('Dane do przesłania do bazy danych w celu edycji Transakcji')
         console.log(data)
         onClose()
     }
+    
 if (type=='+') {
     return (
         <div className={styles.modalWrapper}>
@@ -39,7 +51,7 @@ if (type=='+') {
                             <input
                             type="date"
                             name="date"
-                            onChange={e=>setData({...data, date: e.target.value})}
+                            onChange={dateTrim}
                             className={styles.formDate}></input>
                         </div>
                         <input 
@@ -98,7 +110,7 @@ if (type=='+') {
                         <input
                         type="date"
                         name="date"
-                        onChange={e=>setData({...data, date: e.target.value})}
+                        onChange={dateTrim}
                         className={styles.formDate}></input>
                     </div>
                     <input 
