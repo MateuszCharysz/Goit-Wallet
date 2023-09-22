@@ -6,14 +6,9 @@ import css from '../components/LoginForm/LoginForm.module.css';
 import Notiflix from 'notiflix';
 
 const Login = () => {
-  const [value, setValue] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
-  const handleOnChange = ev => {
-    setValue(ev.target.value);
-  };
 
   const handleOnClick = () => {
     console.log('login');
@@ -22,7 +17,6 @@ const Login = () => {
   const handleSubmit = ev => {
     console.log('hello');
     ev.preventDefault();
-    const form = e.currentTarget;
 
     if (email && password) {
       setEmail('');
@@ -57,7 +51,7 @@ const Login = () => {
   };
 
   return (
-    <div className={css.loginContainer}>
+    <>
       <div className={css.logoContainer}>
         <img
           className={css.logo}
@@ -65,12 +59,10 @@ const Login = () => {
           alt='wallet-logo'></img>
       </div>
       <LoginForm
-        value={value}
-        change={handleOnChange}
         onClick={handleOnClick}
         submit={handleSubmit}
       />
-    </div>
+    </>
   );
 };
 
