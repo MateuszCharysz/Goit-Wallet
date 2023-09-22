@@ -62,6 +62,37 @@
     display: flex;
     gap: 15px;
 }
-.loader{
-    color: black;
-}
+.loader {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    position: relative;
+  }
+  /* .loader::before{
+    content: "Loading...";
+    color:#1c856e;
+    position: absolute;
+    font-size: 12px;
+    top:46px;
+    left:30px;
+  } */
+  .loader:after {
+    content: " ";
+    display: block;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 15px solid #ffffff;
+    border-color: #24CCA7 transparent #1c856e transparent;
+    animation: loader 1.5s linear infinite;
+  }
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

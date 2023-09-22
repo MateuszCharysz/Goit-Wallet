@@ -4,6 +4,8 @@ import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
 
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
+
 export const Dashboard = () => {
 
  const [data, setData] = useState();
@@ -11,9 +13,7 @@ export const Dashboard = () => {
  useEffect(() => {
   const dataFetch = async () => {
     const results = await (
-      await fetch(
-        "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
-      )
+      await fetch(dbURL)
     ).json();
     const data = results.data
     setData(data);
@@ -103,8 +103,6 @@ return (
             })}
             </tbody>
         </table>:
-        <div>
-            <h1 className={styles.loader}>Loading...</h1>
-        </div>}
+        <div className={styles.loader}></div>}
       </>
   )};
