@@ -62,3 +62,6 @@
     display: flex;
     gap: 15px;
 }
+.loader{
+    color: black;
+}
