@@ -7,31 +7,39 @@ export const EditPen = ({id, type}) => {
 
     const [modal, setModal] = useState(false)
 
-    const toogleModal = (ev) => {
-        ev.preventDefault()
-        setModal(!modal)
+    const openModal = () => {
+        setModal(true)
     }
+    const closeModal = (e) => {
+        setModal(false)
+        e.preventDefault()
+    }
+
+// const [data, setData] = useState(props.data)
+
     const submitModal = (ev) => {
         ev.preventDefault()
         setModal(!modal)
-        const dane = {
-            id: id,
-            type: type,
-            // sum: formData.sum,
-            // date:formData.date,
-            // comment: formData.comment
-        }
-        console.log(dane)
+        // const dane = {
+        //     id: id,
+        //     type: type,
+        //     // sum: formData.sum,
+        //     // date:formData.date,
+        //     // comment: formData.comment
+        // }
+        // console.log(dane)
+        console.log(data)
     }
 
     return (
         <>
-        <img className={styles.ico} src = {editImage} alt="edit icon" onClick={toogleModal} />
+        <img className={styles.ico} src = {editImage} alt="edit icon" onClick={openModal} />
         {modal && <ModalEditTransaction
         type={type}
         onSubmit={submitModal}
-        onCancel={toogleModal}
-        onClose={toogleModal}
+        onCancel={closeModal}
+        onClose={closeModal}
+        onChangeValue={e => setData({ ...data, sum: e.target.value })}
         />}
         </>
     )

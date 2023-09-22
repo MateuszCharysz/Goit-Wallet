@@ -3,7 +3,7 @@ import styles from "../ModalEditTransaction/ModalEditTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
 
- export const ModalEditTransaction = ({onSubmit, onCancel, onClose, type}) => {
+ export const ModalEditTransaction = ({onSubmit, onCancel, onClose, type, onChangeValue}) => {
 
 
 if (type=='+') {
@@ -23,7 +23,8 @@ if (type=='+') {
                             <input 
                             // {...register("sum")}
                             type="number"
-                            // name="sum" 
+                            name="sum" 
+                            onChange={onChangeValue}
                             placeholder="0.00"
                             required
                             className={styles.formValue}></input>
