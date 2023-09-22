@@ -26,10 +26,10 @@
 	}
 }
 .navLink:global.active {
-	border: 2px solid red;
+	font-weight: bold;
 }
 .active {
-	border: 2px dashed deeppink;
+	font-weight: bold;
 }
 a {
 	display: flex;
