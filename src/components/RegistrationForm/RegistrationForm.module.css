@@ -9,7 +9,8 @@
 
 .logo {
   margin-bottom: 40px;
-  width: 118px;
+  width: 120px;
+  height: auto;
 
   @media screen and (min-width: 768px) {
     width: 180px;
