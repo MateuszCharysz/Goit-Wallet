@@ -4,32 +4,28 @@ import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction"
 
 export const AddTransactionButton = (props) => {
 
-    const [modal, setModal] = useState(false)
+const [modal, setModal] = useState(false)
+const [data, setData] = useState()
 
 const openModal = () => {
-    setData({type:'-'})
+    setData({
+        type:'-', 
+        date:new Date()}) //TODO zmienic aby data dawala taki sam format jak wszedzie
     setModal(true)
 }
-
-const sliderTypePlus = () => {
-    setData({type:'+'})
-}
-
-const sliderTypeMinus = () => {
-    setData({type:'-'})
-}
-
 const closeModal = (e) => {
     e.preventDefault()
     setData({})
     setModal(false)
 }
 
-const [data, setData] = useState(props.data)
+const sliderTypePlus = () => setData({type:'+'})
+const sliderTypeMinus = () => setData({type:'-'})
+
 const submitModal = (e) => {
     e.preventDefault()
     setModal(!modal)
-    console.log('Modal Submit')
+    console.log('Dane przeslane do bazy danych')
     console.log(data)
   
     // fetch('/api', {
