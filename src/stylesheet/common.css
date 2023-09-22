@@ -2,11 +2,21 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
+  padding: 0;
   height: 100%;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
 h1,
@@ -40,20 +50,15 @@ html {
   height: 100%;
 }
 
-body {
-  background-color: #e7eaf2;
-}
-
 button {
-    text-decoration: none;
-    cursor: pointer;
-    margin: 0px;
-    padding: 0px;
-    border: none;
-    background: none;
-  }
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px;
+  padding: 0px;
+  border: none;
+  background: none;
+}
 
 .active {
   font-weight: bold;
 }
-
