@@ -32,7 +32,12 @@ const LoginForm = ({ submit, value, change, onClick }) => {
         value={value}
         onChange={change}
       />
-      <ButtonMain text='LOG IN' onClick={onClick} />
+      <div className={css.spacing}></div>
+      <ButtonMain
+        className={css.buttonLogin}
+        text='LOG IN'
+        onClick={onClick}
+      />
       <Link to='/Goit-Wallet/register'>
         <ButtonSecondary text='REGISTER' />
       </Link>

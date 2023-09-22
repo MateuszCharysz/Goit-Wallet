@@ -56,7 +56,7 @@ const RegistrationForm = ({
         value={value}
         onChange={change}
       />
-
+      <div className={css.spacing}></div>
       <ButtonMain text='REGISTER' onClick={onClick} />
       <Link to='/Goit-Wallet/login'>
         <ButtonSecondary text='LOG IN' />

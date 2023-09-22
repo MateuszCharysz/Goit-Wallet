@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
+  gap: 25px;
 }
 
 .logo {
@@ -23,3 +23,7 @@
   font-size: 18px;
   margin-left: 10px;
 }
+/* 
+.spacing {
+  margin-top: 5px;
+} */
