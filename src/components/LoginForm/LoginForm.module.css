@@ -11,11 +11,16 @@
   margin-bottom: 40px;
 }
 
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
 .loginLabel {
   display: flex;
   align-items: center;
   color: #bdbdbd;
-  gap: 15px;
+  gap: 18px;
   font-size: 18px;
   margin-left: 10px;
 }
