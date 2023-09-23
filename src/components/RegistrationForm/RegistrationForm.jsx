@@ -12,7 +12,6 @@ const RegistrationForm = ({
   submit,
   value,
   change,
-  onClick,
 }) => {
   return (
     <form className={css.registerForm} onSubmit={submit}>
@@ -58,7 +57,7 @@ const RegistrationForm = ({
       />
       <div className={css.spacingIn}></div>
       <div className={css.buttons}>
-        <ButtonMain text='REGISTER' onClick={onClick} />
+        <ButtonMain text='REGISTER' type='submit' />
         <div className={css.spacingBt}></div>
         <Link to='/Goit-Wallet/login'>
           <ButtonSecondary text='LOG IN' />

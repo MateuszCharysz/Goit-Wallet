@@ -8,25 +8,39 @@ import emails from '../../images/email.svg';
 import lock from '../../images/lock.svg';
 import { Link } from 'react-router-dom';
 
-const LoginForm = ({ submit, onClick }) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const LoginForm = () => {
+  const [inputs, setInputs] = useState({ email: '', password: '' });
 
-  const handleEmailChange = ev => {
-    setEmail(ev.target.value);
-  };
+  const handleChange = ev => {
+    ev.preventDefault();
+    const { name, value } = ev.currentTarget;
+    // console.log(ev.currentTarget.value);
+    setInputs(data => ({ ...data, [name]: value }));
+  }
 
-  const handlePasswordChange = ev => {
-    setPassword(ev.target.value);
-  };
-
-  // const handleChange = ev => {
-  //   const {name, value} = e.currentTarget;
-  //   setValues(v => ({...v, [name]:value}))
-  // }
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    if (password.length >= 6 && password.length <= 12) {
+      console.log('pswrd ok');
+    } else {
+      console.log('pswrd bad')
+    }
+    if (email.includes('@') && email.length >=3) {
+      console.log('email ok');
+    } else {
+      console.log('email bad');
+    }
+    if (!email || !password) {
+      console.log('uzupełnij')
+    }
+    setInputs({ email: '', password: '' });
+  }
 
   return (
-    <form className={css.loginForm} onSubmit={submit}>
+    <form className={css.loginForm} onSubmit={handleSubmit}>
       <Input
         className={css.loginInput}
         text={
@@ -36,8 +50,10 @@ const LoginForm = ({ submit, onClick }) => {
           </div>
         }
         name='email'
-        value={email}
-        onChange={handleEmailChange}
+        type='email'
+        value={inputs.email}
+        onChange={handleChange}
+        required
       />
       <Input
         text={
@@ -47,15 +63,17 @@ const LoginForm = ({ submit, onClick }) => {
           </div>
         }
         name='password'
-        value={password}
-        onChange={handlePasswordChange}
+        type='password'
+        value={inputs.password}
+        onChange={handleChange}
+        required
       />
       <div className={css.spacingIn}></div>
       <div className={css.buttons}>
         <ButtonMain
           className={css.loginButton}
           text='LOG IN'
-          onClick={onClick}
+          type='submit'
         />
         <div className={css.spacingBt}></div>
         <Link to='/Goit-Wallet/register'>
