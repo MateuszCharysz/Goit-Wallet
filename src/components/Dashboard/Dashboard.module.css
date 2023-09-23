@@ -4,7 +4,9 @@
     color: black;
     text-transform: capitalize;
     text-align: left;
-    /* background-color: rgb(236, 246, 255); */
+    @media screen and (max-width: 767px) {
+        display: none;
+      }
 }
 
 .dashboardClass td,

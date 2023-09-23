@@ -52,7 +52,7 @@ return (
                         <td>
                             <span className={styles.buttonContainer}>
                                 <EditPen id={_id} type={type}/>
-                                <DeleteButton name="DELETE" id={_id}/>
+                                <DeleteButton name="Delete" id={_id}/>
                             </span>
                         </td>
                     </tr>
