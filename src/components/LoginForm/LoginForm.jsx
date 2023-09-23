@@ -44,8 +44,6 @@ const LoginForm = () => {
     }
     if (!email || !password) {
       Notiflix.Notify.warning('Fill out all fields!');
-    } else {
-      Notiflix.Notify.success('Login successful!');
     }
     setInputs({ email: '', password: '' });
   };
