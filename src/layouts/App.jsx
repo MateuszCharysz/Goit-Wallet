@@ -4,6 +4,7 @@ import "../stylesheet/App.css";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
 import { Dashboard } from "../components/Dashboard/Dashboard";
+import LogoutModal from "../components/LogoutModal/LogoutModal";
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -12,12 +13,13 @@ const App = () => {
 
   return (
     <>
-      <Routes>
+      <LogoutModal />
+      {/* <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
         <Route path="Goit-Wallet/dashboard" element={<Dashboard />}></Route>
         <Route path="*" element={<Login />} />
-      </Routes>
+      </Routes> */}
       {/* <Routes>
         <Route path='/login' element={<Login />}></Route>
         <Route
