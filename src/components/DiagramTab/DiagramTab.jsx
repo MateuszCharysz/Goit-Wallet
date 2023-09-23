@@ -59,10 +59,13 @@ for (const category in categorySums) {
 
     return (
         <>
-        <ChartComponent categorySums={categorySums} className={css.ChartContainer}/>
+        <div className={css.chartContainer}>
+        <ChartComponent categorySums={categorySums}/>
         <span className={css.balanceValue}>₴ 24 000.00</span>
+        </div>
+        <div className={css.dateInputContainer}>
         <DateChartInput onChange={handleDateChange} />
-        <div className={css.tabContener}>
+        <div className={css.tableContener}>
         <table>
             <thead className={css.theadStatistics}>
             <tr >
@@ -93,6 +96,7 @@ for (const category in categorySums) {
            <span className={css.IncomeValue}>{totalIncome}</span>
            </div>
            </div>
+   </div>
    </div>
    </>
     )
