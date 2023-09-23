@@ -32,28 +32,34 @@ const RegistrationForm = () => {
     const confirm = form.elements.confirm.value;
     const name = form.elements.name.value;
 
-    if (password.length >= 6 && password.length <= 12) {
-      console.log('pswrd ok');
-    } else {
-      console.log('pswrd bad');
-    }
     if (email.includes('@') && email.length >= 3) {
-      console.log('email ok');
+      Notiflix.Notify.success('Email OK');
     } else {
-      console.log('email bad');
+      Notiflix.Notify.failure(
+        'Email has to include "@" and be at least 3 characters long!'
+      );
+    }
+    if (password.length >= 6 && password.length <= 12) {
+      Notiflix.Notify.success('Password OK');
+    } else {
+      Notiflix.Notify.failure(
+        'Password must be between 6-12 characters!'
+      );
     }
     if (confirm === password) {
-      console.log('confirm ok');
+      Notiflix.Notify.success('Password OK');
     } else {
-      console.log('confirm not matching');
+      Notiflix.Notify.failure('Passwords need to match!');
     }
     if (name.length > 0) {
-      console.log('name ok');
+      Notiflix.Notify.success('Name OK');
     } else {
-      console.log('enter name');
+      Notiflix.Notify.failure('Enter name!');
     }
     if (!email || !password || !confirm || !name) {
-      console.log('fill out empty fields!');
+      Notiflix.Notify.warning('Fill out all fields!');
+    } else {
+      Notiflix.Notify.success('Form submitted!');
     }
     setInputs({
       email: '',

@@ -27,18 +27,25 @@ const LoginForm = () => {
     const form = e.target;
     const email = form.elements.email.value;
     const password = form.elements.password.value;
-    if (password.length >= 6 && password.length <= 12) {
-      console.log('pswrd ok');
-    } else {
-      console.log('pswrd bad');
-    }
+
     if (email.includes('@') && email.length >= 3) {
-      console.log('email ok');
+      Notiflix.Notify.success('Email OK');
     } else {
-      console.log('email bad');
+      Notiflix.Notify.failure(
+        "Email has to include '@' and be at least 3 characters long!"
+      );
+    }
+    if (password.length >= 6 && password.length <= 12) {
+      Notiflix.Notify.success('Password OK');
+    } else {
+      Notiflix.Notify.failure(
+        'Password must be between 6-12 characters!'
+      );
     }
     if (!email || !password) {
-      console.log('uzupełnij');
+      Notiflix.Notify.warning('Fill out all fields!');
+    } else {
+      Notiflix.Notify.success('Login successful!');
     }
     setInputs({ email: '', password: '' });
   };
