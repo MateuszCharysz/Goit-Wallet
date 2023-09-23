@@ -18,3 +18,8 @@
     font-size: 30px;
     padding: 0;
 }
+.addButton:hover{
+    cursor: pointer;
+    border: white 1px solid;
+    background-color: #4fe7c6;
+}

@@ -3,7 +3,7 @@ import React, { useState, lazy } from "react";
 import "../stylesheet/App.css";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
-import { Dashboard } from "../components/Dashboard/Dashboard";
+import { DashBoard } from "../pages/dashboard";
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -15,7 +15,7 @@ const App = () => {
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
-        <Route path="Goit-Wallet/dashboard" element={<Dashboard />}></Route>
+        <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
         <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
