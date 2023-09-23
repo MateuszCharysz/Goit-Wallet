@@ -12,13 +12,19 @@ const App = () => {
 
   return (
     <>
-      {/* <Navigation/> */}
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
         <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
         <Route path="*" element={<Login />} />
       </Routes>
+      {/* <Routes>
+        <Route path='/login' element={<Login />}></Route>
+        <Route
+          path='/register'
+          element={<Registration />}></Route>
+        <Route path='*' element={<Login />} />
+      </Routes> */}
       {/* <Routes>
         <Route path="/" element={<Login />}>
           <Route path="/register" element={<SignUp />} />

@@ -1,19 +1,42 @@
+.logoContainer {
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    width: 70vw;
+  }
+}
+
+.logo {
+  margin-bottom: 40px;
+  width: 120px;
+  height: auto;
+
+  @media screen and (min-width: 768px) {
+    width: 180px;
+  }
+}
+
 .registerForm {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
-}
-
-.logo {
-  margin-top: 30px;
-  margin-bottom: 40px;
+  gap: 25px;
 }
 
 .registerLabel {
   display: flex;
   align-items: center;
   color: #bdbdbd;
-  gap: 15px;
+  gap: 20px;
   font-size: 18px;
+  margin-left: 10px;
+}
+
+.spacingIn {
+  margin-bottom: 5px;
+}
+
+.spacingBt {
+  margin-top: 20px;
 }

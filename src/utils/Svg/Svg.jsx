@@ -1,8 +1,8 @@
 import React from 'react';
 import Icons from './icons.svg';
 
-const Svg = ({classname, icon, fill, stroke, size}) => (
-   <svg className={classname}
+const Svg = ({className, icon, fill, stroke, size}) => (
+   <svg className={className}
       fill={fill}
       stroke={stroke}
       width={size} height={size}>
@@ -12,7 +12,6 @@ const Svg = ({classname, icon, fill, stroke, size}) => (
 
 Svg.defaultProps = {
    size: 30,
-   color: 'black',
 };
 
 export default Svg;
