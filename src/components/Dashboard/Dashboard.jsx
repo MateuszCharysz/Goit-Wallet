@@ -1,8 +1,8 @@
 import styles from "./Dashboard.module.css"
-// import balance from "../../../src/balance.json"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
+import Loader from "../Loader/Loader"
 
 const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
 
@@ -36,37 +36,30 @@ return (
             </thead>
             <tbody className={styles.dashboardClassBody}>
             {data.map(({ _id, date, type, category, comment, sum })=>{
-                const time = new Date(parseInt(date))
-                const getDay = (time) => {
-                const day = new Date(time).getDate()
+                
+                const getDay = (date) => {
+                const day = date.day
                     if (day<10) {
                         return `0${day}`
                     }   return day
                 }
-                const getMonth = (time) => {
-                    const month = new Date(time).getMonth()+1
+                const getMonth = (date) => {
+                    const month = date.month
                         if (month<10) {
                             return `0${month}`
                         } return month
                     }
-                const getYear = (time) => {
-                    const trim = (number) => {
-                        if (number<10) {
-                            return `0${number}`
-                        }   return number
-                    }
-                    const year = new Date(time).getYear()
-                        if (year<100) {
-                            return trim(year)
-                        } return trim(year-100)
+                const getYear = (date) => {
+                    const year = date.year.substr(2,2)
+                    return year
                 }
                 if (type == '+') {
                     return(
                     <tr key={_id}>
                         <td>
-                            {getDay(time)}.
-                            {getMonth(time)}.
-                            {getYear(time)}
+                            {getDay(date)}.
+                            {getMonth(date)}.
+                            {getYear(date)}
                         </td>
                         <td>{type}</td>
                         <td>{category}</td>
@@ -84,9 +77,9 @@ return (
                     return(
                     <tr key={_id}>
                         <td>
-                            {getDay(time)}.
-                            {getMonth(time)}.
-                            {getYear(time)}
+                            {getDay(date)}.
+                            {getMonth(date)}.
+                            {getYear(date)}
                         </td>
                         <td>{type}</td>
                         <td>{category}</td>
@@ -103,6 +96,7 @@ return (
             })}
             </tbody>
         </table>:
-        <div className={styles.loader}></div>}
+        <Loader/>
+        }
       </>
   )};
