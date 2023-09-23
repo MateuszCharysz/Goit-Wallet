@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import css from './RegistrationForm.module.css';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
@@ -7,14 +8,64 @@ import email from '../../images/email.svg';
 import lock from '../../images/lock.svg';
 import user from '../../images/user.svg';
 import { Link } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
-const RegistrationForm = ({
-  submit,
-  value,
-  change,
-}) => {
+const RegistrationForm = () => {
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+    confirm: '',
+    name: '',
+  });
+
+  const handleChange = ev => {
+    ev.preventDefault();
+    const { name, value } = ev.currentTarget;
+    setInputs(data => ({ ...data, [name]: value }));
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.elements.email.value;
+    const password = form.elements.password.value;
+    const confirm = form.elements.confirm.value;
+    const name = form.elements.name.value;
+
+    if (password.length >= 6 && password.length <= 12) {
+      console.log('pswrd ok');
+    } else {
+      console.log('pswrd bad');
+    }
+    if (email.includes('@') && email.length >= 3) {
+      console.log('email ok');
+    } else {
+      console.log('email bad');
+    }
+    if (confirm === password) {
+      console.log('confirm ok');
+    } else {
+      console.log('confirm not matching');
+    }
+    if (name.length > 0) {
+      console.log('name ok');
+    } else {
+      console.log('enter name');
+    }
+    if (!email || !password || !confirm || !name) {
+      console.log('fill out empty fields!');
+    }
+    setInputs({
+      email: '',
+      password: '',
+      confirm: '',
+      name: '',
+    });
+  };
   return (
-    <form className={css.registerForm} onSubmit={submit}>
+    <form
+      className={css.registerForm}
+      onSubmit={handleSubmit}>
       <Input
         text={
           <div className={css.registerLabel}>
@@ -22,8 +73,11 @@ const RegistrationForm = ({
             <span>E-mail</span>
           </div>
         }
-        value={value}
-        onChange={change}
+        name='email'
+        type='email'
+        value={inputs.email}
+        onChange={handleChange}
+        required
       />
       <Input
         text={
@@ -32,8 +86,11 @@ const RegistrationForm = ({
             <span>Password</span>
           </div>
         }
-        value={value}
-        onChange={change}
+        name='password'
+        type='password'
+        value={inputs.password}
+        onChange={handleChange}
+        required
       />
       <Input
         text={
@@ -42,8 +99,11 @@ const RegistrationForm = ({
             <span>Confirm Password</span>
           </div>
         }
-        value={value}
-        onChange={change}
+        name='confirm'
+        type='password'
+        value={inputs.confirm}
+        onChange={handleChange}
+        required
       />
       <Input
         text={
@@ -52,8 +112,11 @@ const RegistrationForm = ({
             <span>First Name</span>
           </div>
         }
-        value={value}
-        onChange={change}
+        name='name'
+        type='text'
+        value={inputs.name}
+        onChange={handleChange}
+        required
       />
       <div className={css.spacingIn}></div>
       <div className={css.buttons}>

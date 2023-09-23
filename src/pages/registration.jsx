@@ -1,21 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
 import css from '../components/RegistrationForm/RegistrationForm.module.css';
 import logo from '../images/logo.svg';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 const Registration = () => {
-  const [value, setValue] = useState('');
-
-  const handleOnChange = ev => setValue(ev.target.value);
-
-  const handleSubmit = ev => {
-    ev.preventDefault();
-    console.log('registrater submit')
-  };
-
-  // const handleOnClick = () => console.log('register');
-
   return (
     <>
       <div className={css.logoContainer}>
@@ -24,11 +12,7 @@ const Registration = () => {
           src={logo}
           alt='wallet-logo'></img>
       </div>
-      <RegistrationForm
-        value={value}
-        change={handleOnChange}
-        submit={handleSubmit}
-      />
+      <RegistrationForm />
     </>
   );
 };

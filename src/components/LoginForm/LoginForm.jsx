@@ -7,16 +7,20 @@ import css from './LoginForm.module.css';
 import emails from '../../images/email.svg';
 import lock from '../../images/lock.svg';
 import { Link } from 'react-router-dom';
+import Notiflix from 'notiflix';
 
 const LoginForm = () => {
-  const [inputs, setInputs] = useState({ email: '', password: '' });
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+  });
 
   const handleChange = ev => {
     ev.preventDefault();
     const { name, value } = ev.currentTarget;
     // console.log(ev.currentTarget.value);
     setInputs(data => ({ ...data, [name]: value }));
-  }
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,18 +30,18 @@ const LoginForm = () => {
     if (password.length >= 6 && password.length <= 12) {
       console.log('pswrd ok');
     } else {
-      console.log('pswrd bad')
+      console.log('pswrd bad');
     }
-    if (email.includes('@') && email.length >=3) {
+    if (email.includes('@') && email.length >= 3) {
       console.log('email ok');
     } else {
       console.log('email bad');
     }
     if (!email || !password) {
-      console.log('uzupełnij')
+      console.log('uzupełnij');
     }
     setInputs({ email: '', password: '' });
-  }
+  };
 
   return (
     <form className={css.loginForm} onSubmit={handleSubmit}>
