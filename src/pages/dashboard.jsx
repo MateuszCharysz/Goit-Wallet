@@ -8,7 +8,7 @@ export const DashBoard = () => {
     <>
     <Dashboard/>
     <AddTransactionButton/>
-    <SelectMenuModal placeholder={'Select a category'}/>
+    {/* <SelectMenuModal placeholder={'Select a category'}/> */}
     </>
   )
 }

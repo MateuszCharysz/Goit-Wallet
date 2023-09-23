@@ -11,6 +11,7 @@ body{
     background-color: white;
 }
 .wrapper{
+    z-index: 55;
     font-family: Circe;
     color:black;
     width: 400px;
@@ -80,3 +81,13 @@ body{
     margin-bottom:5px;
 }
 
+.backdrop{
+    position: fixed;
+    width: 100vw;
+    height: 100vw;
+    opacity: 0;
+    color:yellow;
+    bottom:0;
+    right:0;
+    z-index: 5;
+}

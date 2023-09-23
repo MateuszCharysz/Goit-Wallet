@@ -2,6 +2,7 @@ import React, {useState, useForm} from "react";
 import styles from "../ModalEditTransaction/ModalEditTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
+import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
 
  export const ModalEditTransaction = ({type, onClose, id}) => {
 
@@ -26,7 +27,7 @@ import { CancelButton } from "../CancelButton/CancelButton";
         console.log(data)
         onClose()
     }
-    
+    const sendCategory = (data) => {onChangeCategory(data)}
 if (type=='+') {
     return (
         <div className={styles.modalWrapper}>
@@ -81,11 +82,12 @@ if (type=='+') {
                     <span className={styles.greyText}>/</span>
                     <span className={styles.redText}>Expense</span>
                 </div>
-            <form onSubmit={submitModal}>
             <section className={styles.modalForm}>
-                <label name="addTransForm">
+            <form onSubmit={submitModal}>
+                    <SelectMenuModal onClick={e => setData({ ...data, category: e })} placeholder={'Select a category'}/>
+                        <label name="addTransForm">
                     <div className={styles.formCategoryContainer}>
-                    <select className={styles.formCategory}
+                    {/* <select className={styles.formCategory}
                     name="category"
                     onChange={e=>setData({...data, category: e.target.value})}>
                     <option value='' disabled="disabled" selected="selected" hidden>Select a category</option>
@@ -98,7 +100,7 @@ if (type=='+') {
                     <option value='Education'>Education</option>
                     <option value='Leisure'>Leisure</option>
                     <option value='Other expenses'>Other expenses</option>
-                    </select>
+                </select> */}
                     </div>
                     <div  className={styles.formWrapper}>
                         <input 
@@ -125,7 +127,7 @@ if (type=='+') {
                     <li><button className={styles.closeButton} onClick={onClose}></button></li>
                     </ul>
                 </label>
-            </section></form>
+            </form></section>
         </section>
         <div className={styles.shadow}  onClick={onClose}></div>
         </div>

@@ -32,7 +32,6 @@ const getYear = () => {
     }
 
 const openModal = () => {
-
     setData({
         type:'-', 
         date:{
@@ -42,6 +41,7 @@ const openModal = () => {
         }})
     setModal(true)
 }
+
 const closeModal = (e) => {
     e.preventDefault()
     setData({})
@@ -92,7 +92,7 @@ const submitModal = (e) => {
             onChangeValue={e => setData({ ...data, sum: e.target.value })}
             onChangeDate={dateTrim}
             onChangeComment={e => setData({ ...data, comment: e.target.value })}
-            onChangeCategory={e => setData({ ...data, category: e.target.value })}
+            onChangeCategory={e => setData({ ...data, category: e })}
             />}
             </>
     )

@@ -2,11 +2,14 @@ import React, {useState} from "react";
 import styles from "../ModalAddTransaction/ModalAddTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
+import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
 
 export const ModalAddTransaction = ({onCancel, onClose, onSubmit, onChangeValue, onChangeDate, onChangeComment, onChangeCategory, onChangeSliderPlus, onChangeSliderMinus}) => {
 
 const [count, setCount] = useState(true)
 const handleSlider = (e) => setCount(!count)
+
+const sendCategory = (data) => {onChangeCategory(data)}
 
 if (count==false) {
     return (
@@ -83,9 +86,10 @@ if (count==false) {
             </div>
             <section className={styles.modalForm}>
             <form onSubmit={onSubmit}>
+                        <SelectMenuModal onClick={sendCategory} placeholder={'Select a category'}/>
                 <label name="addTransForm">
                     <div className={styles.formCategoryContainer}>
-                    <select className={styles.formCategory} onChange={onChangeCategory}>
+                    {/* <select className={styles.formCategory} onChange={onChangeCategory}>
                     <option value='' disabled="disabled" selected="selected" hidden>Select a category</option>
                     <option value='Main expenses'>Main expenses</option>
                     <option value='Products'>Products</option>
@@ -96,7 +100,7 @@ if (count==false) {
                     <option value='Education'>Education</option>
                     <option value='Leisure'>Leisure</option>
                     <option value='Other expenses'>Other expenses</option>
-                    </select>
+                    </select> */}
                     </div>
                     <div  className={styles.formWrapper}>
                     <input 

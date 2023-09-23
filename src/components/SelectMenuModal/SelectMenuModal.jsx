@@ -17,7 +17,7 @@ const categories = [
 const data = categories
 console.log(data)
 
-export const SelectMenuModal = ({ placeholder }) => {
+export const SelectMenuModal = ({ placeholder, onClick }) => {
 
     const [modal, setModal] = useState(false)
     const [name, setName] = useState(`${placeholder}`)
@@ -29,12 +29,11 @@ export const SelectMenuModal = ({ placeholder }) => {
         const newName = e.innerText
         setName(newName)
         setModal(!modal)
+        onClick(newName)
         return newName
     }
+    useEffect(()=>{console.log('dokonano zmiany')}),[name]
 
-    useEffect(()=>{
-    console.log('dokonano zmiany')
-    }),[name]
 
     return (
         <>
@@ -50,6 +49,7 @@ export const SelectMenuModal = ({ placeholder }) => {
             </div>
         }
         </div>
+        {modal&&<div className={styles.backdrop} onClick={toogleModal}>a</div>}
         </>
     )
 }
