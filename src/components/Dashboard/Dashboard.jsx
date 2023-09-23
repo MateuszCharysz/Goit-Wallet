@@ -2,7 +2,6 @@ import styles from "./Dashboard.module.css"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
-import Loader from "../Loader/Loader"
 
 const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
 
@@ -96,7 +95,7 @@ return (
             })}
             </tbody>
         </table>:
-        <Loader/>
+        <></>
         }
       </>
   )};

@@ -1,15 +1,3 @@
-@font-face {
-    font-family: Circe;
-    src: url(../../assets/fonts/Circe-Regular.otf);
-  }
-@font-face {
-    font-family: CirceBold;
-    src: url(../../assets/fonts/Circe-Bold.otf);
-  }
-
-body{
-    background-color: lightblue;
-}
 .wrapper{
     font-family: Circe;
     color:black;

@@ -7,8 +7,8 @@ import { SelectStatisticsMenu } from '../components/SelectStatisticsMenu/SelectS
 export const DashBoard = () => {
   return (
     <>
-    {/* <Dashboard/>
-    <AddTransactionButton/> */}
+    <Dashboard/>
+    <AddTransactionButton/>
     <SelectStatisticsMenu placeholder={'Month'} type={'month'}/>
     <SelectStatisticsMenu placeholder={'Year'} type={'year'}/>
     </>

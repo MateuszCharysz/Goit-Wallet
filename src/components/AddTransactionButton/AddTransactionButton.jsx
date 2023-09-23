@@ -1,35 +1,24 @@
 import React, {useState} from "react"
 import styles from "../AddTransactionButton/AddTransactionButton.module.css"
 import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction"
+import { getDay, getMonth, getYear } from "../../services/DateFunctions"
 
 export const AddTransactionButton = (props) => {
 
 const [modal, setModal] = useState(false)
 const [data, setData] = useState()
 
-const getDay = () => {
-    const day = new Date().getDate()
-        if (day<10) {
-            return `0${day}`
-        }   return day
-    }
-const getMonth = () => {
-        const month = new Date().getMonth()+1
-            if (month<10) {
-                return `0${month}`
-            } return month
-        }
-const getYear = () => {
-        const trim = (number) => {
-            if (number<10) {
-                return `0${number}`
-            }   return number
-        }
-        const year = new Date().getYear()
-            if (year<100) {
-                return trim(year)
-            } return trim(year-100)
-    }
+const dateTrim = (e) => {
+    const selectedData = e.target.value.toString()
+    const day = selectedData.substr(8,2)
+    const month = selectedData.substr(5,2)
+    const year = selectedData.substr(0,4)
+    setData({ ...data, date:
+        {day: day,
+        month: month,
+        year: year
+    } 
+})}
 
 const openModal = () => {
     setData({
@@ -65,17 +54,7 @@ const submitModal = (e) => {
     //     .then(json => setData(json.data))
     }
 
-    const dateTrim = (e) => {
-        const selectedData = e.target.value.toString()
-        const day = selectedData.substr(8,2)
-        const month = selectedData.substr(5,2)
-        const year = selectedData.substr(2,2)
-        setData({ ...data, date:
-            {day: day,
-            month: month,
-            year: year
-        } 
-    })}
+
 
     return (
             <>
