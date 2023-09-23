@@ -37,8 +37,8 @@ const closeModal = (e) => {
     setModal(false)
 }
 
-const sliderTypePlus = () => setData({type:'+'})
-const sliderTypeMinus = () => setData({type:'-'})
+const sliderTypePlus = () => setData({...date, type:'+'})
+const sliderTypeMinus = () => setData({...date, type:'-'})
 
 const submitModal = (e) => {
     e.preventDefault()
