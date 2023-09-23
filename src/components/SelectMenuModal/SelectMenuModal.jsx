@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import styles from "../SelectMenuModal/SelectMenuModal.module.css"
-
-
-
+import { nanoid } from "nanoid";
 
 export const SelectMenuModal = ({ placeholder, onClick }) => {
+
     const categories = [
         {'category': 'Main expenses'},
         {'category': 'Products'},
@@ -31,8 +30,7 @@ export const SelectMenuModal = ({ placeholder, onClick }) => {
         onClick(newName)
         return newName
     }
-    useEffect(()=>{console.log('dokonano zmiany')}),[name]
-
+    // useEffect(()=>{console.log('dokonano zmiany')}),[name]
 
     return (
         <>
@@ -43,7 +41,14 @@ export const SelectMenuModal = ({ placeholder, onClick }) => {
         {modal&&
             <div className={styles.optionsContainer}>
                 <ul className={styles.options}>
-                    {data.map(({category})=>{return(<li onClick={(e)=>changeName(e.target)} className={styles.option}><span>{category}</span></li>)})}
+                    {data.map(({category})=>{
+                        return(
+                        <li key={nanoid()} 
+                        onClick={(e)=>changeName(e.target)} 
+                        className={styles.option}>
+                            <span>
+                                {category}
+                            </span></li>)})}
                 </ul>
             </div>
         }

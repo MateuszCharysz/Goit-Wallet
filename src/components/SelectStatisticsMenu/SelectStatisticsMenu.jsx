@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import styles from "../SelectStatisticsMenu/SelectStatisticsMenu.module.css"
+import { nanoid } from "nanoid";
 
 export const SelectStatisticsMenu = ({ placeholder, onClick, type }) => {
     const dane = type
@@ -62,7 +63,16 @@ const data = (fakeFetchData())
         {modal&&
             <div className={styles.optionsContainer}>
                 <ul className={styles.options}>
-                    {data.map(({data})=>{return(<li onClick={(e)=>changeName(e.target)} className={styles.option}><span>{data}</span></li>)})}
+                {data.map(({data})=>{
+                    return(
+                    <li key={nanoid()} 
+                    onClick={(e)=>changeName(e.target)} 
+                    className={styles.option}>
+                        <span>
+                            {data}
+                        </span>
+                    </li>
+                )})}
                 </ul>
             </div>
         }
