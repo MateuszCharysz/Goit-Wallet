@@ -1,0 +1,23 @@
+.inputDate {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputMonthYear {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 280px;
+    height: 50px;
+    border-radius: 30px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: #000;
+    font-family: Circe;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
