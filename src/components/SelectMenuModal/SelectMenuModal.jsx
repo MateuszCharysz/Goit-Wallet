@@ -3,21 +3,20 @@ import styles from "../SelectMenuModal/SelectMenuModal.module.css"
 
 
 
-const categories = [
-    {'category': 'Main expenses'},
-    {'category': 'Products'},
-    {'category': 'Car'},
-    {'category': 'Self care'},
-    {'category': 'Child care'},
-    {'category': 'Household products'},
-    {'category': 'Education'},
-    {'category': 'Leisure'},
-    {'category': 'Other expenses'}]
-
-const data = categories
-console.log(data)
 
 export const SelectMenuModal = ({ placeholder, onClick }) => {
+    const categories = [
+        {'category': 'Main expenses'},
+        {'category': 'Products'},
+        {'category': 'Car'},
+        {'category': 'Self care'},
+        {'category': 'Child care'},
+        {'category': 'Household products'},
+        {'category': 'Education'},
+        {'category': 'Leisure'},
+        {'category': 'Other expenses'}]
+    
+    const data = categories
 
     const [modal, setModal] = useState(false)
     const [name, setName] = useState(`${placeholder}`)

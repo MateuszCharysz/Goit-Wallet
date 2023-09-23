@@ -8,13 +8,13 @@
   }
 
 body{
-    background-color: white;
+    background-color: lightblue;
 }
 .wrapper{
-    z-index: 55;
     font-family: Circe;
     color:black;
-    width: 400px;
+    width: 280px;
+    /* background-color: red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,19 +24,19 @@ body{
 
 .selectBtn{
     display: flex;
-    background-color: white;
-    padding: 10px 10px 0 10px;
-    margin-top: 20px;
+    background-color: transparent;
+    padding: 15px;
+    margin: 10px;
     /* background-color: white; */
     width: 95%;
     justify-content: left;
     outline: none;
-    color: #BDBDBD;
-    font-weight: 400;
-    font-size: 18px;
-    border: 1px solid white;
-    border-bottom: 1px solid rgba(0,0,0, 0.1);
+    color: black;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 30px;
     cursor: pointer;
+    z-index: 1;
 }
 
 .optionsContainer{
@@ -49,6 +49,7 @@ body{
     position: absolute;
     top:100%;
     left: 0;
+    z-index: 3;
 }
 .options{
     list-style: none;
@@ -70,10 +71,7 @@ body{
 }
 
 .option:hover{
-    color:#FF6596;
-    font-family: CirceBold;
     background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
 }
 .option:first-child{
     margin-top:5px;
@@ -86,9 +84,10 @@ body{
     position: fixed;
     width: 100vw;
     height: 100vw;
+    /* background-color: red; */
     opacity: 0;
     color:yellow;
     bottom:0;
     right:0;
-    z-index: 5;
+    z-index: 2;
 }
