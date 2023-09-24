@@ -1,10 +1,19 @@
+.loginWrapper {
+  display: flex;
+  margin: 0 auto;
+  max-width: 533px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 107px 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 533px;
+  }
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;
-
-  @media screen and (min-width: 768px) {
-    width: 70vw;
-  }
 }
 
 .logo {
@@ -22,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 25px;
+  padding: 10px 20px;
 }
 
 .loginLabel {
@@ -31,6 +41,10 @@
   gap: 20px;
   font-size: 18px;
   margin-left: 10px;
+}
+
+.loginInput {
+  max-width: 280px;
 }
 
 .spacingIn {
