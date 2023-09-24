@@ -4,7 +4,7 @@ import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
 import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
 
- export const ModalEditTransaction = ({type, onClose, id}) => {
+ export const ModalEditTransaction = ({type, onClose, id, getConnect}) => {
 
     const [modal, setModal] = useState(false)
     const [data, setData] = useState()
@@ -27,7 +27,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
         console.log(data)
         onClose()
         const dataId = data.id
-        console.log(dataId)
+        // console.log(dataId)
         fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${dataId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
@@ -35,7 +35,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
           })
             .then(res => res.json())
             .then(json => setData(json.data))
-        
+            getConnect()
     }
     const sendCategory = (data) => {onChangeCategory(data)}
 

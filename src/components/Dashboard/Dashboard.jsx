@@ -61,7 +61,7 @@ return (
                         {type=='+'?<td className={styles.green}>{sum}</td>:<td className={styles.red}>{sum}</td>}
                         <td>
                             <span className={styles.buttonContainer}>
-                                <EditPen id={_id} type={type}/>
+                                <EditPen id={_id} type={type} getConnect={dataFetch}/>
                                 <DeleteButton onClick={()=>deleteLine(_id)} name="Delete"/>
                             </span>
                         </td>

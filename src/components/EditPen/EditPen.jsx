@@ -3,7 +3,7 @@ import styles from "../EditPen/EditPen.module.css"
 import editImage from "../../assets/edit.svg"
 import { ModalEditTransaction }  from "../ModalEditTransaction/ModalEditTransaction"
 
-export const EditPen = ({id, type}) => {
+export const EditPen = ({id, type, getConnect}) => {
 
     const [modal, setModal] = useState(false)
 
@@ -24,6 +24,7 @@ export const EditPen = ({id, type}) => {
         id={id}
         onCancel={closeModal} 
         onClose={closeModal}
+        getConnect={getConnect}
         />}
         </>
     )
