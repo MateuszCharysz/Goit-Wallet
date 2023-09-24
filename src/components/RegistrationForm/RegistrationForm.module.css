@@ -1,10 +1,33 @@
+.registerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background-color: #e0e0e0;
+  }
+}
+
+.registerWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 533px;
+    max-width: 533px;
+    height: 616px;
+    border-radius: 20px;
+    background-color: white;
+  }
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;
-
-  @media screen and (min-width: 768px) {
-    width: 70vw;
-  }
 }
 
 .logo {
@@ -21,7 +44,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 25px;
+  width: 85%;
+
+  @media screen and (min-width: 768px) {
+    width: 80%;
+  }
+}
+
+.registerInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 42px;
+  width: 100%;
+  max-width: 409px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 409px;
+  }
 }
 
 .registerLabel {
@@ -33,10 +74,10 @@
   margin-left: 10px;
 }
 
-.spacingIn {
-  margin-bottom: 5px;
-}
-
 .spacingBt {
   margin-top: 20px;
+}
+
+.buttons {
+  margin: 0 auto;
 }
