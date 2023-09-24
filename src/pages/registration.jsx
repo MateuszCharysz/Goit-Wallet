@@ -1,6 +1,6 @@
 import React from 'react';
 import css from '../components/RegistrationForm/RegistrationForm.module.css';
-import logo from '../images/logo.svg';
+import logo from '../utils/Svg/logo.svg';
 import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 const Registration = () => {
