@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import React, { useState, lazy } from "react";
-import "../stylesheet/App.css";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
 import { DashBoard } from "../pages/dashboard";
