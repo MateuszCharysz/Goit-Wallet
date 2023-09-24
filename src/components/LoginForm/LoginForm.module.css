@@ -33,7 +33,6 @@
   flex-direction: column;
   justify-content: center;
   gap: 25px;
-  padding: 10px 20px;
 }
 
 .loginLabel {
@@ -45,14 +44,14 @@
   margin-left: 10px;
 }
 
-.loginInput {
-  max-width: 280px;
-}
-
 .spacingIn {
   margin-bottom: 5px;
 }
 
 .spacingBt {
   margin-top: 20px;
+}
+
+.buttons {
+  margin: 0 auto;
 }

@@ -88,11 +88,7 @@ const LoginForm = () => {
       />
       <div className={css.spacingIn}></div>
       <div className={css.buttons}>
-        <ButtonMain
-          className={css.loginButton}
-          text='LOG IN'
-          type='submit'
-        />
+        <ButtonMain text='LOG IN' type='submit' />
         <div className={css.spacingBt}></div>
         <Link to='/Goit-Wallet/register'>
           <ButtonSecondary text='REGISTER' />
