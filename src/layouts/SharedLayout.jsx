@@ -1,9 +1,8 @@
-import React, {Suspense} from 'react'
+import React from 'react'
 // import PropTypes from 'prop-types'
 
 const SharedLayout = props => {
   return (
-    <header>Jeśli zalogowany wyświetla się header</header>
     <div>SharedLayout</div>
   )
 }
