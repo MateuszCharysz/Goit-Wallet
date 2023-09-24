@@ -70,79 +70,80 @@ const RegistrationForm = () => {
     <form
       className={css.registerForm}
       onSubmit={handleSubmit}>
-      <Input
-        text={
-          <div className={css.registerLabel}>
-            <Svg
-              className={css.icon}
-              icon='email'
-              fill='#e0e0e0'
-              size='24'
-            />
-            <span>E-mail</span>
-          </div>
-        }
-        name='email'
-        type='email'
-        value={inputs.email}
-        onChange={handleChange}
-        required
-      />
-      <Input
-        text={
-          <div className={css.registerLabel}>
-            <Svg
-              className={css.icon}
-              icon='password'
-              fill='#e0e0e0'
-              size='24'
-            />
-            <span>Password</span>
-          </div>
-        }
-        name='password'
-        type='password'
-        value={inputs.password}
-        onChange={handleChange}
-        required
-      />
-      <Input
-        text={
-          <div className={css.registerLabel}>
-            <Svg
-              className={css.icon}
-              icon='password'
-              fill='#e0e0e0'
-              size='24'
-            />
-            <span>Confirm Password</span>
-          </div>
-        }
-        name='confirm'
-        type='password'
-        value={inputs.confirm}
-        onChange={handleChange}
-        required
-      />
-      <Input
-        text={
-          <div className={css.registerLabel}>
-            <Svg
-              className={css.icon}
-              icon='name'
-              fill='#e0e0e0'
-              size='24'
-            />
-            <span>First Name</span>
-          </div>
-        }
-        name='name'
-        type='text'
-        value={inputs.name}
-        onChange={handleChange}
-        required
-      />
-      <div className={css.spacingIn}></div>
+      <div class={css.registerInputs}>
+        <Input
+          text={
+            <div className={css.registerLabel}>
+              <Svg
+                className={css.icon}
+                icon='email'
+                fill='#e0e0e0'
+                size='24'
+              />
+              <span>E-mail</span>
+            </div>
+          }
+          name='email'
+          type='email'
+          value={inputs.email}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          text={
+            <div className={css.registerLabel}>
+              <Svg
+                className={css.icon}
+                icon='password'
+                fill='#e0e0e0'
+                size='24'
+              />
+              <span>Password</span>
+            </div>
+          }
+          name='password'
+          type='password'
+          value={inputs.password}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          text={
+            <div className={css.registerLabel}>
+              <Svg
+                className={css.icon}
+                icon='password'
+                fill='#e0e0e0'
+                size='24'
+              />
+              <span>Confirm Password</span>
+            </div>
+          }
+          name='confirm'
+          type='password'
+          value={inputs.confirm}
+          onChange={handleChange}
+          required
+        />
+        <Input
+          text={
+            <div className={css.registerLabel}>
+              <Svg
+                className={css.icon}
+                icon='name'
+                fill='#e0e0e0'
+                size='24'
+              />
+              <span>First Name</span>
+            </div>
+          }
+          name='name'
+          type='text'
+          value={inputs.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
       <div className={css.buttons}>
         <ButtonMain text='REGISTER' type='submit' />
         <div className={css.spacingBt}></div>
