@@ -70,7 +70,7 @@ const RegistrationForm = () => {
     <form
       className={css.registerForm}
       onSubmit={handleSubmit}>
-      <div class={css.registerInputs}>
+      <div className={css.registerInputs}>
         <Input
           text={
             <div className={css.registerLabel}>

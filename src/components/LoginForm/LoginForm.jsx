@@ -49,9 +49,8 @@ const LoginForm = () => {
 
   return (
     <form className={css.loginForm} onSubmit={handleSubmit}>
-      <div class={css.loginInputs}>
+      <div className={css.loginInputs}>
         <Input
-          className={css.loginInput}
           text={
             <div className={css.loginLabel}>
               <Svg
@@ -89,12 +88,8 @@ const LoginForm = () => {
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain
-          className={css.loginBtn}
-          text='LOG IN'
-          type='submit'
-        />
-        <div className={css.spacingBt}></div>
+        <ButtonMain text='LOG IN' type='submit' />
+        <div className={css.spacingBtn}></div>
         <Link to='/Goit-Wallet/register'>
           <ButtonSecondary text='REGISTER' />
         </Link>
