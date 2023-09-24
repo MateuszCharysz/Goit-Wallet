@@ -9,17 +9,25 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 margin-top: 0px;
+@media(min-width:768px){
+    position: relative;
+    bottom: 210px;
+    left: 90px;
+}
 }
 
 .containerStatistics {
     background: rgba(255, 255, 255, 0.40);
     @media(min-width:768px){
         display: flex;
+        place-items: center;
+        margin-left: 32px;
+        margin-right: 32px;
     }
 }
 
-.containerStatistics div:first-child{
+.tabContainer {
     @media(min-width:768px){
-        margin-right:30px;
+        display: flex;
     }
 }

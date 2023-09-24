@@ -12,7 +12,7 @@ const Statistics = () => {
         <div className={css.containerStatistics}>
         <h2 className={css.titleStatistics}>Statistics</h2>
         <div className={css.tabContainer}>
-        <DiagramTab transactions={transactions} />
+        <DiagramTab transactions={transactions} className={css.DiagramTabContainer} />
         </div>
         </div>
     )

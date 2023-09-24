@@ -2,6 +2,9 @@
     padding-top: 32px;
     display: flex;
     flex-direction: column;
+    @media(min-width:768px){
+        flex-direction: row;
+    }
 }
 
 .inputMonthYear {
@@ -19,5 +22,20 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    @media(min-width:768px){
+        width:160px;
+    }
+    @media(min-width:1200px){
+        width:182px;
+    }
+}
+
+.inputMonthYear:last-child {
+    @media(min-width:768px){
+        margin-left: 16px;
+    }
+    @media(min-width:1200px){
+        margin-left:32px;
+    }
 }
 
