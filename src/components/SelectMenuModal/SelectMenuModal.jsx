@@ -13,8 +13,9 @@ export const SelectMenuModal = ({ placeholder, onClick }) => {
         {'category': 'Household products'},
         {'category': 'Education'},
         {'category': 'Leisure'},
+        {'category': 'Entertainment'},
         {'category': 'Other expenses'}]
-    
+
     const data = categories
 
     const [modal, setModal] = useState(false)

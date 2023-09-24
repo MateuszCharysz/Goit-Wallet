@@ -2,30 +2,33 @@ import styles from "./Dashboard.module.css"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
-import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../services/DateFunctions"
 
+import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../services/DateFunctions"
 const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
+
 export const Dashboard = () => {
-
  const [data, setData] = useState();
+ const [firstRun, setFirstRun] = useState(true);
 
- useEffect(() => {
-    const dataFetch = async () => {
-        const results = await (await fetch(dbURL)).json();
-        const data = results.data
-        setData(data);
-    };
+
+const dataFetch = async () => {
+    const results = await (await fetch(dbURL)).json();
+    const data = results.data
+    setData(data);
+    console.log('dane wczytane')
+};
+useEffect(() => {
     dataFetch();
 }, []);
 
 
-  
-const deleteLine = (id) => {
-    console.log('funkcja dziala')
+const deleteLine = async (id) => {
     const data = id
-    console.log(data)
-    fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${data}`, {method: 'DELETE',})
+    console.log(`Usunieto wpis o ID${data}`)
+    await fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${data}`, {method: 'DELETE',})
+    dataFetch();
+    console.log('dane przeladowane')
 }
 
 return (

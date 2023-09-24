@@ -2,11 +2,19 @@ import React, {useState} from "react"
 import styles from "../AddTransactionButton/AddTransactionButton.module.css"
 import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction"
 import { getDay, getMonth, getYear } from "../../services/DateFunctions"
-
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 export const AddTransactionButton = (props) => {
 
 const [modal, setModal] = useState(false)
 const [data, setData] = useState()
+
+
+// const dataFetch = async () => {
+//     const results = await (await fetch(dbURL)).json();
+//     const data = results.data
+//     setData(data);
+//     console.log('dane wczytane')
+// };
 
 const dateTrim = (e) => {
     const selectedData = e.target.value.toString()
@@ -41,19 +49,22 @@ const closeModal = (e) => {
 const sliderTypePlus = () => setData({...data, type:'+', category:'Income'})
 const sliderTypeMinus = () => setData({...data, type:'-'})
 
-const submitModal = (e) => {
+const submitModal = async (e) => {
     e.preventDefault()
     setModal(!modal)
     console.log('Dane przeslane do bazy danych')
     console.log(JSON.stringify(data))
-  
-    fetch('https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/', {
+    
+    await fetch('https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      })
+        })
         .then(res => res.json())
         .then(json => setData(json.data))
+        console.log(data)
+        // dataFetch();
+        console.log('dane przeladowane')
     }
 
 
