@@ -7,7 +7,7 @@ import Navigation from './Navigation/Navigation';
 
 const SharedLayoutPrivate = () => {
   return (
-    <>
+    <div>
       <Header />
       <Navigation />
       <Suspense fallback={<Loader />}>
@@ -16,7 +16,7 @@ const SharedLayoutPrivate = () => {
           <ButtonSecondary text="DEV BUTTON skip login and go to LOGIN" />
         </Link>
       </Suspense>
-    </>
+    </div>
   );
 };
 
