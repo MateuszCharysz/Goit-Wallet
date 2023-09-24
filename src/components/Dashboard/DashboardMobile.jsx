@@ -7,19 +7,26 @@ import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../serv
 const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
 export const DashboardMobile = () => {
-
- const [data, setData] = useState();
-
- useEffect(() => {
-  const dataFetch = async () => {
-    const results = await (
-      await fetch(dbURL)
-    ).json();
+    const [data, setData] = useState();
+   
+const dataFetch = async () => {
+    const results = await (await fetch(dbURL)).json();
     const data = results.data
     setData(data);
-  };
-  dataFetch();
+    console.log('dane wczytane')
+};
+useEffect(() => {
+    dataFetch();
 }, []);
+
+
+const deleteLine = async (id) => {
+    const data = id
+    console.log(`Usunieto wpis o ID${data}`)
+    await fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${data}`, {method: 'DELETE',})
+    dataFetch();
+    console.log('dane przeladowane')
+}
 
 return (
 <>
@@ -56,9 +63,9 @@ return (
                         <span className={type==='+'?styles.green:styles.red}>{sum}</span>
                 </li>
                 <li className={styles.listElement}>
-                        <DeleteButton name="Delete" id={_id}/>
+                        <DeleteButton onClick={()=>deleteLine(_id)} name="Delete"/>
                         <ul className={styles.editList}>
-                            <li><EditPen id={_id} type={type}/></li>
+                            <li><EditPen id={_id} type={type} getConnect={dataFetch}/></li>
                             <li><span>Edit</span></li>
                         </ul>
                         

@@ -2,15 +2,12 @@ import styles from "./Dashboard.module.css"
 import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
-
 import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../services/DateFunctions"
-const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
 export const Dashboard = () => {
  const [data, setData] = useState();
- const [firstRun, setFirstRun] = useState(true);
-
 
 const dataFetch = async () => {
     const results = await (await fetch(dbURL)).json();

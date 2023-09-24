@@ -38,3 +38,10 @@ export const getYearDashboard = (date) => {
         const year = date.year.substr(2,2)
         return year
     }
+
+
+export const getDefYear = () => {
+        const year = new Date().getFullYear()
+        console.log(year)
+        return year
+    }

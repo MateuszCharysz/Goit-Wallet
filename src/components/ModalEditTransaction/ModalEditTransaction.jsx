@@ -37,7 +37,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
             .then(json => setData(json.data))
             getConnect()
     }
-    const sendCategory = (data) => {onChangeCategory(data)}
+    // const sendCategory = (data) => {onChangeCategory(data)}
 
     return (
         <div className={styles.modalWrapper}>

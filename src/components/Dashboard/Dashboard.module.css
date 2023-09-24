@@ -4,7 +4,6 @@
     border-collapse: collapse;
     font-family: Circe;
     color: black;
-    text-transform: capitalize;
     text-align: left;
     @media screen and (max-width: 767px) {
         display: none;
