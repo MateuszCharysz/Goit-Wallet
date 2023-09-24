@@ -22,10 +22,16 @@ a {
 }
 
 img {
-	display: block;
-	max-width: 100%;
-	height: auto;
+
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
+/* html {
+  height: 100%;
+} */
+
 
 button {
 	text-decoration: none;

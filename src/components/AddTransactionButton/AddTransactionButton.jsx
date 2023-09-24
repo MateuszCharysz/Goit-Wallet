@@ -1,12 +1,20 @@
 import React, {useState} from "react"
 import styles from "../AddTransactionButton/AddTransactionButton.module.css"
 import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction"
-import { getDay, getMonth, getYear } from "../../services/DateFunctions"
-
+import { getDay, getMonth, getDefYear } from "../../services/DateFunctions"
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 export const AddTransactionButton = (props) => {
 
 const [modal, setModal] = useState(false)
 const [data, setData] = useState()
+
+
+const dataFetch = async () => {
+    const results = await (await fetch(dbURL)).json();
+    const data = results.data
+    setData(data);
+    console.log('dane wczytane')
+};
 
 const dateTrim = (e) => {
     const selectedData = e.target.value.toString()
@@ -22,11 +30,12 @@ const dateTrim = (e) => {
 
 const openModal = () => {
     setData({
-        type:'-', 
+        type:'-',
+        category:'Other expenses', 
         date:{
             day: getDay(),
             month: getMonth(),
-            year: getYear()
+            year: getDefYear()
         }})
     setModal(true)
 }
@@ -37,21 +46,25 @@ const closeModal = (e) => {
     setModal(false)
 }
 
-const sliderTypePlus = () => setData({type:'+'})
-const sliderTypeMinus = () => setData({type:'-'})
+const sliderTypePlus = () => setData({...data, type:'+', category:'Income'})
+const sliderTypeMinus = () => setData({...data, type:'-'})
 
-const submitModal = (e) => {
+const submitModal = async (e) => {
     e.preventDefault()
     setModal(!modal)
     console.log('Dane przeslane do bazy danych')
-    console.log(data)
-  
-    // fetch('/api', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ data }),
-    //   })
-    //     .then(res => res.json())
-    //     .then(json => setData(json.data))
+    console.log(JSON.stringify(data))
+    
+    await fetch('https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+        })
+        .then(res => res.json())
+        .then(json => setData(json.data))
+        console.log(data)
+        dataFetch();
+        console.log('dane przeladowane')
     }
 
 
