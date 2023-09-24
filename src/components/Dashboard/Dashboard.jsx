@@ -3,7 +3,7 @@ import { DeleteButton } from "../DeleteButton/DeleteButton"
 import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
 
-const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year=2023"
 
 export const Dashboard = () => {
 

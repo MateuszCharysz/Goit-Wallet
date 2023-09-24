@@ -1,10 +1,11 @@
-import { Routes, Route } from "react-router-dom";
-import React, { useState, lazy } from "react";
-import Login from "../pages/login";
-import Registration from "../pages/registration";
-import { DashBoard } from "../pages/dashboard";
-import SharedLayout from "./SharedLayout";
+import { Routes, Route } from 'react-router-dom';
+import React, { useState, lazy } from 'react';
+import Login from '../pages/login';
+import Registration from '../pages/registration';
+import SharedLayout from './SharedLayout';
+import { DashBoard } from '../pages/dashboard';
 
+// import Statistics from '../pages/statistics';
 // const Home = lazy(() => import('./pages/home/Home'));
 
 const App = () => {
@@ -14,11 +15,13 @@ const App = () => {
     <>
       <Routes>
         <Route path="Goit-Wallet/" element={<SharedLayout />}>
-        <Route index element={<Login />}/>
-
+          <Route index element={<Login />} />
+          <Route path="register" element={<Registration />} />
+          <Route path="dashboard" element={<DashBoard />}>
+            <Route path="diagram" element={<div>Diagram</div>} />
+            <Route path="currency" element={<div>Currency</div>} />
+          </Route>
         </Route>
-        <Route path="Goit-Wallet/register" element={<Registration />}></Route>
-        <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
         <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
