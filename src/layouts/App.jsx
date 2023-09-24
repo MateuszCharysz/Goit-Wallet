@@ -3,6 +3,7 @@ import React, { useState, lazy } from "react";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
 import { DashBoard } from "../pages/dashboard";
+import SharedLayout from "./SharedLayout";
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -12,7 +13,10 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="Goit-Wallet/login" element={<Login />}></Route>
+        <Route path="Goit-Wallet/" element={<SharedLayout />}>
+        <Route index element={<Login />}/>
+
+        </Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
         <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
         <Route path="*" element={<Login />} />
