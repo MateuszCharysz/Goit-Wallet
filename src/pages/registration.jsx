@@ -5,15 +5,17 @@ import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
 
 const Registration = () => {
   return (
-    <>
-      <div className={css.logoContainer}>
-        <img
-          className={css.logo}
-          src={logo}
-          alt='wallet-logo'></img>
+    <div className={css.registerContainer}>
+      <div className={css.registerWrapper}>
+        <div className={css.logoContainer}>
+          <img
+            className={css.logo}
+            src={logo}
+            alt='wallet-logo'></img>
+        </div>
+        <RegistrationForm />
       </div>
-      <RegistrationForm />
-    </>
+    </div>
   );
 };
 

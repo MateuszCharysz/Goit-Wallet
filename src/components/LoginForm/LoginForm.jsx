@@ -4,10 +4,9 @@ import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import css from './LoginForm.module.css';
-import emails from '../../images/email.svg';
-import lock from '../../images/lock.svg';
 import { Link } from 'react-router-dom';
 import Notiflix from 'notiflix';
+import Svg from '../../utils/Svg/Svg';
 
 const LoginForm = () => {
   const [inputs, setInputs] = useState({
@@ -54,7 +53,12 @@ const LoginForm = () => {
         className={css.loginInput}
         text={
           <div className={css.loginLabel}>
-            <img src={emails} alt='email'></img>
+            <Svg
+              className={css.icon}
+              icon='email'
+              fill='#e0e0e0'
+              size='24'
+            />
             <span>E-mail</span>
           </div>
         }
@@ -67,7 +71,12 @@ const LoginForm = () => {
       <Input
         text={
           <div className={css.loginLabel}>
-            <img src={lock} alt='lock'></img>
+            <Svg
+              className={css.icon}
+              icon='password'
+              fill='#e0e0e0'
+              size='24'
+            />
             <span>Password</span>
           </div>
         }
