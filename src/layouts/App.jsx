@@ -1,9 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import React, { useState, lazy } from "react";
-import Login from "../pages/login";
-import Registration from "../pages/registration";
-import { DashBoard } from "../pages/dashboard";
-
+import { Routes, Route } from 'react-router-dom';
+import React, { useState, lazy } from 'react';
+import Login from '../pages/login';
+import Registration from '../pages/registration';
+import { DashBoard } from '../pages/dashboard';
+import SharedLayoutRestricted from './SharedLayoutRest';
+import SharedLayoutPrivate from './SharedLayoutPriv';
 // const Home = lazy(() => import('./pages/home/Home'));
 
 const App = () => {
@@ -12,9 +13,15 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="Goit-Wallet/login" element={<Login />}></Route>
-        <Route path="Goit-Wallet/register" element={<Registration />}></Route>
-        <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
+        <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
+          <Route index element={<Login />} />
+          <Route path="register" element={<Registration />} />
+        </Route>
+        <Route path="Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
+          <Route index element={<DashBoard />} />
+          <Route path="diagram" element={<div>Diagram</div>} />
+          <Route path="currency" element={<div>Currency</div>} />
+        </Route>
         <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
