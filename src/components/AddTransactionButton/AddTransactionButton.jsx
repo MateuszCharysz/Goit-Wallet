@@ -22,7 +22,8 @@ const dateTrim = (e) => {
 
 const openModal = () => {
     setData({
-        type:'-', 
+        type:'-',
+        category:'Other expenses', 
         date:{
             day: getDay(),
             month: getMonth(),
@@ -37,21 +38,22 @@ const closeModal = (e) => {
     setModal(false)
 }
 
-const sliderTypePlus = () => setData({...data, type:'+'})
+const sliderTypePlus = () => setData({...data, type:'+', category:'Income'})
 const sliderTypeMinus = () => setData({...data, type:'-'})
 
 const submitModal = (e) => {
     e.preventDefault()
     setModal(!modal)
     console.log('Dane przeslane do bazy danych')
-    console.log(data)
+    console.log(JSON.stringify(data))
   
-    // fetch('/api', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ data }),
-    //   })
-    //     .then(res => res.json())
-    //     .then(json => setData(json.data))
+    fetch('https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(json => setData(json.data))
     }
 
 

@@ -18,7 +18,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
             {day: day,
             month: month,
             year: year
-        } 
+        }, id:id
     })}
 
     const submitModal = () => {
@@ -26,6 +26,16 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
         console.log('Dane do przesłania do bazy danych w celu edycji Transakcji')
         console.log(data)
         onClose()
+        const dataId = data.id
+        console.log(dataId)
+        fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${dataId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          })
+            .then(res => res.json())
+            .then(json => setData(json.data))
+        
     }
     const sendCategory = (data) => {onChangeCategory(data)}
 
@@ -41,7 +51,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
                 <form onSubmit={submitModal}>
                     <section className={styles.modalForm}>
                         <label name="addTransForm">
-                            {type==='+'?<></>:<SelectMenuModal onClick={e => setData({ ...data, category: e })} placeholder={'Select a category'}/>}
+                            {type==='+'?<></>:<SelectMenuModal onClick={e => setData({ ...data, category: e, id:id })} placeholder={'Select a category'}/>}
                             <div  className={styles.formWrapper}>
                                 <input 
                                     type="number"
@@ -61,7 +71,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
                                 type="text" 
                                 placeholder="Comment"
                                 name="comment"
-                                onChange={e=>setData({...data, comment: e.target.value})}
+                                onChange={e=>setData({...data, comment: e.target.value, id:id})}
                                 className={styles.formComment}> 
                             </input>
                             <ul className={styles.modalList}>

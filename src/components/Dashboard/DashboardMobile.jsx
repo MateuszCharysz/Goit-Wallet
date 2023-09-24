@@ -4,7 +4,7 @@ import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
 import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../services/DateFunctions"
 
-const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
 export const DashboardMobile = () => {
 
@@ -45,7 +45,7 @@ return (
                 </li>
                 <li className={styles.listElement}>
                         <span className={styles.listElementTitle}>Category</span>
-                        <span>{category.length>15?category.substr(0,15)+'...':category}</span>
+                        <span>{category}</span>
                 </li>
                 <li className={styles.listElement}>
                         <span className={styles.listElementTitle}>Comment</span>

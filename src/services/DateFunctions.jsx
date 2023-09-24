@@ -23,13 +23,13 @@ export const getYear = () => {
     }
 
 export const getDayDashboard = (date) => {
-    const day = date.day
+    const day = parseInt(date.day)
         if (day<10) {
             return `0${day}`
         }   return day
     }
 export const getMonthDashboard = (date) => {
-        const month = date.month
+        const month = parseInt(date.month)
             if (month<10) {
                 return `0${month}`
             } return month

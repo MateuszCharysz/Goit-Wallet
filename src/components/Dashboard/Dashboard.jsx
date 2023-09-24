@@ -4,22 +4,29 @@ import { EditPen } from "../EditPen/EditPen"
 import { useEffect, useState } from "react"
 import { getDayDashboard, getMonthDashboard, getYearDashboard } from "../../services/DateFunctions"
 
-const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/wallet/api/mockTransactions"
+const dbURL = "https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/?month=&year="
 
 export const Dashboard = () => {
 
  const [data, setData] = useState();
 
  useEffect(() => {
-  const dataFetch = async () => {
-    const results = await (
-      await fetch(dbURL)
-    ).json();
-    const data = results.data
-    setData(data);
-  };
-  dataFetch();
+    const dataFetch = async () => {
+        const results = await (await fetch(dbURL)).json();
+        const data = results.data
+        setData(data);
+    };
+    dataFetch();
 }, []);
+
+
+  
+const deleteLine = (id) => {
+    console.log('funkcja dziala')
+    const data = id
+    console.log(data)
+    fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${data}`, {method: 'DELETE',})
+}
 
 return (
     <>
@@ -52,7 +59,7 @@ return (
                         <td>
                             <span className={styles.buttonContainer}>
                                 <EditPen id={_id} type={type}/>
-                                <DeleteButton name="Delete" id={_id}/>
+                                <DeleteButton onClick={()=>deleteLine(_id)} name="Delete"/>
                             </span>
                         </td>
                     </tr>
