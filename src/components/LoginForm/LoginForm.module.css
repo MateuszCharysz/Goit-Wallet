@@ -1,3 +1,48 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+
+  @media screen and (min-width: 768px) {
+    background-color: #e0e0e0;
+    padding-bottom: 196px;
+  }
+}
+
+.tabletContainer {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 40px;
+    margin: 60px 0 50px 0;
+  }
+}
+
+.finance {
+  font-size: 30px;
+}
+
+.loginWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  @media screen and (min-width: 768px) {
+    width: 533px;
+    max-width: 533px;
+    height: 468px;
+    border-radius: 20px;
+    background-color: white;
+  }
+}
+
 .logoContainer {
   display: flex;
   justify-content: center;
