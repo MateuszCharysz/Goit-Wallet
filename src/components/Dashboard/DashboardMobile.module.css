@@ -7,9 +7,6 @@ body{background-color: lightgrey;}
     flex-direction: column;
     font-family: Circe;
     font-size: 16px;
-    @media screen and (min-width: 768px) {
-        display: none;
-      }
 }
 .element{
     margin: 8px 0;
