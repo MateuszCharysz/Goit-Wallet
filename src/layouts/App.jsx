@@ -13,8 +13,8 @@ const App = () => {
 
   return (
     <>
-      <LogoutModal />
-      <Header />
+      {/* <LogoutModal />
+      <Header /> */}
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>

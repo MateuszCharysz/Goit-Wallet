@@ -1,13 +1,13 @@
-import React from 'react'
-import css from './LogoutModal.module.css'
-import Svg from '../../utils/Svg/Svg'
+import React from 'react';
+import css from './LogoutModal.module.css';
+import Svg from '../../utils/Svg/Svg';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../redux/auth/actions';
 
 const LogoutModal = () => {
+  const dispatch = useDispatch();
   const close = () => {
     console.log('Abort logout/close modal')
-  }
-  const logout = () => {
-    console.log('Confirm logout')
   }
   return (
     <div className={css.backdrop} data-logout onClick={close}>
@@ -17,7 +17,7 @@ const LogoutModal = () => {
         </button>
         <p className={css.logoutQuestion}>Are you sure?</p>
         <ul className={css.logoutList}>
-          <li><button onClick={logout}>Yes</button></li>
+          <li><button onClick={() => dispatch(logout())}>Yes</button></li>
           <li><button onClick={close} data-logout-close>No</button></li>
         </ul>
       </div>
