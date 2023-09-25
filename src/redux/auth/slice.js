@@ -4,9 +4,10 @@ import { register, login, logout, refreshUser } from './actions';
 const initialState = {
   user: { username: null, email: null },
   token: null,
-  authError: null,
+  error: null,
   isLoggedIn: false,
-  isAuthLoading: false,
+  isLoading: false,
+  isRegistered: false,
   isRefreshing: false,
 };
 
@@ -17,11 +18,13 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, (state, action) => {
         state.user = action.payload.user;
+        state.isRegistered = true;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isRegistered = false;
       })
       .addCase(logout.fulfilled, state => {
         state.user = { username: null, email: null };
@@ -33,30 +36,33 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.isLoggedIn = true;
         state.isRefreshing = false;
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
       })
       .addMatcher(
-        action => action.type === 'auth/pending',
+        action =>
+          action.type.startsWith('auth') && action.type.endsWith('/pending'),
         state => {
-          state.isAuthLoading = true;
+          state.isLoading = true;
         }
       )
       .addMatcher(
-        action => action.type === 'auth/fulfilled',
+        action =>
+          action.type.startsWith('auth') && action.type.endsWith('/fulfilled'),
         state => {
-          state.authError = null;
-          state.isAuthLoading = false;
+          state.error = null;
+          state.isLoading = false;
         }
       )
       .addMatcher(
-        action => action.type === 'auth/rejected',
+        action =>
+          action.type.startsWith('auth') && action.type.endsWith('/rejected'),
         (state, action) => {
-          state.authError = action.payload;
-          state.isAuthLoading = false;
+          state.error = action.payload;
+          state.isLoading = false;
         }
       );
   },
