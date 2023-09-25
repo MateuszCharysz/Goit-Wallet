@@ -14,7 +14,7 @@ const ColorButton = styled(Button)(() => ({
 
 const ButtonMain = ({ text, onClick }) => (
   <>
-    <ColorButton variant='contained' onClick={onClick}>
+    <ColorButton variant='contained' type='submit' onClick={onClick}>
       {text}
     </ColorButton>
   </>

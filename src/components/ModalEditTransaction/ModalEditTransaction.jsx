@@ -2,102 +2,87 @@ import React, {useState, useForm} from "react";
 import styles from "../ModalEditTransaction/ModalEditTransaction.module.css"
 import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
+import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
 
- export const ModalEditTransaction = ({onSubmit, onCancel, onClose, type}) => {
+ export const ModalEditTransaction = ({type, onClose, id, getConnect}) => {
 
+    const [modal, setModal] = useState(false)
+    const [data, setData] = useState()
 
-if (type=='+') {
-    return (
-        <div className={styles.modalWrapper}>
-        <section className={styles.wrapper}>
-            <h2 className={styles.header}>Edit transaction</h2>
-            <div className={styles.sliderContainer}>
-                <span className={styles.greenText}>Income</span>
-                <span className={styles.greyText}>/</span>
-                <span className={styles.greyText}>Expense</span>
-            </div>
-            <form onSubmit={onSubmit}>
-                <section className={styles.modalForm}>
-                    <label name="addTransForm">
-                        <div  className={styles.formWrapper}>
-                            <input 
-                            // {...register("sum")}
-                            type="number"
-                            // name="sum" 
-                            placeholder="0.00"
-                            required
-                            className={styles.formValue}></input>
-                            <input
-                            type="date"
-                            // {...register("date")}
-                            name="date"
-                            className={styles.formDate}></input>
-                        </div>
-                        <input 
-                        type="text" 
-                        placeholder="Comment"
-                        // {...register("comment")}
-                        name="comment"
-                        className={styles.formComment}></input>
-                        <ul className={styles.modalList}>
-                        <li><GreenButton name="SAVE"/></li>
-                        <li><CancelButton name="CANCEL" onClick={onCancel}/></li>
-                        <li><button className={styles.closeButton} onClick={onClose}></button></li>
-                        </ul>
-                    </label>
-                </section>
-            </form>
-        </section>
-        <div className={styles.shadow}  onClick={onClose}></div>
-        </div>
-    )}
+    const dateTrim = (e) => {
+        const selectedData = e.target.value.toString()
+        const day = selectedData.substr(8,2)
+        const month = selectedData.substr(5,2)
+        const year = selectedData.substr(0,4)
+        setData({ ...data, date:
+            {day: day,
+            month: month,
+            year: year
+        }, id:id
+    })}
+
+    const submitModal = () => {
+        setModal(!modal)
+        console.log('Dane do przesłania do bazy danych w celu edycji Transakcji')
+        console.log(data)
+        onClose()
+        const dataId = data.id
+        // console.log(dataId)
+        fetch(`https://cosmic-answer-399520.lm.r.appspot.com/api/mockTransactions/${dataId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          })
+            .then(res => res.json())
+            .then(json => setData(json.data))
+            getConnect()
+    }
+    // const sendCategory = (data) => {onChangeCategory(data)}
+
     return (
         <div className={styles.modalWrapper}>
             <section className={styles.wrapper}>
                 <h2 className={styles.header}>Edit transaction</h2>
                 <div className={styles.sliderContainer}>
-                    <span className={styles.greyText}>Income</span>
+                    {type==='+'?<span className={styles.greenText}>Income</span>:<span className={styles.greyText}>Income</span>}
                     <span className={styles.greyText}>/</span>
-                    <span className={styles.redText}>Expense</span>
+                    {type==='+'?<span className={styles.greyText}>Expense</span>:<span className={styles.redText}>Expense</span>}
                 </div>
-            <form onSubmit={onSubmit}>
-            <section className={styles.modalForm}>
-                <label name="addTransForm">
-                    <div className={styles.formCategoryContainer}>
-                    <select className={styles.formCategory}>
-                    <option value='' disabled="disabled" selected="selected" hidden>Select a category</option>
-                    <option value='Main expenses'>Main expenses</option>
-                    <option value='Products'>Products</option>
-                    <option value='Car'>Car</option>
-                    <option value='Self care'>Self care</option>
-                    <option value='Child care'>Child care</option>
-                    <option value='Household products'>Household products</option>
-                    <option value='Education'>Education</option>
-                    <option value='Leisure'>Leisure</option>
-                    <option value='Other expenses'>Other expenses</option>
-                    </select>
-                    </div>
-                    <div  className={styles.formWrapper}>
-                        <input 
-                        type="number"
-                        placeholder="0.00"
-                        className={styles.formValue}></input>
-                        <input
-                        type="date"
-                        className={styles.formDate}></input>
-                    </div>
-                    <input 
-                    type="text" 
-                    placeholder="Comment"
-                    className={styles.formComment}></input>
-                    <ul className={styles.modalList}>
-                    <li><GreenButton name="SAVE"/></li>
-                    <li><CancelButton name="CANCEL" onClick={onCancel}/></li>
-                    <li><button className={styles.closeButton} onClick={onClose}></button></li>
-                    </ul>
-                </label>
-            </section></form>
-        </section>
-        <div className={styles.shadow}  onClick={onClose}></div>
+                <form onSubmit={submitModal}>
+                    <section className={styles.modalForm}>
+                        <label name="addTransForm">
+                            {type==='+'?<></>:<SelectMenuModal onClick={e => setData({ ...data, category: e, id:id })} placeholder={'Select a category'}/>}
+                            <div  className={styles.formWrapper}>
+                                <input 
+                                    type="number"
+                                    name="sum" 
+                                    onChange={e=>setData({...data, sum: e.target.value, id:id})}
+                                    placeholder="0.00"
+                                    className={styles.formValue}>
+                                </input>
+                                <input
+                                    type="date"
+                                    name="date"
+                                    onChange={dateTrim}
+                                    className={styles.formDate}>  
+                                </input>
+                            </div>
+                            <input 
+                                type="text" 
+                                placeholder="Comment"
+                                name="comment"
+                                onChange={e=>setData({...data, comment: e.target.value, id:id})}
+                                className={styles.formComment}> 
+                            </input>
+                            <ul className={styles.modalList}>
+                                <li><GreenButton name="SAVE"/></li>
+                                <li><CancelButton name="CANCEL" onClick={onClose}/></li>
+                                <li><button className={styles.closeButton} onClick={onClose}></button></li>
+                            </ul>
+                        </label>
+                    </section>
+                </form>
+            </section>
+            <div className={styles.shadow}  onClick={onClose}></div>
         </div>
-    )};   
+    )} 

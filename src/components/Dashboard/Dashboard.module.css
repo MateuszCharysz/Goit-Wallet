@@ -1,15 +1,17 @@
+
 .dashboardClass{
     width: 50%;
     border-collapse: collapse;
+    font-family: Circe;
     color: black;
-    text-transform: capitalize;
     text-align: left;
-    /* background-color: rgb(236, 246, 255); */
 }
 
-.dashboardClass td,
 .dashboardClass th{
-    padding: 8px;
+    padding: 20px;
+}
+.dashboardClass td{
+    padding: 14px 20px;
 }
 .dashboardClass th {
     background-color: white;
@@ -27,8 +29,10 @@
     border-radius: 0 30px 30px 0;
 }
 .dashboardClass th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    font-family: CirceBold;
+    font-size: 18px;;
+    padding-top: 20px;
+    padding-bottom: 20px;
     text-align: left;
   }
 .dashboardClassBody tr{
@@ -62,3 +66,5 @@
     display: flex;
     gap: 15px;
 }
+
+  

@@ -1,0 +1,132 @@
+[
+    {
+        "_id": "650cb3222616a6a57918c9f2",
+        "type": "-",
+        "category": "Household products",
+        "comment": "Gift for your wife",
+        "sum": "300.00",
+        "date": {
+            "day": "15",
+            "month": "08",
+            "year": "2023"
+        },
+        "owner": "Should be ObjectID but its String"
+    },
+    {
+        "_id": "650cb3222616a6a57918c9f3",
+        "type": "+",
+        "category": "Other expenses",
+        "comment": "January Bonus",
+        "sum": "8000.00",
+        "date": {
+            "day": "23",
+            "month": "08",
+            "year": "2023"
+        },
+        "owner": "Should be ObjectID but its String"
+    },
+    {
+        "_id": "650cb3222616a6a57918c9f4",
+        "type": "-",
+        "category": "Income",
+        "comment": "Oil",
+        "sum": "1000.00",
+        "date": {
+            "day": "09",
+            "month": "09",
+            "year": "2022"
+        },
+        "owner": "Should be ObjectID but its String"
+    },
+    {
+        "_id": "650cb3222616a6a57918c9f5",
+        "type": "-",
+        "category": "Products",
+        "comment": "Vegetable for the week",
+        "sum": "280.00",
+        "date": {
+            "day": "27",
+            "month": "09",
+            "year": "2022"
+        },
+        "owner": "Should be ObjectID but its String"
+    },
+    {
+        "_id": "650cb3222616a6a57918c9f6",
+        "type": "+",
+        "category": "Car",
+        "comment": "Gift",
+        "sum": "1000.00",
+        "date": {
+            "day": "29",
+            "month": "08",
+            "year": "2023"
+        },
+        "owner": "Should be ObjectID but its String"
+    },
+    {
+        "_id": "650cb11f2616a6a57918c9ea",
+        "type": "-",
+        "category": "Income",
+        "comment": "Gift for your wife",
+        "sum": "300.00",
+        "date": {
+            "day": "27",
+            "month": "03",
+            "year": "2020"
+        },
+        "owner": "George Ezra ObjectID"
+    },
+    {
+        "_id": "650cb11f2616a6a57918c9eb",
+        "type": "+",
+        "category": "Other expenses",
+        "comment": "January Bonus",
+        "sum": "8000.00",
+        "date": {
+            "day": "13",
+            "month": "03",
+            "year": "2020"
+        },
+        "owner": "George Ezra ObjectID"
+    },
+    {
+        "_id": "650cb11f2616a6a57918c9ec",
+        "type": "-",
+        "category": "Car",
+        "comment": "Oil",
+        "sum": "1000.00",
+        "date": {
+            "day": "22",
+            "month": "09",
+            "year": "2023"
+        },
+        "owner": "George Ezra ObjectID"
+    },
+    {
+        "_id": "650cb11f2616a6a57918c9ed",
+        "type": "-",
+        "category": "Products",
+        "comment": "Vegetable for the week",
+        "sum": "280.00",
+        "date": {
+            "day": "19",
+            "month": "09",
+            "year": "2022"
+        },
+        "owner": "George Ezra ObjectID"
+    },
+    {
+        "_id": "650cb11f2616a6a57918c9ee",
+        "type": "+",
+        "category": "Car",
+        "comment": "Gift",
+        "sum": "1000.00",
+        "date": {
+            "day": "03",
+            "month": "09",
+            "year": "2022"
+        },
+        "owner": "George Ezra ObjectID"
+    }
+]

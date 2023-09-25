@@ -1,0 +1,240 @@
+.tableContener {
+    position: relative;
+    left: 25px;
+    margin-left: 10px;
+    @media(min-width: 768px){
+        margin-left: 0px;
+    }
+}
+
+table {
+    position: relative;
+    width: 280px;
+   border-collapse: collapse;
+   @media (min-width:768px){
+    width:336px;
+   }
+   @media(min-width:1200px){
+    width: 395px;
+   }
+   
+}
+
+.theadStatistics {
+border-collapse: collapse;
+text-align: left;    
+vertical-align: top;
+color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px;
+background-color: darksalmon;
+
+}
+
+.theadStatistics tr {
+    border-collapse: collapse;
+}
+
+.theadStatistics th {
+    padding-top: 16px;
+   padding-bottom: 15px;
+}
+
+.theadStatistics th:first-child {
+    border-radius: 30px 0 0 30px;
+    padding-left: 20px;
+}
+
+.theadStatistics th:last-child {
+    border-radius: 0 30px 30px 0;
+   text-align: right;
+   padding-right: 20px;
+}
+
+.bodyStatisticsTable {
+    padding-top:14px;
+}
+
+.bodyStatisticsTable tr {
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 52px;
+    border-bottom: 1px solid #DCDCDF;
+}
+
+.tableBodyCategory {
+text-align: left;
+    vertical-align: middle;
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 18px; /* 112.5% */
+}
+
+.tableBodySum {
+    padding-right: 20px;
+    color: #000;
+text-align: right;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+vertical-align: middle;
+}
+
+.categorySquare {
+    column-width:48px;
+}
+
+.categorySquare::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    border-radius: 2px;
+    border: 1px solid #000;
+    background-color: var(--category-color);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+
+:root {
+    --category-color: #000;
+}
+
+.categorySquare[data-category="Main expenses"] {
+    --category-color: rgba(254, 208, 87, 1);
+}
+
+.categorySquare[data-category="Products"] {
+    --category-color: rgba(255, 216, 208, 1);
+}
+
+.categorySquare[data-category="Car"] {
+    --category-color: rgba(253, 148, 152, 1);
+}
+
+.categorySquare[data-category="Self care"] {
+    --category-color:rgba(197, 186, 255, 1);
+}
+
+.categorySquare[data-category="Child care"] {
+    --category-color:rgba(110, 120, 232, 1);
+}
+
+.categorySquare[data-category="Household products"] {
+    --category-color:rgba(74, 86, 226, 1);
+}
+
+.categorySquare[data-category="Education"] {
+    --category-color:rgba(129, 225, 255, 1);
+}
+
+.categorySquare[data-category="Leisure"] {
+    --category-color:rgba(36, 204, 167, 1);
+}
+
+.categorySquare[data-category="Other expenses"] {
+    --category-color:rgba(0, 173, 132, 1);
+}
+
+.sumUp {
+    margin-top: 16px;
+}
+
+.sumUpExpenses {
+    position: relative;
+    left: -80px;
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media (min-width:768px){
+    left: -75px;
+}
+@media (min-width:1200px){
+    left: -140px;
+}
+}
+.expensesValue {
+    position: relative;
+    right: -40px;
+    color: #FF6596;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media (min-width: 768px) {
+    right: -90px;
+}
+@media (min-width:1200px){
+    right: -110px;
+}
+}
+
+.sumUpIncome {
+    position: relative;
+    left: -90px;
+    color: #000;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 18px; /* 112.5% */
+@media(min-width:768px){
+    left: -87px;
+}
+@media(min-width:1200px){
+    left: -150px;
+}
+}
+
+.IncomeValue {
+    position: relative;
+    right: -50px;
+    color: #24CCA7;
+text-align: right;
+font-family: Circe;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+@media(min-width:768px){
+    right: -98px;
+}
+@media(min-width:1200px){
+    right:-120px;
+}
+}
+
+.sumUp div:last-child {
+    padding-top:17px;
+}
+
+.dateInputContainer {
+    @media(min-width:768px){
+       position: relative;
+       bottom: 80px;
+    }
+}
+
+.balanceValue {
+    color: #000;
+text-align: center;
+font-family: Circe;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+position: relative;
+bottom: 180px;
+}
