@@ -11,6 +11,14 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .registerContainer {
+    flex-direction: row;
+    background-color: rgba(238, 238, 238, 0.6);
+    max-width: 100%;
+  }
+}
+
 .tabletContainer {
   display: none;
 
@@ -21,10 +29,32 @@
     gap: 40px;
     margin: 60px 0 50px 0;
   }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.desktopContainer {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0e0e0;
+    padding: 150px 38px 150px 76px;
+    width: 50%;
+  }
 }
 
 .finance {
   font-size: 30px;
+
+  @media screen and (min-width: 1280px) {
+    margin-top: 28px;
+  }
 }
 
 .registerWrapper {
@@ -40,6 +70,12 @@
     height: 616px;
     border-radius: 20px;
     background-color: white;
+    margin-bottom: 48px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .registerWrapper {
+    margin: 0 91px 0 107px;
   }
 }
 
@@ -65,7 +101,7 @@
   width: 85%;
 
   @media screen and (min-width: 768px) {
-    width: 80%;
+    width: 409px;
   }
 }
 
@@ -78,10 +114,6 @@
   width: 100%;
   max-width: 409px;
   margin: 0 auto;
-
-  @media screen and (min-width: 768px) {
-    max-width: 409px;
-  }
 }
 
 .registerLabel {
@@ -99,4 +131,15 @@
 
 .buttons {
   margin: 0 auto;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
+}
+
+.buttons button {
+  font-size: 18px;
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
 }
