@@ -10,7 +10,7 @@ import { SelectStatisticsMenu } from '../components/SelectStatisticsMenu/SelectS
 export const DashBoard = () => {
   return (
   <>
-    <Media queries={{
+    {/* <Media queries={{
       small: "(max-width: 768px)",
       medium: "(min-width: 769px)"
     }}>
@@ -21,9 +21,9 @@ export const DashBoard = () => {
         </Fragment>
       )}
     </Media>
-    <AddTransactionButton/>
-    {/* <SelectStatisticsMenu placeholder={'Month'} type={'month'}/>
-    <SelectStatisticsMenu placeholder={'Year'} type={'year'}/> */}
+    <AddTransactionButton/> */}
+    <SelectStatisticsMenu placeholder={'Month'} type={'month'}/>
+    <SelectStatisticsMenu placeholder={'Year'} type={'year'}/>
   </>
   )
 }
