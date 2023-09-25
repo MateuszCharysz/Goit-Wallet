@@ -14,12 +14,12 @@ const App = () => {
   return (
     <>
       <LogoutModal />
-      {/* <Routes>
+      <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
         <Route path="Goit-Wallet/dashboard" element={<Dashboard />}></Route>
         <Route path="*" element={<Login />} />
-      </Routes> */}
+      </Routes>
       {/* <Routes>
         <Route path='/login' element={<Login />}></Route>
         <Route
