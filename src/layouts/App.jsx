@@ -8,6 +8,7 @@ import SharedLayoutPrivate from './SharedLayoutPriv';
 
 const DashBoard = lazy(() => import('../pages/dashboard'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
+const Statistics = lazy(() => import('../pages/statistics'));
 
 const App = () => {
   // const [count, setCount] = useState(0);
@@ -22,7 +23,7 @@ const App = () => {
         </Route>
         <Route path="Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
           <Route index element={<DashBoard />} />
-          <Route path="diagram" element={<div>Diagram</div>} />
+          <Route path="diagram" element={<Statistics />} />
           <Route path="currency" element={<Currency />} />
         </Route>
         <Route path="*" element={<Login />} />
