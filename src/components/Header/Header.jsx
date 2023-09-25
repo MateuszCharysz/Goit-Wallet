@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Svg from '../../utils/Svg/Svg';
-import css from './Header.module.css'
+import css from './Header.module.css';
+import useAuth from '../../hook/useAuth';
+
 
 const Header = () => {
+  const { user } = useAuth();
+
   const openModal = () => {
     console.log('Logout modal opened');
   }
@@ -17,7 +21,7 @@ const Header = () => {
           </Link>
         </div>
         <div className={css.headerSide}>
-          <p className={css.headerSideText}>Name</p>
+          <p className={css.headerSideText}>{user.name ?? 'Say my name'}</p>
           <button className={css.headerLogout} onClick={openModal} data-logout-open>
             <Svg icon='logout' size='18' />
             <p className={css.headerSideText}>Exit</p>

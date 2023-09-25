@@ -2,7 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import React, { useState, lazy } from "react";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
-import { DashBoard } from "../pages/dashboard";
+import { Dashboard } from "../components/Dashboard/Dashboard";
+import LogoutModal from "../components/LogoutModal/LogoutModal";
 import Header from "../components/Header/Header";
 
 // const Home = lazy(() => import('./pages/home/Home'));
@@ -12,11 +13,12 @@ const App = () => {
 
   return (
     <>
-      <Header />
+      {/* <LogoutModal />
+      <Header /> */}
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
-        <Route path="Goit-Wallet/dashboard" element={<DashBoard />}></Route>
+        <Route path="Goit-Wallet/dashboard" element={<Dashboard />}></Route>
         <Route path="*" element={<Login />} />
       </Routes>
       {/* <Routes>
