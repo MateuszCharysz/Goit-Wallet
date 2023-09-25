@@ -25,7 +25,7 @@ function BalanceComponent() {
       <div className={styles.balance}>
         <div className={styles.balance__text}>Your balance</div>
         <div className={styles.balance__amount}>
-          <span className={styles.balance__currency}>₴</span> {balance}
+          <span className={styles.balance__currency}>₴</span> 1.000.000
         </div>
       </div>
     );

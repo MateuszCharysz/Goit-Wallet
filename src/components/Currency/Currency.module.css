@@ -1,0 +1,94 @@
+@import '../../stylesheet/vars.css';
+@import '../../stylesheet/fonts.css';
+
+/*Mobile*/
+.currency {
+  position: relative;
+  background-color: #4a56e2;
+  border-radius: 30px;
+  min-height: 174px;
+  background-image: url(../../assets/mobile-table-bg.svg);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.currencyTbl {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.currencyThead {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.currencyTblTitle {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--light-text-color);
+  padding-top: 12px;
+  padding-left: 10px;
+  text-align: left;
+  padding-bottom: 12px;
+}
+.currencyTblTitle:first-child {
+  padding-left: 20px;
+}
+.currencyTblTitle:last-child {
+  padding-right: 17px;
+  text-align: right;
+}
+.currencyTblItem {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--light-text-color);
+  padding: 12px 20px;
+}
+.currencyTblItem:nth-child(2) {
+  padding-left: 0;
+  padding-right: 0;
+}
+.currencyTblItem:last-child {
+  padding-right: 17px;
+  text-align: right;
+}
+
+
+/*Tablet*/
+@media screen and (min-width: 768px) {
+}
+
+/*Desktop*/
+@media screen and (min-width: 1280px) {
+  .currency {
+    min-height: 331px;
+  }
+  .currencyTblTitle {
+    padding-top: 17px;
+    padding-bottom: 17px;
+  }
+  .currencyTblTitle:first-child,
+  .currencyTblItem:first-child {
+    padding-left: 34px;
+    padding-right: 20px;
+  }
+  .currencyTblTitle:nth-child(1),
+  .currencyTblTitle:nth-child(2),
+  .currencyTblItem:nth-child(2),
+  .currencyTblItem:nth-child(1) {
+    text-align: center;
+  }
+  .currencyTblTitle:last-child,
+  .currencyTblItem:last-child {
+    padding-right: 34px;
+    text-align: center;
+    padding-left: 20px;
+  }
+  .currencyTblItem {
+    padding-top: 20px;
+  }
+}
