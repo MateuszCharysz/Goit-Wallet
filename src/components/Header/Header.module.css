@@ -53,6 +53,13 @@
 .headerLogout {
 	display: flex;
 }
+.headerLogout:hover .headerSideText,
+.headerLogout:focus .headerSideText,
+.headerLogout:hover Svg,
+.headerLogout:focus Svg {
+	color: #4a56e2;
+	fill: #4a56e2;
+}
 .headerLogout Svg {
 	margin-right: 8px;
 	fill: #bdbdbd;
