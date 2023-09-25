@@ -3,6 +3,7 @@ import React, { useState, lazy } from "react";
 import Login from "../pages/login";
 import Registration from "../pages/registration";
 import { DashBoard } from "../pages/dashboard";
+import Header from "../components/Header/Header";
 
 // const Home = lazy(() => import('./pages/home/Home'));
 
@@ -11,6 +12,7 @@ const App = () => {
 
   return (
     <>
+      <Header />
       <Routes>
         <Route path="Goit-Wallet/login" element={<Login />}></Route>
         <Route path="Goit-Wallet/register" element={<Registration />}></Route>
