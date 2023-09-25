@@ -2,9 +2,10 @@ import { Routes, Route } from 'react-router-dom';
 import React, { lazy } from 'react';
 import Login from '../pages/login';
 import Registration from '../pages/registration';
-// import { DashBoard } from '../pages/dashboard';
 import SharedLayoutRestricted from './SharedLayoutRest';
 import SharedLayoutPrivate from './SharedLayoutPriv';
+import LogoutModal from "../components/LogoutModal/LogoutModal";
+
 
 const DashBoard = lazy(() => import('../pages/dashboard'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
@@ -25,6 +26,7 @@ const App = () => {
           <Route index element={<DashBoard />} />
           <Route path="diagram" element={<Statistics />} />
           <Route path="currency" element={<Currency />} />
+                  {/* <LogoutModal />
         </Route>
         <Route path="*" element={<Login />} />
       </Routes>
