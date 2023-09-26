@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 
-const Input = ({ text, value, onChange, name }) => (
+const Input = ({ text, value, onChange, name, type }) => (
   <TextField
     style={{
       root: {
@@ -15,12 +15,13 @@ const Input = ({ text, value, onChange, name }) => (
         },
       },
     }}
-    id='standard-basic'
+    id="standard-basic"
     label={text}
-    variant='standard'
+    variant="standard"
     value={value}
     onChange={onChange}
     name={name}
+    type={type}
   />
 );
 
