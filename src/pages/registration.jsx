@@ -18,10 +18,7 @@ const Registration = () => {
       </div>
       <div className={css.registerWrapper}>
         <div className={css.logoContainer}>
-          <img
-            className={css.logo}
-            src={logo}
-            alt='wallet-logo'></img>
+          <img className={css.logo} src={logo} alt="wallet-logo"></img>
         </div>
         <RegistrationForm />
       </div>
