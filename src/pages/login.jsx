@@ -6,13 +6,11 @@ import frameTablet from '../utils/frame-login/frame-tablet.png';
 import frameDesk from '../utils/frame-login/frame-desktop.png';
 import ellipseTablet from '../utils/bg-tablet-login/ellipse-up.png';
 import ellipseDownT from '../utils/bg-tablet-login/ellipse-down.png';
+import ellipseDownD from '../utils/bg-desktop-login/ellipse.png';
 
 const Login = () => {
   return (
     <div className={css.loginContainer}>
-      {/* <div className={css.ellipseDesktop}>
-        <img src={ellipseDesktop}></img>
-      </div> */}
       <div className={css.ellipseTablet}>
         <img src={ellipseTablet}></img>
       </div>
@@ -35,6 +33,9 @@ const Login = () => {
       </div>
       <div className={css.ellipseDownT}>
         <img src={ellipseDownT}></img>
+      </div>
+      <div className={css.ellipseDownD}>
+        <img src={ellipseDownD}></img>
       </div>
     </div>
   );

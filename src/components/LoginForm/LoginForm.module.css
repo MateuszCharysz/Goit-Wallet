@@ -58,6 +58,17 @@
   }
 }
 
+.ellipseDownD {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
 .rectangleDesktop {
   display: none;
 
@@ -100,11 +111,18 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .desktopContainer img {
+    z-index: 10;
+  }
+}
+
 .finance {
   font-size: 30px;
 
   @media screen and (min-width: 1280px) {
     margin-top: 28px;
+    z-index: 10;
   }
 }
 
