@@ -7,6 +7,16 @@
 
   @media screen and (min-width: 768px) {
     background-color: #e0e0e0;
+    position: relative;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginContainer {
+    background-image: url('../../utils/bg-desktop-login/rectangle.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
   }
 }
 
@@ -15,6 +25,58 @@
     flex-direction: row;
     background-color: rgba(238, 238, 238, 0.6);
     max-width: 100%;
+  }
+}
+
+.ellipseTablet {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.ellipseDownT {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.ellipseDownD {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+.rectangleDesktop {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    top: -2;
+    right: 0;
   }
 }
 
@@ -27,6 +89,7 @@
     align-items: center;
     gap: 40px;
     padding: 60px 0 50px 0;
+    z-index: 10;
   }
 
   @media screen and (min-width: 1280px) {
@@ -48,11 +111,18 @@
   }
 }
 
+@media screen and (min-width: 1280px) {
+  .desktopContainer img {
+    z-index: 10;
+  }
+}
+
 .finance {
   font-size: 30px;
 
   @media screen and (min-width: 1280px) {
     margin-top: 28px;
+    z-index: 10;
   }
 }
 
@@ -70,6 +140,7 @@
     border-radius: 20px;
     background-color: white;
     margin-bottom: 196px;
+    z-index: 10;
   }
 }
 
