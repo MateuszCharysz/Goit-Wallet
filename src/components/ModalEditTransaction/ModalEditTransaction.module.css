@@ -1,35 +1,48 @@
 .modalWrapper{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 50;
-    background-color: rgba(0,0,0, 0.5)
-  }
+  position: fixed;
+  font-family: Circe;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
 .wrapper{
+  width: 100%;
+  height: 100%;
+  color:black;
+  background-color: white;
+  padding: 10px;
+  position: relative;
+  z-index: 50;
+  @media screen and (min-width: 768px) {
     width: 540px;
-    position: relative;
-    color:black;
-    background-color: white;
-    padding: 10px;
+    height: auto;
     border-radius: 30px;
-    z-index: 50;
+  }
 }
 .shadow{
   background-color: rgba(0,0,0, 0.5);
   width: 100%;
   height: 100%;
   position: fixed;
+  backdrop-filter: blur(1.5px);
 }
 .header{
-color: black;
-font-weight: 400;
-}
-.sliderContainer{
+  color: black;
+  font-family: 'Poppins';
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  padding: 40px 0;
+  @media screen and (min-width: 768px) {
+    padding: 20px 0 40px 0;
+  }
+  }
+  .sliderContainer{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,16 +62,30 @@ font-weight: 400;
     color:#dfdfdf;
     font-weight: bold;
   }
-
+  .Form{
+    display: flex;
+    align-items: center;
+  }
   .modalForm{
+    /* background-color: green; */
     display: flex;
     justify-content: center;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
-    padding: 25px;
+    padding: 40px 0;
+    @media screen and (min-width: 768px) {
+      padding: 40px;
+    }
+  } 
+  .modalForm form{
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
   .modalList{
+    /* background-color: blue; */
     list-style: none;
     gap: 10px;
     display: flex;
@@ -69,34 +96,48 @@ font-weight: 400;
   }
 
   .formWrapper{
+    /* background-color: yellow; */
     display: flex;
-    gap:20px;
-    padding: 10px;
+    gap:40px;
+    padding: 0;
+    width: 100%;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
   }
   .formValue{
     padding: 5px;
     background-color: white;
-    text-align: center;
+    text-align: left;
+    width: 100%;
     outline: none;
     border: 1px solid white;
     color: #979797;
     font-weight: 400;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
+    @media screen and (min-width: 768px) {
+      text-align: center;
+    }
   }
 
   .formDate{
     position: relative;
+    width: 100%;
       padding: 5px;
       background-color: white;
-      text-align: center;
+      text-align: left;
       outline: none;
        color: #979797;
       font-weight: 400;
       border: 1px solid white;
       border-bottom: 1px solid rgba(0,0,0, 0.1);
     fill: black;
+    @media screen and (min-width: 768px) {
+      text-align: center;
+    }
   }
   .formDate::before{
     position: absolute;
@@ -113,16 +154,21 @@ font-weight: 400;
   }
 
   .formComment{
+    resize: none;
     padding: 5px;
-    margin-top: 20px;
+    margin: 40px 0;
     background-color: white;
-    width: 95%;
-    text-align: center;
+    width: 100%;
+    height: 85px;
+    text-align: left;
     outline: none;
     color: #979797;
     font-weight: 400;
     border: 1px solid white;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
+    @media screen and (min-width: 768px) {
+      height: 35px;
+    }
   }
   .formCategoryContainer{
     background-color: transparent;

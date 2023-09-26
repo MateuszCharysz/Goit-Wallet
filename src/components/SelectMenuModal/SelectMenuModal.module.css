@@ -20,6 +20,7 @@ body{
     justify-content: center;
     align-items: center;
     position: relative;
+    z-index: 55;
 }
 
 .selectBtn{
@@ -37,18 +38,25 @@ body{
     border: 1px solid white;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
     cursor: pointer;
+    z-index: 56;
 }
 
 .optionsContainer{
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: white;
+    opacity: 70%;
     border-radius: 20px;
-    width: 100%;
+    width: 90%;
     display: flex;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.10);
-    backdrop-filter: blur(50px);
+    /* box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.10); */
     position: absolute;
+    backdrop-filter: blur(20px);
     top:35px;
-    left: 0;
+    left: 5%;
+    z-index: 60;
+    @media screen and (min-width: 768px) {
+        width: 100%;
+        left: 0;
+      }
 }
 .options{
     list-style: none;
@@ -57,6 +65,7 @@ body{
     text-align: left;
     width: 100%;
     padding: 0;
+    opacity: 100%;
 }
 
 .option{
@@ -73,7 +82,7 @@ body{
     color:#FF6596;
     font-family: CirceBold;
     background-color: #fff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .option:first-child{
     margin-top:5px;
