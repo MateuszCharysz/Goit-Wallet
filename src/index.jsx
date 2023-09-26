@@ -7,6 +7,8 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 import './stylesheet/common.css';
+import './stylesheet/fonts.css';
+
 import 'modern-normalize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(

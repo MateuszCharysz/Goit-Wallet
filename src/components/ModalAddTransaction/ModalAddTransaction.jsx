@@ -39,7 +39,7 @@ const sendCategory = (data) => {onChangeCategory(data)}
                 {!count?<span className={styles.greyText}>Expense</span>:<span className={styles.redText}>Expense</span>}
             </div>
             <section className={styles.modalForm}>
-                <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit} className={styles.Form}>
                     {!count?<></>:<SelectMenuModal onClick={sendCategory} placeholder={'Select a category'}/>}
                     <div  className={styles.formWrapper}>
                         <input 
@@ -56,13 +56,14 @@ const sendCategory = (data) => {onChangeCategory(data)}
                             className={styles.formDate}>
                         </input>
                     </div>
-                    <input 
-                        type="text"
+                    <textarea 
+                        type="textarea"
+                        maxLength="100"
                         name="comment"
                         onChange={onChangeComment}
                         placeholder="Comment"
                         className={styles.formComment}>
-                    </input>
+                    </textarea>
                     <ul className={styles.modalList}>
                         <li><GreenButton name="ADD"/></li>
                         <li><CancelButton name="CANCEL" onClick={onCancel}/></li>
