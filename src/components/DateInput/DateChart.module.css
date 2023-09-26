@@ -1,5 +1,4 @@
 .inputDate {
-    padding-top: 32px;
     display: flex;
     flex-direction: column;
     @media(min-width:768px){
@@ -25,7 +24,7 @@
     @media(min-width:768px){
         width:160px;
     }
-    @media(min-width:1200px){
+    @media(min-width:1280px){
         width:182px;
     }
 }
@@ -34,7 +33,7 @@
     @media(min-width:768px){
         margin-left: 16px;
     }
-    @media(min-width:1200px){
+    @media(min-width:1280px){
         margin-left:32px;
     }
 }

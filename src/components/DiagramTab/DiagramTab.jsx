@@ -60,11 +60,14 @@ for (const category in categorySums) {
     return (
         <>
         <div className={css.chartContainer}>
+        <h2 className={css.titleStatistics}>Statistics</h2>
         <ChartComponent categorySums={categorySums}/>
         <span className={css.balanceValue}>₴ 24 000.00</span>
         </div>
-        <div className={css.dateInputContainer}>
+        <div className={css.tableDateContainer}>
+        <div className={css.dateContainer}>
         <DateChartInput onChange={handleDateChange} />
+        </div>
         <div className={css.tableContener}>
         <table>
             <thead className={css.theadStatistics}>
