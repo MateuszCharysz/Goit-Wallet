@@ -26,7 +26,7 @@ const App = () => {
           <Route index element={<DashBoard />} />
           <Route path="diagram" element={<Statistics />} />
           <Route path="currency" element={<Currency />} />
-                  {/* <LogoutModal />
+                  {/* <LogoutModal /> */}
         </Route>
         <Route path="*" element={<Login />} />
       </Routes>
