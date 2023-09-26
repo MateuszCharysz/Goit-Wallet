@@ -1,28 +1,28 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Currency.module.css";
-import Loader from "../Loader/Loader";
-
-const USD_API_URL = "http://api.nbp.pl/api/exchangerates/rates/c/usd/last/?format=json";
-const EUR_API_URL = "https://api.nbp.pl/api/exchangerates/rates/c/eur/last/?format=json";
+import React, { useState, useEffect } from 'react';
+import styles from './Currency.module.css';
+import Loader from '../Loader/Loader';
 
 const Currency = () => {
   const [usdData, setUsdData] = useState(null);
   const [eurData, setEurData] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const fetchData = async (url, setData) => {
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      setData(data);
-    } catch (error) {
-      console.error("Error fetching currency data:", error);
-    }
-  };
+  const currQuerry = querry =>
+    `http://api.nbp.pl/api/exchangerates/rates/c/${querry}/last/`;
 
   useEffect(() => {
-    fetchData(USD_API_URL, setUsdData);
-    fetchData(EUR_API_URL, setEurData);
+    const fetchData = async (url, setData) => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching currency data:', error);
+      }
+    };
+    fetchData(currQuerry('usd'), setUsdData);
+    fetchData(currQuerry('eur'), setEurData);
     setIsLoading(false);
   }, []); // Empty dependency array to fetch data once on component mount
 
@@ -39,23 +39,31 @@ const Currency = () => {
               <th className={styles.currencyTblTitle}>Sale</th>
             </tr>
           </thead>
-          <tbody className={styles.currencyTbody}>
+          <tbody>
             <tr>
               <td className={styles.currencyTblItem}>USD</td>
               <td className={styles.currencyTblItem}>
-                {usdData && usdData.rates.length > 0 ? usdData.rates[0].bid : "-"}
+                {usdData && usdData.rates.length > 0
+                  ? usdData.rates[0].bid.toFixed(2)
+                  : '-'}
               </td>
               <td className={styles.currencyTblItem}>
-                {usdData && usdData.rates.length > 0 ? usdData.rates[0].ask : "-"}
+                {usdData && usdData.rates.length > 0
+                  ? usdData.rates[0].ask.toFixed(2)
+                  : '-'}
               </td>
             </tr>
             <tr>
               <td className={styles.currencyTblItem}>EUR</td>
               <td className={styles.currencyTblItem}>
-                {eurData && eurData.rates.length > 0 ? eurData.rates[0].bid : "-"}
+                {eurData && eurData.rates.length > 0
+                  ? eurData.rates[0].bid.toFixed(2)
+                  : '-'}
               </td>
               <td className={styles.currencyTblItem}>
-                {eurData && eurData.rates.length > 0 ? eurData.rates[0].ask : "-"}
+                {eurData && eurData.rates.length > 0
+                  ? eurData.rates[0].ask.toFixed(2)
+                  : '-'}
               </td>
             </tr>
           </tbody>
