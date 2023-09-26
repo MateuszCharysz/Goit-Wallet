@@ -1,8 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
+import { login } from '../../redux/auth/actions';
 import css from './LoginForm.module.css';
 import { Link } from 'react-router-dom';
 import Notiflix from 'notiflix';
@@ -13,37 +15,30 @@ const LoginForm = () => {
     email: '',
     password: '',
   });
+  const dispatch = useDispatch();
 
   const handleChange = ev => {
     ev.preventDefault();
     const { name, value } = ev.currentTarget;
-    // console.log(ev.currentTarget.value);
     setInputs(data => ({ ...data, [name]: value }));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value.trim();
 
-    if (email.includes('@') && email.length >= 3) {
-      Notiflix.Notify.success('Email OK');
-    } else {
-      Notiflix.Notify.failure(
-        "Email has to include '@' and be at least 3 characters long!"
+    if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
+      return Notiflix.Notify.failure('Enter valid e-mail');
+    }
+    if (password.length < 6 || password.length > 12) {
+      return Notiflix.Notify.failure(
+        'Password must be between 6-12 characters'
       );
     }
-    if (password.length >= 6 && password.length <= 12) {
-      Notiflix.Notify.success('Password OK');
-    } else {
-      Notiflix.Notify.failure(
-        'Password must be between 6-12 characters!'
-      );
-    }
-    if (!email || !password) {
-      Notiflix.Notify.warning('Fill out all fields!');
-    }
+
+    dispatch(login(inputs));
     setInputs({ email: '', password: '' });
   };
 
@@ -53,17 +48,12 @@ const LoginForm = () => {
         <Input
           text={
             <div className={css.loginLabel}>
-              <Svg
-                className={css.icon}
-                icon='email'
-                fill='#e0e0e0'
-                size='24'
-              />
+              <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
           }
-          name='email'
-          type='email'
+          name="email"
+          type="email"
           value={inputs.email}
           onChange={handleChange}
           required
@@ -73,25 +63,25 @@ const LoginForm = () => {
             <div className={css.loginLabel}>
               <Svg
                 className={css.icon}
-                icon='password'
-                fill='#e0e0e0'
-                size='24'
+                icon="password"
+                fill="#e0e0e0"
+                size="24"
               />
               <span>Password</span>
             </div>
           }
-          name='password'
-          type='password'
+          name="password"
+          type="password"
           value={inputs.password}
           onChange={handleChange}
           required
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain text='LOG IN' type='submit' />
+        <ButtonMain text="LOG IN" type="submit" />
         <div className={css.spacingBtn}></div>
-        <Link to='/Goit-Wallet/register'>
-          <ButtonSecondary text='REGISTER' />
+        <Link to="/Goit-Wallet/register">
+          <ButtonSecondary text="REGISTER" />
         </Link>
       </div>
     </form>

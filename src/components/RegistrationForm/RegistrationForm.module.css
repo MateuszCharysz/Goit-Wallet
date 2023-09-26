@@ -125,6 +125,34 @@
   margin-left: 10px;
 }
 
+.confirmPass {
+  position: relative;
+}
+
+.confirmPass::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 50%;
+  height: 4px;
+  border: 2px solid #24cca7;
+  box-shadow: 0px 1px 8px rgba(36, 204, 167, 0.5),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.confirmPass::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  width: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 2px solid #e5f1ef;
+  border-radius: 4px;
+}
+
 .spacingBt {
   margin-top: 20px;
 }
