@@ -34,7 +34,7 @@ const Currency = () => {
         <table className={styles.currencyTbl}>
           <thead className={styles.currencyThead}>
             <tr>
-              <th className={styles.currencyTblTitle}>Currency</th>
+              <th className={'active'}>Currency</th>
               <th className={styles.currencyTblTitle}>Purchase</th>
               <th className={styles.currencyTblTitle}>Sale</th>
             </tr>
