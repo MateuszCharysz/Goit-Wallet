@@ -3,22 +3,31 @@ import css from './LogoutModal.module.css';
 import Svg from '../../utils/Svg/Svg';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/actions';
+import { toggleLogoutModal } from '../../redux/auth/slice';
+import useAuth from '../../hook/useAuth';
 
 const LogoutModal = () => {
+  const { isLogoutModalOpen } = useAuth();
   const dispatch = useDispatch();
   const close = () => {
-    console.log('Abort logout/close modal')
+    dispatch(toggleLogoutModal());
   }
+  const closeOnBackdrop = (e) => {
+    if (e.currentTarget === e.target) {
+      dispatch(toggleLogoutModal());
+    }
+  };
+
   return (
-    <div className={css.backdrop} data-logout onClick={close}>
+    <div className={isLogoutModalOpen ? css.backdrop : `${css.backdrop} ${css.isHidden}`} onClick={closeOnBackdrop}>
       <div className={css.logoutModal}>
         <button onClick={close}>
-          <Svg className={css.logoutClose} icon='close' stroke='#000' size='16' data-logout-close />
+          <Svg className={css.logoutClose} icon='close' stroke='#000' size='16' />
         </button>
         <p className={css.logoutQuestion}>Are you sure?</p>
         <ul className={css.logoutList}>
           <li><button onClick={() => dispatch(logout())}>Yes</button></li>
-          <li><button onClick={close} data-logout-close>No</button></li>
+          <li><button onClick={close}>No</button></li>
         </ul>
       </div>
     </div>
@@ -26,29 +35,3 @@ const LogoutModal = () => {
 };
 
 export default LogoutModal
-
-// const teamModal = document.querySelector('[data-team]');
-// const teamOpen = document.querySelector('[data-team-open]');
-// const teamClose = document.querySelector('[data-team-close]');
-// console.log(teamClose, teamModal, teamOpen);
-
-
-// teamOpen.addEventListener("click", () => {
-//     teamModal.classList.remove('team-hidden');
-//     teamClose.classList.remove('is-hidden--x');
-//     document.addEventListener('click', backdropClose);
-//     teamClose.addEventListener("click", closeTeam);
-// })
-
-// const closeTeam = () => {
-//         teamModal.classList.add('team-hidden');
-//         teamClose.classList.add('is-hidden--x');
-// };
-// const backdropClose = () => {
-//     document.addEventListener('click', (e) => {
-//         if (e.target.classList.contains('team-backdrop')) {
-//             closeTeam();
-//             document.removeEventListener('click', backdropClose);
-//         }
-//     })
-// };

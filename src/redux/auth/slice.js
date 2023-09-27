@@ -9,11 +9,17 @@ const initialState = {
   isLoading: false,
   isRegistered: false,
   isRefreshing: false,
+  isLogoutModalOpen: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    toggleLogoutModal: (state, _) => {
+      state.isLogoutModalOpen = !state.isLogoutModalOpen;
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
@@ -69,3 +75,4 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
+export const { toggleLogoutModal } = authSlice.actions;
