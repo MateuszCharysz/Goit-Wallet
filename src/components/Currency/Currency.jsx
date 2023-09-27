@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Currency.module.css';
-import Loader from '../Loader/Loader';
+import loader from './CurrencyLoader.module.css';
 
 const Currency = () => {
   const [usdData, setUsdData] = useState(null);
@@ -17,58 +17,59 @@ const Currency = () => {
         const response = await fetch(url);
         const data = await response.json();
         setData(data);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching currency data:', error);
       }
     };
     fetchData(currQuerry('usd'), setUsdData);
     fetchData(currQuerry('eur'), setEurData);
-    setIsLoading(false);
   }, []); // Empty dependency array to fetch data once on component mount
 
   return (
     <div className={styles.currency}>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <table className={styles.currencyTbl}>
-          <thead className={styles.currencyThead}>
-            <tr>
-              <th className={'active'}>Currency</th>
-              <th className={styles.currencyTblTitle}>Purchase</th>
-              <th className={styles.currencyTblTitle}>Sale</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className={styles.currencyTblItem}>USD</td>
-              <td className={styles.currencyTblItem}>
-                {usdData && usdData.rates.length > 0
-                  ? usdData.rates[0].bid.toFixed(2)
-                  : '-'}
-              </td>
-              <td className={styles.currencyTblItem}>
-                {usdData && usdData.rates.length > 0
-                  ? usdData.rates[0].ask.toFixed(2)
-                  : '-'}
-              </td>
-            </tr>
-            <tr>
-              <td className={styles.currencyTblItem}>EUR</td>
-              <td className={styles.currencyTblItem}>
-                {eurData && eurData.rates.length > 0
-                  ? eurData.rates[0].bid.toFixed(2)
-                  : '-'}
-              </td>
-              <td className={styles.currencyTblItem}>
-                {eurData && eurData.rates.length > 0
-                  ? eurData.rates[0].ask.toFixed(2)
-                  : '-'}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      )}
+      <div
+        className={`${loader.body} ${
+          isLoading ? '' : loader.bodyIsHidden
+        }`}
+      ></div>
+      <table className={styles.currencyTbl}>
+        <thead className={styles.currencyThead}>
+          <tr>
+            <th className={styles.currencyTblTitle}>Currency</th>
+            <th className={styles.currencyTblTitle}>Purchase</th>
+            <th className={styles.currencyTblTitle}>Sale</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className={styles.currencyTblItem}>USD</td>
+            <td className={styles.currencyTblItem}>
+              {usdData && usdData.rates.length > 0
+                ? usdData.rates[0].bid.toFixed(2)
+                : '-'}
+            </td>
+            <td className={styles.currencyTblItem}>
+              {usdData && usdData.rates.length > 0
+                ? usdData.rates[0].ask.toFixed(2)
+                : '-'}
+            </td>
+          </tr>
+          <tr>
+            <td className={styles.currencyTblItem}>EUR</td>
+            <td className={styles.currencyTblItem}>
+              {eurData && eurData.rates.length > 0
+                ? eurData.rates[0].bid.toFixed(2)
+                : '-'}
+            </td>
+            <td className={styles.currencyTblItem}>
+              {eurData && eurData.rates.length > 0
+                ? eurData.rates[0].ask.toFixed(2)
+                : '-'}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };
