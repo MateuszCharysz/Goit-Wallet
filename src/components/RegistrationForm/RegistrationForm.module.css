@@ -7,7 +7,7 @@
 
   @media screen and (min-width: 768px) {
     background-color: #e0e0e0;
-    padding-bottom: 48px;
+    position: relative;
   }
 }
 
@@ -15,7 +15,7 @@
   .registerContainer {
     flex-direction: row;
     background-color: rgba(238, 238, 238, 0.6);
-    max-width: 100%;
+    min-height: 60vh;
   }
 }
 
@@ -28,6 +28,37 @@
     align-items: center;
     gap: 40px;
     margin: 60px 0 50px 0;
+    z-index: 10;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.ellipseTablet {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
+}
+
+.ellipseDownT {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 
   @media screen and (min-width: 1280px) {
@@ -44,8 +75,38 @@
     justify-content: center;
     align-items: center;
     background-color: #e0e0e0;
-    padding: 200px 38px 150px 76px;
+    /* padding: 200px 38px 150px 76px; */
     width: 50%;
+    min-height: 60vh;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .desktopContainer img {
+    z-index: 10;
+    padding: 0;
+  }
+}
+
+.ellipseDesktop {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* backdrop-filter: blur(50px); */
+  }
+}
+
+.ellipseDownD {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
@@ -54,6 +115,7 @@
 
   @media screen and (min-width: 1280px) {
     margin-top: 31px;
+    z-index: 10;
   }
 }
 
@@ -71,6 +133,7 @@
     border-radius: 20px;
     background-color: white;
     margin-bottom: 48px;
+    z-index: 10;
   }
 }
 @media screen and (min-width: 1280px) {
