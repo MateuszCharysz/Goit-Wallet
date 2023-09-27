@@ -4,7 +4,6 @@ import Svg from '../../utils/Svg/Svg';
 import css from './Header.module.css';
 import useAuth from '../../hook/useAuth';
 
-
 const Header = () => {
   const { user } = useAuth();
 
@@ -15,7 +14,7 @@ const Header = () => {
     <header className={css.headerContainer}>
       <div className={css.headerWrapper}>
         <div className={css.headerSide}>
-          <Link to='Goit-Wallet/dashboard' className={css.headerLogo}>
+          <Link to='/Goit-Wallet/dashboard' className={css.headerLogo}>
             <Svg icon='wallet' size='40' />
             <h2 className={css.appName}>Wallet</h2>
           </Link>
