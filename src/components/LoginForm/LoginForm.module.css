@@ -24,8 +24,6 @@
   .loginContainer {
     flex-direction: row;
     background-color: rgba(238, 238, 238, 0.6);
-    min-height: 60vh;
-    /* backdrop-filter: blur(50px); */
   }
 }
 
@@ -85,9 +83,8 @@
     justify-content: center;
     align-items: center;
     background-color: #e0e0e0;
-    /* padding: 0 38px 0 76px; */
+    padding: 200px 38px 150px 76px;
     width: 50%;
-    min-height: 60vh;
   }
 }
 
