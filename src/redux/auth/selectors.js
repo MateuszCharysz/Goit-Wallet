@@ -9,3 +9,5 @@ export const selectIsAuthLoading = state => state.auth.isLoading;
 export const selectIsRegistered = state => state.auth.isRegistered;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
+
+export const selectIsLogoutModalOpen = state => state.auth.isLogoutModalOpen;

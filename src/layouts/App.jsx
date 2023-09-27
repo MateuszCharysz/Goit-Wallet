@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      {/* <Header /> */}
+      {/* <LogoutModal /> */}
       <Routes>
         <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
           <Route index element={<Login />} />
@@ -31,7 +31,6 @@ const App = () => {
           <Route index element={<DashBoard />} />
           <Route path="diagram" element={<Statistics />} />
           <Route path="currency" element={<Currency />} />
-          {/* <LogoutModal /> */}
         </Route>
         <Route path="*" element={<Login />} />
       </Routes>

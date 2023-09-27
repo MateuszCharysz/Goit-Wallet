@@ -7,6 +7,7 @@ import Navigation from './Navigation/Navigation';
 import useAuth from '../hook/useAuth';
 import useTransactions from '../hook/useTransactions';
 import css from './SharedLayout.module.css';
+import LogoutModal from '../components/LogoutModal/LogoutModal';
 
 const SharedLayoutPrivate = () => {
   const { isAuthLoading } = useAuth();
@@ -25,6 +26,7 @@ const SharedLayoutPrivate = () => {
           <Loader isVisible={isAuthLoading || isTransactionsLoading} />
         </Suspense>
       </div>
+      <LogoutModal />
     </>
   );
 };

@@ -7,7 +7,7 @@ const Navigation = () => {
     <nav>
       <ul className={css.navList}>
         <li>
-          <NavLink to="" className={css.navLink}>
+          <NavLink to="/Goit-Wallet/dashboard" className={css.navLink}>
             <Svg className={css.icon}
               icon='home'
               fill='#6E78E8'
