@@ -29,7 +29,11 @@ const LoginForm = () => {
     const email = form.elements.email.value.trim();
     const password = form.elements.password.value.trim();
 
-    if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
+    if (
+      !email.match(
+        /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
+      )
+    ) {
       return Notiflix.Notify.failure('Enter valid e-mail');
     }
     if (password.length < 6 || password.length > 12) {
@@ -48,12 +52,17 @@ const LoginForm = () => {
         <Input
           text={
             <div className={css.loginLabel}>
-              <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
+              <Svg
+                className={css.icon}
+                icon='email'
+                fill='#e0e0e0'
+                size='24'
+              />
               <span>E-mail</span>
             </div>
           }
-          name="email"
-          type="email"
+          name='email'
+          type='email'
           value={inputs.email}
           onChange={handleChange}
           required
@@ -63,25 +72,25 @@ const LoginForm = () => {
             <div className={css.loginLabel}>
               <Svg
                 className={css.icon}
-                icon="password"
-                fill="#e0e0e0"
-                size="24"
+                icon='password'
+                fill='#e0e0e0'
+                size='24'
               />
               <span>Password</span>
             </div>
           }
-          name="password"
-          type="password"
+          name='password'
+          type='password'
           value={inputs.password}
           onChange={handleChange}
           required
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain text="LOG IN" type="submit" />
+        <ButtonMain text='LOG IN' type='submit' />
         <div className={css.spacingBtn}></div>
-        <Link to="/Goit-Wallet/register">
-          <ButtonSecondary text="REGISTER" />
+        <Link to='/Goit-Wallet/register'>
+          <ButtonSecondary text='REGISTER' />
         </Link>
       </div>
     </form>
