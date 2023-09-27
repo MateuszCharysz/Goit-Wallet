@@ -7,37 +7,41 @@ import frameDesk from '../utils/frame-login/frame-desktop.png';
 import ellipseTablet from '../utils/bg-tablet-login/ellipse-up.png';
 import ellipseDownT from '../utils/bg-tablet-login/ellipse-down.png';
 import ellipseDownD from '../utils/bg-desktop-login/ellipse.png';
+import Loader from '../components/Loader/Loader';
+import useAuth from '../hook/useAuth';
 
 const Login = () => {
+  const { isAuthLoading } = useAuth();
+
   return (
-    <div className={css.loginContainer}>
-      <div className={css.ellipseTablet}>
-        <img src={ellipseTablet}></img>
-      </div>
-      <div className={css.desktopContainer}>
-        <img src={frameDesk}></img>
-        <span className={css.finance}>Finance App</span>
-      </div>
-      <div className={css.tabletContainer}>
-        <img src={frameTablet}></img>
-        <span className={css.finance}>Finance App</span>
-      </div>
-      <div className={css.loginWrapper}>
-        <div className={css.logoContainer}>
-          <img
-            className={css.logo}
-            src={logo}
-            alt='wallet-logo'></img>
+    <>
+      <div className={css.loginContainer}>
+        <div className={css.ellipseTablet}>
+          <img src={ellipseTablet}></img>
         </div>
-        <LoginForm />
+        <div className={css.desktopContainer}>
+          <img src={frameDesk}></img>
+          <span className={css.finance}>Finance App</span>
+        </div>
+        <div className={css.tabletContainer}>
+          <img src={frameTablet}></img>
+          <span className={css.finance}>Finance App</span>
+        </div>
+        <div className={css.loginWrapper}>
+          <div className={css.logoContainer}>
+            <img className={css.logo} src={logo} alt="wallet-logo"></img>
+          </div>
+          <LoginForm />
+        </div>
+        <div className={css.ellipseDownT}>
+          <img src={ellipseDownT}></img>
+        </div>
+        <div className={css.ellipseDownD}>
+          <img src={ellipseDownD}></img>
+        </div>
       </div>
-      <div className={css.ellipseDownT}>
-        <img src={ellipseDownT}></img>
-      </div>
-      <div className={css.ellipseDownD}>
-        <img src={ellipseDownD}></img>
-      </div>
-    </div>
+      <Loader isVisible={isAuthLoading} />
+    </>
   );
 };
 

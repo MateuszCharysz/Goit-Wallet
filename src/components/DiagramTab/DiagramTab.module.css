@@ -1,20 +1,51 @@
+
+.containerStatistics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.40);
+    @media(min-width:768px){
+        display: block;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+.tabContainer {
+    @media(min-width:768px){
+        display: flex;
+        justify-content: space-between;
+    }
+    @media(min-width:1280px){
+        justify-content: flex-end;
+    }
+}
+
+/*.currencyContainer {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 48px;
+    padding: 0 32px;
+}*/
+
+
 .tableContener {
     position: relative;
-    left: 25px;
-    margin-left: 10px;
-    @media(min-width: 768px){
-        margin-left: 0px;
+    top: 130px;
+    height: 604px;
+    @media(min-width:768px){
+      margin-left: 32px;  
     }
 }
 
 table {
-    position: relative;
     width: 280px;
    border-collapse: collapse;
    @media (min-width:768px){
     width:336px;
    }
-   @media(min-width:1200px){
+   @media(min-width:1280px){
     width: 395px;
    }
    
@@ -46,12 +77,20 @@ background-color: darksalmon;
 .theadStatistics th:first-child {
     border-radius: 30px 0 0 30px;
     padding-left: 20px;
+    @media(min-width:768px){
+        padding-left: 0px;
+        text-align: center;
+    }
 }
 
 .theadStatistics th:last-child {
     border-radius: 0 30px 30px 0;
    text-align: right;
    padding-right: 20px;
+   @media(min-width:768px){
+    padding-right: 0px;
+    text-align: center;
+   }
 }
 
 .bodyStatisticsTable {
@@ -73,7 +112,7 @@ font-family: Circe;
 font-size: 16px;
 font-style: normal;
 font-weight: 400;
-line-height: 18px; /* 112.5% */
+line-height: 18px;
 }
 
 .tableBodySum {
@@ -90,6 +129,7 @@ vertical-align: middle;
 
 .categorySquare {
     column-width:48px;
+    padding-left: 20px;
 }
 
 .categorySquare::before {
@@ -145,12 +185,12 @@ vertical-align: middle;
 }
 
 .sumUp {
-    margin-top: 16px;
+    padding-top: 16px;
 }
 
 .sumUpExpenses {
     position: relative;
-    left: -80px;
+    left: 20px;
     color: #000;
 font-family: Circe;
 font-size: 16px;
@@ -158,15 +198,15 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 @media (min-width:768px){
-    left: -75px;
+    left: 20px;
 }
-@media (min-width:1200px){
-    left: -140px;
+@media (min-width:1280px){
+    left: 15px;
 }
 }
 .expensesValue {
     position: relative;
-    right: -40px;
+    right: -150px;
     color: #FF6596;
 font-family: Circe;
 font-size: 16px;
@@ -174,33 +214,33 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 @media (min-width: 768px) {
-    right: -90px;
+    right: -210px;
 }
-@media (min-width:1200px){
-    right: -110px;
+@media (min-width:1280px){
+    right: -270px;
 }
 }
 
 .sumUpIncome {
     position: relative;
-    left: -90px;
+    left: 20px;
     color: #000;
 font-family: Circe;
 font-size: 16px;
 font-style: normal;
 font-weight: 700;
-line-height: 18px; /* 112.5% */
+line-height: 18px;
 @media(min-width:768px){
-    left: -87px;
+    left: 20px;
 }
-@media(min-width:1200px){
-    left: -150px;
+@media(min-width:1280px){
+    left: 15px;
 }
 }
 
 .IncomeValue {
     position: relative;
-    right: -50px;
+    right: -185px;
     color: #24CCA7;
 text-align: right;
 font-family: Circe;
@@ -209,22 +249,15 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 @media(min-width:768px){
-    right: -98px;
+    right: -250px;
 }
-@media(min-width:1200px){
-    right:-120px;
+@media(min-width:1280px){
+    right:-310px;
 }
 }
 
 .sumUp div:last-child {
     padding-top:17px;
-}
-
-.dateInputContainer {
-    @media(min-width:768px){
-       position: relative;
-       bottom: 80px;
-    }
 }
 
 .balanceValue {
@@ -236,5 +269,58 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 position: relative;
-bottom: 180px;
+left: 95px;
+bottom: 130px;
+@media(min-width:768px) {
+    bottom: 160px;
+    left: 120px;
+}
+@media(min-width:1280px){
+    bottom: 140px;
+    left: 95px;
+}
+}
+
+.chartContainer {
+    padding-top: 20px;
+    width:280px;
+    height:280px;
+    @media(min-width:768px){
+        width: 336px;
+        height: 336px;
+    }
+    @media(min-width:1280px){
+        width: 288px;
+        height: 288px;
+    }
+}
+
+.chartContainer canvas {
+    @media(min-width:768px){
+     position: relative;
+    left: -10px;   
+    } 
+}
+
+.titleStatistics {
+    color: #000;
+text-align: start;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 0px;
+padding-top: 40px;
+}
+
+.dateContainer{
+    position: relative;
+    top: 122px;
+    @media(min-width:768px){
+     margin-left: 15px;   
+    }
+    @media(min-width:1280px){
+        margin-left:0px;
+    }
 }

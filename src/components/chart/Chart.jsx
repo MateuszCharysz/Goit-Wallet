@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import css from './Chart.module.css';
@@ -34,6 +33,23 @@ function ChartComponent({ categorySums }) {
         ],
     });
 
+const [cutout, setCutout] = useState(85)
+
+    const options = {
+        maintainAspectRatio: false,
+        cutout: cutout,
+    };
+
+    const updateCutoutPercentage = useCallback(() => {
+        if (window.innerWidth < 768) {
+            setCutout(85);
+        } else if (window.innerWidth > 768 && window.innerWidth < 1279) {
+            setCutout(100);
+        } else if(window.innerWidth > 1280 ) {
+            setCutout(85)
+        }
+    }, []);
+
     useEffect(() => {
         if(categorySums) {
             const backgroundColors = Object.keys(categorySums).map((category) => {
@@ -52,7 +68,16 @@ function ChartComponent({ categorySums }) {
     }
     }, [categorySums]);
 
-    return <Doughnut data={chartData} className={css.chart} />;
+    useEffect(() => {
+        window.addEventListener('resize', updateCutoutPercentage);
+        updateCutoutPercentage();
+
+        return () => {
+            window.removeEventListener('resize', updateCutoutPercentage);
+        };
+    }, [updateCutoutPercentage]);
+
+    return <Doughnut data={chartData} options={options} className={css.chart} />
 }
 
 export default ChartComponent;

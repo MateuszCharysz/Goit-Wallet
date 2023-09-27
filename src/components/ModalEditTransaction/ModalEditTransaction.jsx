@@ -48,7 +48,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
                     <span className={styles.greyText}>/</span>
                     {type==='+'?<span className={styles.greyText}>Expense</span>:<span className={styles.redText}>Expense</span>}
                 </div>
-                <form onSubmit={submitModal}>
+                <form onSubmit={submitModal} className={styles.Form}>
                     <section className={styles.modalForm}>
                         <label name="addTransForm">
                             {type==='+'?<></>:<SelectMenuModal onClick={e => setData({ ...data, category: e, id:id })} placeholder={'Select a category'}/>}

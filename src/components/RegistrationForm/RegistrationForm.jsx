@@ -1,20 +1,32 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import useAuth from '../../hook/useAuth';
 import css from './RegistrationForm.module.css';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import { Link } from 'react-router-dom';
+import { register } from '../../redux/auth/actions';
 import Notiflix from 'notiflix';
 import Svg from '../../utils/Svg/Svg';
 
 const RegistrationForm = () => {
+  const { isRegistered } = useAuth();
+  const [confirmPass, setConfirmPass] = useState(false);
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
     confirm: '',
     name: '',
   });
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isRegistered) {
+      setConfirmPass(false);
+    }
+  }, [isRegistered]);
 
   const handleChange = ev => {
     ev.preventDefault();
@@ -25,40 +37,41 @@ const RegistrationForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
-    const confirm = form.elements.confirm.value;
-    const name = form.elements.name.value;
+    const email = form.elements.email.value.trim();
+    const password = form.elements.password.value.trim();
+    const confirm = form.elements.confirm.value.trim();
+    const name = form.elements.name.value.trim();
 
-    if (email.includes('@') && email.length >= 3) {
-      Notiflix.Notify.success('Email OK');
-    } else {
-      Notiflix.Notify.failure(
-        'Email has to include "@" and be at least 3 characters long!'
+    if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
+      return Notiflix.Notify.failure('Enter valid e-mail');
+    }
+    if (password.length < 6 || password.length > 12) {
+      return Notiflix.Notify.failure(
+        'Password must be between 6-12 characters'
       );
     }
-    if (password.length >= 6 && password.length <= 12) {
-      Notiflix.Notify.success('Password OK');
-    } else {
-      Notiflix.Notify.failure(
-        'Password must be between 6-12 characters!'
-      );
+    if (confirm !== password) {
+      setConfirmPass(false);
+      return Notiflix.Notify.failure('Passwords need to match');
+    } else if (confirm === password) {
+      setConfirmPass(true);
     }
-    if (confirm === password) {
-      Notiflix.Notify.success('Password OK');
-    } else {
-      Notiflix.Notify.failure('Passwords need to match!');
+    if (!name.length) {
+      return Notiflix.Notify.failure('Enter name');
     }
-    if (name.length > 0) {
-      Notiflix.Notify.success('Name OK');
-    } else {
-      Notiflix.Notify.failure('Enter name!');
-    }
-    if (!email || !password || !confirm || !name) {
-      Notiflix.Notify.warning('Fill out all fields!');
-    } else {
-      Notiflix.Notify.success('Form submitted!');
-    }
+
+    Notiflix.Notify.success(
+      'Registration successful, please check your e-mail for confirmation'
+    );
+
+    dispatch(
+      register({
+        username: inputs.name,
+        email: inputs.email,
+        password: inputs.password,
+      })
+    );
+
     setInputs({
       email: '',
       password: '',
@@ -66,25 +79,19 @@ const RegistrationForm = () => {
       name: '',
     });
   };
+
   return (
-    <form
-      className={css.registerForm}
-      onSubmit={handleSubmit}>
+    <form className={css.registerForm} onSubmit={handleSubmit}>
       <div className={css.registerInputs}>
         <Input
           text={
             <div className={css.registerLabel}>
-              <Svg
-                className={css.icon}
-                icon='email'
-                fill='#e0e0e0'
-                size='24'
-              />
+              <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
           }
-          name='email'
-          type='email'
+          name="email"
+          type="email"
           value={inputs.email}
           onChange={handleChange}
           required
@@ -94,15 +101,15 @@ const RegistrationForm = () => {
             <div className={css.registerLabel}>
               <Svg
                 className={css.icon}
-                icon='password'
-                fill='#e0e0e0'
-                size='24'
+                icon="password"
+                fill="#e0e0e0"
+                size="24"
               />
               <span>Password</span>
             </div>
           }
-          name='password'
-          type='password'
+          name="password"
+          type="password"
           value={inputs.password}
           onChange={handleChange}
           required
@@ -112,43 +119,39 @@ const RegistrationForm = () => {
             <div className={css.registerLabel}>
               <Svg
                 className={css.icon}
-                icon='password'
-                fill='#e0e0e0'
-                size='24'
+                icon="password"
+                fill="#e0e0e0"
+                size="24"
               />
               <span>Confirm Password</span>
             </div>
           }
-          name='confirm'
-          type='password'
+          name="confirm"
+          type="password"
           value={inputs.confirm}
           onChange={handleChange}
           required
         />
+        <div className={confirmPass ? css.confirmPass : ''}></div>
         <Input
           text={
             <div className={css.registerLabel}>
-              <Svg
-                className={css.icon}
-                icon='name'
-                fill='#e0e0e0'
-                size='24'
-              />
+              <Svg className={css.icon} icon="name" fill="#e0e0e0" size="24" />
               <span>First Name</span>
             </div>
           }
-          name='name'
-          type='text'
+          name="name"
+          type="text"
           value={inputs.name}
           onChange={handleChange}
           required
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain text='REGISTER' type='submit' />
+        <ButtonMain text="REGISTER" type="submit" />
         <div className={css.spacingBt}></div>
-        <Link to='/Goit-Wallet/login'>
-          <ButtonSecondary text='LOG IN' />
+        <Link to="/Goit-Wallet/login">
+          <ButtonSecondary text="LOG IN" />
         </Link>
       </div>
     </form>

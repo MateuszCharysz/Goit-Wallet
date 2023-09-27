@@ -1,62 +1,76 @@
-import React, { useState } from "react";
-import styles from "./Currency.module.css";
-// import { getCurrency } from "./getCurrency";
-// import Loader from "components/Loader/Loader";
-// import { useSelector } from "react-redux";
-// import { selectToken } from "redux/auth/auth-selectors";
+import React, { useState, useEffect } from 'react';
+import styles from './Currency.module.css';
+import Loader from '../Loader/Loader';
 
 const Currency = () => {
-	// const [currencyData, setCurrencyData] = useState(null);
-	// const [isLoading, setIsLoading] = useState(false);
-	// const token = useSelector(selectToken);
+  const [usdData, setUsdData] = useState(null);
+  const [eurData, setEurData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-	// async function fetchData() {
-	// 	const data = await getCurrency(token);
-	// 	setCurrencyData(data);
-	// 	setIsLoading(true);
-	// }
+  const currQuerry = querry =>
+    `http://api.nbp.pl/api/exchangerates/rates/c/${querry}/last/`;
 
-	// if (!isLoading) {
-	// 	fetchData();
-	// 	setInterval(fetchData, 6000000);
-	// 	return (
-	// 		<div className={styles.currency}>
-	// 			<Loader />
-	// 		</div>
-	// 	);
-	// }
+  useEffect(() => {
+    const fetchData = async (url, setData) => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(url);
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error('Error fetching currency data:', error);
+      }
+    };
+    fetchData(currQuerry('usd'), setUsdData);
+    fetchData(currQuerry('eur'), setEurData);
+    setIsLoading(false);
+  }, []); // Empty dependency array to fetch data once on component mount
 
-	// const eurBuy = currencyData.eur.buy;
-	// const eurSale = currencyData.eur.sale;
-	// const USDSale = currencyData.usd.sale;
-	// const USDBuy = currencyData.usd.buy;
-
-	return (
-		<div className={styles.currency}>
-			<table className={styles.currencyTbl}>
-				<thead className={styles.currencyThead}>
-					<tr>
-						<th className={styles.currencyTblTitle}>Currency</th>
-						<th className={styles.currencyTblTitle}>Purchase</th>
-						<th className={styles.currencyTblTitle}>Sale</th>
-					</tr>
-				</thead>
-				<tbody className={styles.currencyTbody}>
-					<tr>
-						<td className={styles.currencyTblItem}>USD</td>
-						<td className={styles.currencyTblItem}>50</td>
-						<td className={styles.currencyTblItem}>80</td>
-					</tr>
-					<tr>
-						<td className={styles.currencyTblItem}>EUR</td>
-						<td className={styles.currencyTblItem}>100</td>
-						<td className={styles.currencyTblItem}>200</td>
-					</tr>
-				</tbody>
-			</table>
-			
-		</div>
-	);
+  return (
+    <div className={styles.currency}>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <table className={styles.currencyTbl}>
+          <thead className={styles.currencyThead}>
+            <tr>
+              <th className={styles.currencyTblTitle}>Currency</th>
+              <th className={styles.currencyTblTitle}>Purchase</th>
+              <th className={styles.currencyTblTitle}>Sale</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className={styles.currencyTblItem}>USD</td>
+              <td className={styles.currencyTblItem}>
+                {usdData && usdData.rates.length > 0
+                  ? usdData.rates[0].bid.toFixed(2)
+                  : '-'}
+              </td>
+              <td className={styles.currencyTblItem}>
+                {usdData && usdData.rates.length > 0
+                  ? usdData.rates[0].ask.toFixed(2)
+                  : '-'}
+              </td>
+            </tr>
+            <tr>
+              <td className={styles.currencyTblItem}>EUR</td>
+              <td className={styles.currencyTblItem}>
+                {eurData && eurData.rates.length > 0
+                  ? eurData.rates[0].bid.toFixed(2)
+                  : '-'}
+              </td>
+              <td className={styles.currencyTblItem}>
+                {eurData && eurData.rates.length > 0
+                  ? eurData.rates[0].ask.toFixed(2)
+                  : '-'}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </div>
+  );
 };
 
 export default Currency;

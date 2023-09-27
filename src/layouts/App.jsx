@@ -1,18 +1,23 @@
 import { Routes, Route } from 'react-router-dom';
-import React, { lazy } from 'react';
-import Login from '../pages/login';
-import Registration from '../pages/registration';
+import React, { lazy, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import SharedLayoutRestricted from './SharedLayoutRest';
 import SharedLayoutPrivate from './SharedLayoutPriv';
-import LogoutModal from "../components/LogoutModal/LogoutModal";
+import Login from '../pages/login';
+import LogoutModal from '../components/LogoutModal/LogoutModal';
+import { refreshUser } from '../redux/auth/actions';
 
-
+const Registration = lazy(() => import('../pages/registration'));
 const DashBoard = lazy(() => import('../pages/dashboard'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistics'));
 
 const App = () => {
-  // const [count, setCount] = useState(0);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   return (
     <>
