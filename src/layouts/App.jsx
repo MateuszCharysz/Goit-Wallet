@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <>
-      <LogoutModal />
+      {/* <LogoutModal /> */}
       <Routes>
         <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
           <Route index element={<Login />} />
