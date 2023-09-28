@@ -1,3 +1,9 @@
 .container {
-    padding-top: 80px;
+    padding: 70px 20px 0px;
+    background-color: var(--primary-background-color);
+}
+.smallContainer {
+    padding: 12px 0px;
+    display: flex;
+    justify-content: center;
 }

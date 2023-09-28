@@ -5,11 +5,14 @@ import SharedLayoutRestricted from './SharedLayoutRest';
 import SharedLayoutPrivate from './SharedLayoutPriv';
 import Login from '../pages/login';
 import { refreshUser } from '../redux/auth/actions';
+import NewSharedLayoutPrivate from './NewSharedLayoutPriv';
+import HomeTab from '../pages/tabs/homeTab';
 
 const Registration = lazy(() => import('../pages/registration'));
 const DashBoard = lazy(() => import('../pages/dashboard'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistics'));
+const CurrencyTab = lazy(() => import('../pages/tabs/currencyTab'));
 
 const App = () => {
   // const dispatch = useDispatch();
@@ -29,6 +32,15 @@ const App = () => {
           <Route index element={<DashBoard />} />
           <Route path="diagram" element={<Statistics />} />
           <Route path="currency" element={<Currency />} />
+        </Route>
+        <Route
+          path="Goit-Wallet/newDashboard/home"
+          element={<NewSharedLayoutPrivate />}
+        >
+          <Route index element={<HomeTab />} />
+
+          <Route path="diagram" element={<Statistics />} />
+          <Route path="currency" element={<CurrencyTab />} />
         </Route>
         <Route path="*" element={<Login />} />
       </Routes>

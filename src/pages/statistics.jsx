@@ -5,7 +5,6 @@ import transactions from "../components/DiagramTab/transaction.json";
 import css from '../components/DiagramTab/DiagramTab.module.css';
 
 const Statistics = () => {
-    
 
     return (
         <>

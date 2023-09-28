@@ -14,6 +14,9 @@ const SharedLayoutRestricted = () => {
         <Link to="dashboard">
           <ButtonSecondary text="DEV BUTTON skip login and go to DASHBOARD" />
         </Link>
+        <Link to="newDashboard/home">
+          <ButtonSecondary text="DEV BUTTON skip login and go to newDASHBOARD" />
+        </Link>
         <Loader isVisible={isAuthLoading} />
       </Suspense>
     </>
