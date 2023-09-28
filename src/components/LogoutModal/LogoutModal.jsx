@@ -24,10 +24,10 @@ const LogoutModal = () => {
         <button onClick={close}>
           <Svg className={css.logoutClose} icon='close' stroke='#000' size='16' />
         </button>
-        <p className={css.logoutQuestion}>Are you sure?</p>
+        <p className={css.logoutQuestion}>Are you sure you want to leave this page?</p>
         <ul className={css.logoutList}>
-          <li><button onClick={() => dispatch(logout())}>Yes</button></li>
-          <li><button onClick={close}>No</button></li>
+          <li><button className={css.logoutYes} onClick={() => dispatch(logout())}>Yes</button></li>
+          <li><button className={css.logoutNo} onClick={close}>Cancel</button></li>
         </ul>
       </div>
     </div>

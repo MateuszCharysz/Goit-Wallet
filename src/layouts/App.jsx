@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import SharedLayoutRestricted from './SharedLayoutRest';
 import SharedLayoutPrivate from './SharedLayoutPriv';
 import Login from '../pages/login';
-import LogoutModal from '../components/LogoutModal/LogoutModal';
 import { refreshUser } from '../redux/auth/actions';
 
 const Registration = lazy(() => import('../pages/registration'));
@@ -21,7 +20,6 @@ const App = () => {
 
   return (
     <>
-      {/* <LogoutModal /> */}
       <Routes>
         <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
           <Route index element={<Login />} />
