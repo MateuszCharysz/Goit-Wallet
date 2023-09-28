@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { logout } from '../../redux/auth/actions';
 import { toggleLogoutModal } from '../../redux/auth/slice';
 import useAuth from '../../hook/useAuth';
+import { useEffect } from 'react';
 
 const LogoutModal = () => {
   const { isLogoutModalOpen } = useAuth();
@@ -17,6 +18,15 @@ const LogoutModal = () => {
       dispatch(toggleLogoutModal());
     }
   };
+  useEffect(() => {
+    const closeOnEscape = (e) => {
+      if (e.key === 'Escape' && isLogoutModalOpen) {
+        dispatch(toggleLogoutModal());
+      }
+    }
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [isLogoutModalOpen]);
 
   return (
     <div className={isLogoutModalOpen ? css.backdrop : `${css.backdrop} ${css.isHidden}`} onClick={closeOnBackdrop}>

@@ -17,6 +17,11 @@
 	position: absolute;
 	top: 15px;
 	right: 15px;
+	border-radius: 50%;
+}
+.logoutClose:hover,
+.logoutClose:focus {
+	stroke: #4a56e2;
 }
 .logoutQuestion {
 	text-align: center;
