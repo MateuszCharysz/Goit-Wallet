@@ -4,9 +4,9 @@ import ButtonSecondary from '../components/ButtonSecondary';
 import Loader from '../components/Loader/Loader';
 import useAuth from '../hook/useAuth';
 import Notiflix from 'notiflix';
-import css from '../components/RegistrationForm/RegistrationForm.module.css';
+import css from '../components/LoginRegisterForms/RegistrationForm.module.css';
 import logo from '../utils/Svg/logo.svg';
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
+import RegistrationForm from '../components/LoginRegisterForms/RegistrationForm';
 import frameTablet from '../utils/frame-registration/frame-tablet.png';
 import frameDesk from '../utils/frame-registration/frame-desktop.png';
 

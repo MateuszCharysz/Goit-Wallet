@@ -12,7 +12,7 @@ const SharedLayoutRestricted = () => {
       <Suspense fallback={<Loader />}>
         <Outlet />
         <Link to="dashboard">
-          <ButtonSecondary text="DEV BUTTON skip login and go to DASHBOARD" />
+          {/* <ButtonSecondary text="DEV BUTTON skip login and go to DASHBOARD" /> */}
         </Link>
         <Loader isVisible={isAuthLoading} />
       </Suspense>
