@@ -4,7 +4,7 @@ import css from './Navigation.module.css';
 
 const Navigation = () => {
   return (
-    <nav>
+    <nav className={css.navigation}>
       <ul className={css.navList}>
         <li>
           <NavLink to="/Goit-Wallet/dashboard" className={css.navLink}>

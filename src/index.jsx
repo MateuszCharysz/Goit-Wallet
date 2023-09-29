@@ -6,10 +6,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
+import './stylesheet/vars.css';
+import 'modern-normalize';
 import './stylesheet/common.css';
 import './stylesheet/fonts.css';
 
-import 'modern-normalize';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

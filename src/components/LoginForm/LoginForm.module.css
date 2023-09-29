@@ -11,20 +11,36 @@
   }
 }
 
-@media screen and (min-width: 1280px) {
+/* @media screen and (min-width: 1280px) {
   .loginContainer {
     background-image: url('../../utils/bg-desktop-login/rectangle.png');
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: center;
   }
-}
+} */
 
 @media screen and (min-width: 1280px) {
   .loginContainer {
     flex-direction: row;
     background-color: rgba(238, 238, 238, 0.6);
-    max-width: 100%;
+  }
+}
+
+.tabletContainer {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0 50px 0;
+    z-index: 10;
+  }
+
+  @media screen and (min-width: 1280px) {
+    display: none;
   }
 }
 
@@ -58,45 +74,6 @@
   }
 }
 
-.ellipseDownD {
-  display: none;
-
-  @media screen and (min-width: 1280px) {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  }
-}
-
-.rectangleDesktop {
-  display: none;
-
-  @media screen and (min-width: 1280px) {
-    display: block;
-    position: absolute;
-    top: -2;
-    right: 0;
-  }
-}
-
-.tabletContainer {
-  display: none;
-
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 40px;
-    padding: 60px 0 50px 0;
-    z-index: 10;
-  }
-
-  @media screen and (min-width: 1280px) {
-    display: none;
-  }
-}
-
 .desktopContainer {
   display: none;
 
@@ -116,6 +93,40 @@
     z-index: 10;
   }
 }
+
+.ellipseDesktop {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* backdrop-filter: blur(50px); */
+  }
+}
+
+.ellipseDownD {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+/* .rectangleDesktop {
+  display: none;
+
+  @media screen and (min-width: 1280px) {
+    display: block;
+    position: absolute;
+    top: -2;
+    right: 0;
+  }
+} */
 
 .finance {
   font-size: 30px;

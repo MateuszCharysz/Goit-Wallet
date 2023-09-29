@@ -4,30 +4,34 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
-	height: 100%;
+	width: 300px;
+	min-height: 150px;
 	background-color: white;
 	backdrop-filter: blur(1010px);
 	z-index: 1001;
-	/* background-color: rgba(200, 200, 0, 0.25); */
+	border-radius: 20px;
 	@media screen and (min-width: 768px) {
-		border-radius: 20px;
-		width: 400px;
-		height: 150px;
 	}
 }
 .logoutClose {
 	position: absolute;
-	top: 20px;
-	right: 20px;
+	top: 15px;
+	right: 15px;
+	border-radius: 50%;
+}
+.logoutClose:hover,
+.logoutClose:focus {
+	stroke: #4a56e2;
 }
 .logoutQuestion {
-	font-size: 30px;
-	margin-bottom: 15px;
+	text-align: center;
+	max-width: 80%;
+	font-size: 20px;
+	margin-bottom: 20px;
 }
 .logoutList {
 	display: flex;
-	gap: 15px;
+	gap: 30px;
 }
 .isHidden {
 	opacity: 0;
@@ -43,10 +47,26 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-	left: 0;
-	top: 0;
+	transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
 	background-size: cover;
 	background-color: rgba(0, 0, 0, 0.25);
 	z-index: 1000;
+}
+.logoutYes {
+	background-color: #24cca7;
+	padding: 10px 30px;
+	border-radius: 10px;
+}
+.logoutYes:hover,
+.logoutYes:focus {
+	filter: drop-shadow(0 0 15px rgba(36, 204, 167, 1));
+}
+.logoutNo {
+	background-color: #ff6596;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+.logoutNo:hover,
+.logoutNo:focus {
+	filter: drop-shadow(0 0 15px rgba(255, 101, 150, 1));
 }
