@@ -33,7 +33,7 @@ const App = () => {
         </Route>
         <Route path="*" element={<Login />} />
       </Routes>
-      {/* <Background /> */}
+      <Background />
     </>
   );
 };

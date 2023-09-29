@@ -18,15 +18,14 @@ const Login = () => {
         {/* <div className={css.ellipseTablet}>
           <img src={ellipseTablet}></img>
         </div> */}
-        {/* <div className={css.desktopContainer}>
+        <div className={css.desktopContainer}>
           <img src={frameDesk}></img>
           <span className={css.finance}>Finance App</span>
-        </div> */}
+        </div>
         <div className={css.tabletContainer}>
           <img src={frameTablet}></img>
           <span className={css.finance}>Finance App</span>
         </div>
-        <div className={css.asd}></div>
         <div className={css.loginWrapper}>
             <img className={css.logo} src={logo} alt="wallet-logo"></img>
           <LoginForm />
