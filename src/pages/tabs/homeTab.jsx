@@ -8,7 +8,7 @@ import { AddTransactionButton } from '../../components/AddTransactionButton/AddT
 
 const HomeTab = () => {
   return (
-    <div className={css.tabContainer}>
+    <div className={css.homeContainer}>
       <Media
         queries={{
           small: '(max-width: 768px)',
