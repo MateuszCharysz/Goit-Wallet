@@ -1,10 +1,7 @@
-import React, { Fragment, Suspense, lazy } from 'react';
+import React, { Fragment, lazy } from 'react';
 import Media from 'react-media';
 import { Dashboard } from '../components/Dashboard/Dashboard';
 import { DashboardMobile } from '../components/Dashboard/DashboardMobile';
-import { AddTransactionButton } from '../components/AddTransactionButton/AddTransactionButton';
-import { SelectMenuModal } from '../components/SelectMenuModal/SelectMenuModal';
-import { SelectStatisticsMenu } from '../components/SelectStatisticsMenu/SelectStatisticsMenu';
 import BalanceComponent from '../components/Balance/Balance';
 const Currency = lazy(() => import('../components/Currency/Currency'));
 
@@ -29,9 +26,6 @@ const DashBoard = () => {
           </Fragment>
         )}
       </Media>
-      <AddTransactionButton />
-      {/* <SelectStatisticsMenu placeholder={'Month'} type={'month'}/>
-    <SelectStatisticsMenu placeholder={'Year'} type={'year'}/> */}
     </>
   );
 };

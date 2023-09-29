@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   getTransactions,
-  getTransactionCategory,
   createTransaction,
   updateTransaction,
   removeTransaction,
@@ -9,7 +8,6 @@ import {
 
 const initialState = {
   items: [],
-  category: null,
   error: null,
   isLoading: false,
 };
@@ -22,11 +20,8 @@ const transactionsSlice = createSlice({
       .addCase(getTransactions.fulfilled, (state, action) => {
         state.items = action.payload;
       })
-      .addCase(getTransactionCategory.fulfilled, (state, action) => {
-        state.category = action.payload;
-      })
       .addCase(createTransaction.fulfilled, (state, action) => {
-        state.items.push(action.payload);
+        state.items.unshift(action.payload);
       })
       .addCase(updateTransaction.fulfilled, (state, action) => {
         const i = state.items.findIndex(

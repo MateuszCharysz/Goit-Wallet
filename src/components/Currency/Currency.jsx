@@ -7,8 +7,8 @@ const Currency = () => {
   const [eurData, setEurData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const currQuerry = querry =>
-    `http://api.nbp.pl/api/exchangerates/rates/c/${querry}/last/`;
+  const currQuery = query =>
+    `https://api.nbp.pl/api/exchangerates/rates/c/${query}/last/?format=json`;
 
   useEffect(() => {
     const fetchData = async (url, setData) => {
