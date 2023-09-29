@@ -150,7 +150,7 @@ const RegistrationForm = () => {
       <div className={css.buttons}>
         <ButtonMain text="REGISTER" type="submit" />
         <div className={css.spacingBt}></div>
-        <Link to="/Goit-Wallet/login">
+        <Link to="/Goit-Wallet/">
           <ButtonSecondary text="LOG IN" />
         </Link>
       </div>
