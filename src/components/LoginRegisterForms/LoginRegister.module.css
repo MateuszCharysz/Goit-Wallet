@@ -51,6 +51,9 @@
 		backdrop-filter: blur(50px);
 	}
 }
+.logoWrapper{
+	position:relative;
+}
 .loginWrapper {
 	background-color: white;
 	display: flex;
