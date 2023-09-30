@@ -21,7 +21,7 @@ const teammates = [
 		fullName: "Maggie Wesołowska",
 		position: "Scrum Master Queen",
 		photo: img2,
-		linkedIn: "#",
+		linkedIn: "https://www.linkedin.com/in/maggie-wesolowska/",
 		gitHub: "https://github.com/MaggieWesolowska",
 	},
 	{
@@ -29,7 +29,7 @@ const teammates = [
 		fullName: "Beniamin Brzeziński",
 		position: "React Redux Specialist",
 		photo: img3,
-		linkedIn: "#",
+		linkedIn: "https://www.linkedin.com/in/beniamin-brzezi%C5%84ski-66930221b/",
 		gitHub: "https://github.com/benbrzezinski",
 	},
 	{
@@ -70,7 +70,7 @@ const teammates = [
 		position: "React Component Specialis",
 		photo: img8,
 		linkedIn: "https://www.linkedin.com/in/barteknr1/",
-		gitHub: "#",
+		gitHub: "https://github.com/barteknr1",
 	},
 ];
 
