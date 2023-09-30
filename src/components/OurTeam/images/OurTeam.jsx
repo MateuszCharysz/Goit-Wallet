@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import teammates from "./data";
 import s from "./OurTeam.module.css";
 
-function OurTeam() {
+const OurTeam = () => {
 	return (
 		<div className={s.content}>
 			<Link to='/' alt='homepage' className={s.close} />
