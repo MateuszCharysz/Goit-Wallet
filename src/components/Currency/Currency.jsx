@@ -7,7 +7,7 @@ const Currency = () => {
   const [eurData, setEurData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const currQuery = query =>
+  const currQuerry = query =>
     `https://api.nbp.pl/api/exchangerates/rates/c/${query}/last/?format=json`;
 
   useEffect(() => {
@@ -17,21 +17,20 @@ const Currency = () => {
         const response = await fetch(url);
         const data = await response.json();
         setData(data);
-        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching currency data:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData(currQuerry('usd'), setUsdData);
     fetchData(currQuerry('eur'), setEurData);
-  }, []); // Empty dependency array to fetch data once on component mount
+  }, []);
 
   return (
     <div className={styles.currency}>
       <div
-        className={`${loader.body} ${
-          isLoading ? '' : loader.bodyIsHidden
-        }`}
+        className={`${loader.body} ${isLoading ? '' : loader.bodyIsHidden}`}
       ></div>
       <table className={styles.currencyTbl}>
         <thead className={styles.currencyThead}>

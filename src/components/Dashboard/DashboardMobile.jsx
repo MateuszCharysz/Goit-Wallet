@@ -128,10 +128,11 @@ export const DashboardMobile = () => {
           })}
         </div>
       ) : !isTransactionsLoading ? (
-        <>
+
+        <div>
           <h2>There are no transactions</h2>
           <AddTransactionButton addDashboard={addData} />
-        </>
+        </div>
       ) : null}
     </>
   );
