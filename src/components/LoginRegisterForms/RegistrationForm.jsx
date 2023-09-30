@@ -14,6 +14,7 @@ import Svg from '../../utils/Svg/Svg';
 const RegistrationForm = () => {
   const { isRegistered } = useAuth();
   const [confirmPass, setConfirmPass] = useState(false);
+  const [confirmFail, setConfirmFail] = useState(false);
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -28,12 +29,30 @@ const RegistrationForm = () => {
     }
   }, [isRegistered]);
 
-  const handleChange = ev => {
-    ev.preventDefault();
-    const { name, value } = ev.currentTarget;
+  const handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.currentTarget;
     setInputs(data => ({ ...data, [name]: value }));
   };
-
+  const handleConfirm = (e) => {
+    e.preventDefault();
+    handleChange(e);
+    const form = e.target.closest('form');
+    const password = form.elements.password.value.trim();
+    const confirm = form.elements.confirm.value.trim();
+    if (confirm !== password) {
+      setConfirmPass(false);
+      setConfirmFail(true);
+    }
+    if (confirm === password) {
+      setConfirmPass(true);
+      setConfirmFail(false);
+    }
+    if (confirm === '' && password === '') {
+      setConfirmFail(false);
+      setConfirmPass(false);
+    }
+  };
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -111,7 +130,7 @@ const RegistrationForm = () => {
           name="password"
           type="password"
           value={inputs.password}
-          onChange={handleChange}
+          onChange={handleConfirm}
           required
         />
         <Input
@@ -129,10 +148,11 @@ const RegistrationForm = () => {
           name="confirm"
           type="password"
           value={inputs.confirm}
-          onChange={handleChange}
+          onChange={handleConfirm}
           required
         />
         {confirmPass ? (<div className={css.confirmPass}></div>) : null}
+        {confirmFail ? (<div className={css.confirmFail}></div>) : null}
         <Input
           text={
             <div className={css.label}>
@@ -149,7 +169,6 @@ const RegistrationForm = () => {
       </div>
       <div className={css.buttons}>
         <ButtonMain text="REGISTER" type="submit" />
-        <div className={css.spacingBt}></div>
         <Link to="/Goit-Wallet/login">
           <ButtonSecondary text="LOG IN" />
         </Link>
