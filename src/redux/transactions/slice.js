@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   items: [],
+  balance: '',
   error: null,
   isLoading: false,
 };
@@ -50,6 +51,19 @@ const transactionsSlice = createSlice({
         state => {
           state.error = null;
           state.isLoading = false;
+
+          const income = state.items
+            .filter(({ type }) => type === '+')
+            .map(({ sum }) => Number(sum))
+            .reduce((acc, n) => acc + n, 0);
+
+          const expense = state.items
+            .filter(({ type }) => type === '-')
+            .map(({ sum }) => Number(sum))
+            .reduce((acc, n) => acc + n, 0);
+
+          const balance = income - expense;
+          state.balance = String(balance);
         }
       )
       .addMatcher(

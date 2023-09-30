@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, Fragment } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
