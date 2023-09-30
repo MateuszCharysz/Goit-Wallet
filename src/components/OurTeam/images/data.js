@@ -58,7 +58,7 @@ const teammates = [
 	},
 	{
 		id: 7,
-		fullName: "Mariusz T",
+		fullName: "Mariusz ",
 		position: "Advanced Node.js Specialist",
 		photo: img7,
 		linkedIn: "https://www.linkedin.com/in/trocu/",
