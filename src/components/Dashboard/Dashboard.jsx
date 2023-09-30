@@ -94,7 +94,10 @@ export const Dashboard = () => {
           <AddTransactionButton addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+        <div className={styles.dashboardClass}>
+          <h2>There are no transactions</h2>
+          <AddTransactionButton addDashboard={addData} />
+        </div>
       ) : null}
     </>
   );

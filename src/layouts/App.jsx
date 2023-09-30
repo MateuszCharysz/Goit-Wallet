@@ -14,11 +14,11 @@ const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistics'));
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>

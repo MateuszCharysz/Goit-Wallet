@@ -1,0 +1,6 @@
+.homeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    height: 100vh;
+}
