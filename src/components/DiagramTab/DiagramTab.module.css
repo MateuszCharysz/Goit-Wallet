@@ -85,14 +85,14 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 position: relative;
+bottom: 150px;
 left: 95px;
-bottom: 130px;
 @media(min-width:768px) {
-    bottom: 160px;
+    bottom: 180px;
     left: 120px;
 }
 @media(min-width:1280px){
-    bottom: 140px;
+    bottom: 160px;
     left: 95px;
 }
 }
@@ -138,6 +138,7 @@ table {
 }
 
 .theadStatistics {
+    background-color: #FFFFFF;
 border-collapse: collapse;
 text-align: left;    
 vertical-align: top;
