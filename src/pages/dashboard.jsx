@@ -9,9 +9,9 @@ const DashBoard = () => {
   return (
     <>
       <BalanceComponent />
-      {/* <Media queries={{ medium: '(min-width: 769px)' }}>
-        {matches => matches.medium && <Currency />}
-      </Media> */}
+      <Media queries={{ medium: "(min-width: 769px)" }}>
+        {(matches) => matches.medium && <Currency />}
+      </Media>
 
       <Media
         queries={{
