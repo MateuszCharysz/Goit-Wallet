@@ -7,21 +7,18 @@ import PrivateRoute from '../components/PrivateRoute';
 import RestrictedRoute from '../components/RestrictedRoute';
 import Login from '../pages/login';
 import { refreshUser } from '../redux/auth/actions';
-import NewSharedLayoutPrivate from './NewSharedLayoutPriv';
-import HomeTab from '../pages/tabs/homeTab';
 
 const Registration = lazy(() => import('../pages/registration'));
 const DashBoard = lazy(() => import('../pages/dashboard'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistics'));
-const CurrencyTab = lazy(() => import('../pages/tabs/currencyTab'));
 
 const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>
