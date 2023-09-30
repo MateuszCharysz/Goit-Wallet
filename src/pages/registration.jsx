@@ -16,12 +16,19 @@ const Registration = () => {
   const resend = async () => {
     try {
       setIsLoading(true);
-      await axios.post('https://wallet-api.cyclic.cloud/api/users/reverify', {
-        email: user.email,
-      });
-      Notiflix.Notify.success('Verification email has been resend');
+      await axios.post(
+        'https://wallet-api.cyclic.cloud/api/users/reverify',
+        {
+          email: user.email,
+        }
+      );
+      Notiflix.Notify.success(
+        'Verification email has been resend'
+      );
     } catch {
-      Notiflix.Notify.failure('Sorry, the email could not be resend');
+      Notiflix.Notify.failure(
+        'Sorry, the email could not be resend'
+      );
     } finally {
       setIsLoading(false);
     }
@@ -46,10 +53,15 @@ const Registration = () => {
           <div className={css.spacingBt}></div>
           {isRegistered && (
             <ButtonSecondary
-              text="Resend verification E-mail"
-              onClick={resend}
-            ></ButtonSecondary>
+              text='Resend verification E-mail'
+              onClick={resend}></ButtonSecondary>
           )}
+        </div>
+        <div className={css.ellipseDownT}>
+          <img src={ellipseDownT}></img>
+        </div>
+        <div className={css.ellipseDownD}>
+          <img src={ellipseDownD}></img>
         </div>
       </div>
       <Loader isVisible={isAuthLoading} />

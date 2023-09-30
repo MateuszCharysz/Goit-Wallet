@@ -16,9 +16,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    toggleLogoutModal: (state, _) => {
+    toggleLogoutModal: state => {
       state.isLogoutModalOpen = !state.isLogoutModalOpen;
-    }
+    },
   },
   extraReducers: builder => {
     builder
@@ -36,6 +36,7 @@ const authSlice = createSlice({
         state.user = { username: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.isLogoutModalOpen = false;
       })
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
@@ -47,6 +48,7 @@ const authSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addMatcher(
         action =>
@@ -65,7 +67,9 @@ const authSlice = createSlice({
       )
       .addMatcher(
         action =>
-          action.type.startsWith('auth') && action.type.endsWith('/rejected'),
+          action.type.startsWith('auth') &&
+          action.type.endsWith('/rejected') &&
+          !action.type.startsWith('auth/refreshUser'),
         (state, action) => {
           state.error = action.payload;
           state.isLoading = false;

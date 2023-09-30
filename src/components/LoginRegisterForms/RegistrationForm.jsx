@@ -61,7 +61,11 @@ const RegistrationForm = () => {
     const confirm = form.elements.confirm.value.trim();
     const name = form.elements.name.value.trim();
 
-    if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
+    if (
+      !email.match(
+        /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
+      )
+    ) {
       return Notiflix.Notify.failure('Enter valid e-mail');
     }
     if (password.length < 6 || password.length > 12) {
@@ -71,7 +75,9 @@ const RegistrationForm = () => {
     }
     if (confirm !== password) {
       setConfirmPass(false);
-      return Notiflix.Notify.failure('Passwords need to match');
+      return Notiflix.Notify.failure(
+        'Passwords need to match'
+      );
     } else if (confirm === password) {
       setConfirmPass(true);
     }
@@ -109,8 +115,8 @@ const RegistrationForm = () => {
               <span>E-mail</span>
             </div>
           }
-          name="email"
-          type="email"
+          name='email'
+          type='email'
           value={inputs.email}
           onChange={handleChange}
           required
@@ -120,15 +126,15 @@ const RegistrationForm = () => {
             <div className={css.label}>
               <Svg
                 className={css.icon}
-                icon="password"
-                fill="#e0e0e0"
-                size="24"
+                icon='password'
+                fill='#e0e0e0'
+                size='24'
               />
               <span>Password</span>
             </div>
           }
-          name="password"
-          type="password"
+          name='password'
+          type='password'
           value={inputs.password}
           onChange={handleConfirm}
           required
@@ -138,15 +144,15 @@ const RegistrationForm = () => {
             <div className={css.label}>
               <Svg
                 className={css.icon}
-                icon="password"
-                fill="#e0e0e0"
-                size="24"
+                icon='password'
+                fill='#e0e0e0'
+                size='24'
               />
               <span>Confirm Password</span>
             </div>
           }
-          name="confirm"
-          type="password"
+          name='confirm'
+          type='password'
           value={inputs.confirm}
           onChange={handleConfirm}
           required
@@ -160,8 +166,8 @@ const RegistrationForm = () => {
               <span>First Name</span>
             </div>
           }
-          name="name"
-          type="text"
+          name='name'
+          type='text'
           value={inputs.name}
           onChange={handleChange}
           required
@@ -169,7 +175,7 @@ const RegistrationForm = () => {
       </div>
       <div className={css.buttons}>
         <ButtonMain text="REGISTER" type="submit" />
-        <Link to="/Goit-Wallet/login">
+        <Link to="/Goit-Wallet/">
           <ButtonSecondary text="LOG IN" />
         </Link>
       </div>

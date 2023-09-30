@@ -3,14 +3,15 @@
 
 /*Mobile*/
 .currency {
-  position: relative;
-  background-color: #4a56e2;
+  position: relative; 
+  background-color: var(--accent-text-color);
   border-radius: 30px;
   min-height: 174px;
   background-image: url(../../assets/mobile-table-bg.svg);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 100% 46%;
+  flex: 1
 }
 
 .currencyTbl {
@@ -78,6 +79,7 @@
   .currency {
     min-height: 331px;
     background-size: 100% 36%;
+    position: relative;
   }
 
   .currencyTblTitle {

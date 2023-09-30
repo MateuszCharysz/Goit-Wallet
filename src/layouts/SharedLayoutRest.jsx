@@ -1,19 +1,20 @@
-import React, { Suspense } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
+import Notiflix from 'notiflix';
 import Loader from '../components/Loader/Loader';
-import ButtonSecondary from '../components/ButtonSecondary';
 import useAuth from '../hook/useAuth';
 
 const SharedLayoutRestricted = () => {
-  const { isAuthLoading } = useAuth();
+  const { isAuthLoading, authError } = useAuth();
+
+  useEffect(() => {
+    if (authError) Notiflix.Notify.failure(authError);
+  }, [authError]);
 
   return (
     <>
       <Suspense fallback={<Loader />}>
         <Outlet />
-        <Link to="dashboard">
-          {/* <ButtonSecondary text="DEV BUTTON skip login and go to DASHBOARD" /> */}
-        </Link>
         <Loader isVisible={isAuthLoading} />
       </Suspense>
     </>

@@ -1,21 +1,23 @@
-import React from "react";
-import ChartComponent from "../components/chart/Chart";
-import DiagramTab from "../components/DiagramTab/DiagramTab";
-import transactions from "../components/DiagramTab/transaction.json";
+import React from 'react';
+import useTransactions from '../hook/useTransactions';
+import DiagramTab from '../components/DiagramTab/DiagramTab';
 import css from '../components/DiagramTab/DiagramTab.module.css';
 
 const Statistics = () => {
-    
+  const { transactions } = useTransactions();
 
-    return (
-        <>
-        <div className={css.containerStatistics}>
+  return (
+    <>
+      <div className={css.containerStatistics}>
         <div className={css.tabContainer}>
-        <DiagramTab transactions={transactions} className={css.DiagramTabContainer} />
+          <DiagramTab
+            transactions={transactions}
+            className={css.DiagramTabContainer}
+          />
         </div>
-        </div>
-        </>
-    )
-}
+      </div>
+    </>
+  );
+};
 
 export default Statistics;
