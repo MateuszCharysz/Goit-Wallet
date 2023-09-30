@@ -17,9 +17,6 @@ const Login = () => {
           <img src={tabletImg}></img>
           <span className={css.finance}>Finance App</span>
         </div>
-        <div className={css.ellipseDesktop}>
-          <img src={ellipseDesktop}></img>
-        </div>
         <div className={css.desktopContainer}>
           <img src={desktopImg}></img>
           <span className={css.finance}>Finance App</span>

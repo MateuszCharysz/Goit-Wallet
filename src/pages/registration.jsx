@@ -57,12 +57,6 @@ const Registration = () => {
               onClick={resend}></ButtonSecondary>
           )}
         </div>
-        <div className={css.ellipseDownT}>
-          <img src={ellipseDownT}></img>
-        </div>
-        <div className={css.ellipseDownD}>
-          <img src={ellipseDownD}></img>
-        </div>
       </div>
       <Loader isVisible={isAuthLoading} />
     </>
