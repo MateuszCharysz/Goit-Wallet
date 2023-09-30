@@ -77,7 +77,6 @@ margin-top: 0px;
 }
 
 .balanceValue {
-    color: #000;
 text-align: center;
 font-family: Circe;
 font-size: 18px;
@@ -95,10 +94,6 @@ left: 95px;
     bottom: 160px;
     left: 95px;
 }
-}
-
-.negativeValue {
-    color: #ff0000;
 }
 
 .tableDateContainer {
