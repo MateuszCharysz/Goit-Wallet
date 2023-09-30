@@ -144,14 +144,14 @@
   }
   .formDate::before{
     position: absolute;
-    content: "";
+    content: url(../../utils/Svg/calendar.svg);
     height: 20px;
     width: 20px;
     right: 5px;
-    bottom: 5px;
+    bottom: 10px;
     background-color: white;
-    border: solid 2px #4A56E2;
-    border-radius: 2px;
+    /* border: solid 2px #4A56E2;
+    border-radius: 2px; */
     pointer-events: none;
 
   }
