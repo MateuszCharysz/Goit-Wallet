@@ -1,13 +1,25 @@
 
 .containerStatistics {
-    width: 100%;
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.40);
+    flex-direction: column;
     @media(min-width:768px){
-        display: block;
-        padding-left: 32px;
-        padding-right: 32px;
+        max-width: 100%;
+    }
+    @media(min-width:1280px){
+        width: 800px;
+        margin-left:0px;
+        margin-right:0px;
+        float: right;
+    }
+}
+
+.titleChartContainer {
+    @media(min-width:768px){
+    display: block;
+    margin-right: 32px; 
     }
 }
 
@@ -17,26 +29,100 @@
         justify-content: space-between;
     }
     @media(min-width:1280px){
-        justify-content: flex-end;
+        justify-content: end;
     }
 }
 
-/*.currencyContainer {
+.titleStatistics {
+    color: #000;
+text-align: start;
+font-family: Poppins;
+font-size: 30px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+margin-top: 0px;
+@media(min-width:768px){
+    height: 50px;
+}
+}
+
+.chartContainer {
+    box-sizing: border-box;
+    margin-top: 8px;
+    width:280px;
+    height:280px;
+    @media(min-width:768px){
+        width: 336px;
+        height: 336px;
+    }
+    @media(min-width:1280px){
+        width: 288px;
+        height: 288px;
+    }
+}
+
+.noDataInformation {
+    font-family: Poppins;
+   height: 50px;
+   padding-top:100px;
+}
+
+.selectDataInformation {
+    font-family: Poppins;
+   font-size: 20px;
+   height:70px;
+   padding-top:40px;
+   color: #717171;
+}
+
+.balanceValue {
+    color: #000;
+text-align: center;
+font-family: Circe;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+position: relative;
+left: 95px;
+bottom: 130px;
+@media(min-width:768px) {
+    bottom: 160px;
+    left: 120px;
+}
+@media(min-width:1280px){
+    bottom: 140px;
+    left: 95px;
+}
+}
+
+.negativeValue {
+    color: #ff0000;
+}
+
+.tableDateContainer {
+    @media(min-width:1280px){
+        margin-top: 58px;
+    }
+}
+
+.dateContainer{
     display: flex;
-    justify-content: space-between;
-    position: relative;
-    bottom: 48px;
-    padding: 0 32px;
-}*/
+    flex-direction: column;
+    margin-top: 32px;
+    @media(min-width:768px){  
+     display: flex;
+     flex-direction: row; 
+     justify-content: center;
+     margin-top:0px;
+    }
+}
 
 
 .tableContener {
-    position: relative;
-    top: 130px;
-    height: 100%;
-    @media(min-width:768px){
-      margin-left: 32px;  
-    }
+    margin-top: 20px;
+    height: 604px;
 }
 
 table {
@@ -61,7 +147,6 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 line-height: 18px;
-background-color: darksalmon;
 
 }
 
@@ -188,9 +273,14 @@ vertical-align: middle;
     padding-top: 16px;
 }
 
+.containerExpensesIncome {
+display: flex;
+justify-content: space-between;
+padding-left: 20px;
+padding-right: 20px;
+}
+
 .sumUpExpenses {
-    position: relative;
-    left: 20px;
     color: #000;
 font-family: Circe;
 font-size: 16px;
@@ -205,8 +295,6 @@ line-height: normal;
 }
 }
 .expensesValue {
-    position: relative;
-    right: -150px;
     color: #FF6596;
 font-family: Circe;
 font-size: 16px;
@@ -222,8 +310,6 @@ line-height: normal;
 }
 
 .sumUpIncome {
-    position: relative;
-    left: 20px;
     color: #000;
 font-family: Circe;
 font-size: 16px;
@@ -239,8 +325,6 @@ line-height: 18px;
 }
 
 .IncomeValue {
-    position: relative;
-    right: -185px;
     color: #24CCA7;
 text-align: right;
 font-family: Circe;
@@ -249,10 +333,10 @@ font-style: normal;
 font-weight: 700;
 line-height: normal;
 @media(min-width:768px){
-    right: -250px;
+    right: -225px;
 }
 @media(min-width:1280px){
-    right:-310px;
+    right:-285px;
 }
 }
 
@@ -260,67 +344,11 @@ line-height: normal;
     padding-top:17px;
 }
 
-.balanceValue {
-    color: #000;
-text-align: center;
-font-family: Circe;
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-position: relative;
-left: 95px;
-bottom: 130px;
-@media(min-width:768px) {
-    bottom: 160px;
-    left: 120px;
-}
-@media(min-width:1280px){
-    bottom: 140px;
-    left: 95px;
-}
-}
 
-.chartContainer {
-    padding-top: 20px;
-    width:280px;
-    height:280px;
-    @media(min-width:768px){
-        width: 336px;
-        height: 336px;
-    }
-    @media(min-width:1280px){
-        width: 288px;
-        height: 288px;
-    }
-}
 
-.chartContainer canvas {
-    @media(min-width:768px){
-     position: relative;
-    left: -10px;   
-    } 
-}
 
-.titleStatistics {
-    color: #000;
-text-align: start;
-font-family: Poppins;
-font-size: 30px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-margin-top: 0px;
-padding-top: 40px;
-}
 
-.dateContainer{
-    position: relative;
-    top: 122px;
-    @media(min-width:768px){
-     margin-left: 15px;   
-    }
-    @media(min-width:1280px){
-        margin-left:0px;
-    }
-}
+
+
+
+
