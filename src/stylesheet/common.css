@@ -11,9 +11,10 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
 }
-:root {
+
+/* :root {
 	background-color: #e7eaf2;
-}
+} */
 ul,
 ol {
 	list-style: none;
@@ -39,4 +40,11 @@ button {
 .active {
 	font-weight: bold;
 	font-family: Circe;
+}
+
+.dashboardWrapper {
+	@media (min-width:1280px) {
+		max-height: 510px;
+		overflow: auto;
+	}
 }

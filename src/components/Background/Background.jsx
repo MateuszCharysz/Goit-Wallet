@@ -5,11 +5,11 @@ import elipsePurple from '../../utils/elipse-purple.png'
 
 const Background = () => {
   return (
-    <div>
+    <div className={css.backgroundColor}>
       <img src={elipseOrange} className={css.backgroundOrange}></img>
       <img src={elipsePurple} className={css.backgroundPurple}></img>
     </div>
-  )
+  );
 };
 
 export default Background
