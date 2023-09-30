@@ -42,6 +42,20 @@ export const DashboardMobile = () => {
     setData(data);
   };
 
+  const formatSum = (data) => {
+    const numericValue = parseFloat(data);
+    const options = {
+      useGrouping: true,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedValue = numericValue
+      .toLocaleString("pl-PL", options)
+      .replace(/,/g, ".");
+
+    return formattedValue;
+  };
+
   return (
     <>
       {data.length ? (
@@ -85,7 +99,7 @@ export const DashboardMobile = () => {
                       <span
                         className={type === "+" ? styles.green : styles.red}
                       >
-                        {sum}
+                        {formatSum(sum)}
                       </span>
                     </li>
                     <li key={nanoid()} className={styles.listElement}>

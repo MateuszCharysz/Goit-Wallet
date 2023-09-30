@@ -42,6 +42,20 @@ export const Dashboard = () => {
     setData(data);
   };
 
+  const formatSum = (data) => {
+    const numericValue = parseFloat(data);
+    const options = {
+      useGrouping: true,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedValue = numericValue
+      .toLocaleString("pl-PL", options)
+      .replace(/,/g, ".");
+
+    return formattedValue;
+  };
+
   return (
     <>
       {data.length ? (
@@ -69,9 +83,9 @@ export const Dashboard = () => {
                     <td>{category}</td>
                     <td>{comment}</td>
                     {type == "+" ? (
-                      <td className={styles.green}>{sum}</td>
+                      <td className={styles.green}>{formatSum(sum)}</td>
                     ) : (
-                      <td className={styles.red}>{sum}</td>
+                      <td className={styles.red}>{formatSum(sum)}</td>
                     )}
                     <td>
                       <span className={styles.buttonContainer}>

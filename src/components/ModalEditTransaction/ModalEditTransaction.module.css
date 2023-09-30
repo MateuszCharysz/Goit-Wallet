@@ -115,12 +115,15 @@
     width: 100%;
     outline: none;
     border: 1px solid white;
-    color: #979797;
-    font-weight: 400;
+    color: black;
+    font-weight: 800;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
     @media screen and (min-width: 768px) {
       text-align: center;
     }
+  }
+  .formValue::placeholder{
+    color:#979797
   }
 
   .formDate{
@@ -130,7 +133,7 @@
       background-color: white;
       text-align: left;
       outline: none;
-       color: #979797;
+       color: black;
       font-weight: 400;
       border: 1px solid white;
       border-bottom: 1px solid rgba(0,0,0, 0.1);
@@ -162,13 +165,16 @@
     height: 85px;
     text-align: left;
     outline: none;
-    color: #979797;
+    color: black;
     font-weight: 400;
     border: 1px solid white;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
     @media screen and (min-width: 768px) {
       height: 35px;
     }
+  }
+  .formComment::placeholder{
+    color: #979797;
   }
   .formCategoryContainer{
     background-color: transparent;

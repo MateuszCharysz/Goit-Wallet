@@ -63,6 +63,7 @@ export const ModalAddTransaction = ({
               <input
                 type="number"
                 name="number"
+                min="0.01"
                 max="999999999999"
                 onChange={onChangeValue}
                 placeholder="0.00"
