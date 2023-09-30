@@ -114,6 +114,8 @@ const DiagramTab = ({ transactions }) => {
   ];
 
   const balanceValue = (totalIncome - parseFloat(totalSum)).toFixed(2);
+  const textColor = balanceValue < 0 ? "red" : "black";
+
   return (
     <>
       <div className={css.titleChartContainer}>
@@ -125,7 +127,9 @@ const DiagramTab = ({ transactions }) => {
             <h2 className={css.noDataInformation}>There are no expenses</h2>
           )}
           {Object.keys(categorySums).length !== 0 ? (
-            <span className={css.balanceValue}>PLN {balanceValue}</span>
+            <span className={css.balanceValue} style={{ color: textColor }}>
+              PLN {balanceValue}
+            </span>
           ) : (
             <p className={css.selectDataInformation}>
               Please select another date to see your expenses
