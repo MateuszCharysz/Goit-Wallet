@@ -1,20 +1,20 @@
-import styles from './Dashboard.module.css';
-import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { EditPen } from '../EditPen/EditPen';
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { AddTransactionButton } from '../AddTransactionButton/AddTransactionButton';
+import styles from "./Dashboard.module.css";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { EditPen } from "../EditPen/EditPen";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
-} from '../../services/DateFunctions';
-import useTransactions from '../../hook/useTransactions';
+} from "../../services/DateFunctions";
+import useTransactions from "../../hook/useTransactions";
 import {
   getTransactions,
   removeTransaction,
-} from '../../redux/transactions/actions';
-import { nanoid } from 'nanoid';
+} from "../../redux/transactions/actions";
+import { nanoid } from "nanoid";
 
 export const Dashboard = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
@@ -29,16 +29,16 @@ export const Dashboard = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = id => {
+  const deleteLine = (id) => {
     dispatch(removeTransaction(id));
-    setData(prevData => prevData.filter(({ _id }) => _id !== id));
+    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = data => {
-    setData(prevData => [data, ...prevData]);
+  const addData = (data) => {
+    setData((prevData) => [data, ...prevData]);
   };
 
-  const updateData = data => {
+  const updateData = (data) => {
     setData(data);
   };
 
@@ -68,7 +68,7 @@ export const Dashboard = () => {
                     <td>{type}</td>
                     <td>{category}</td>
                     <td>{comment}</td>
-                    {type == '+' ? (
+                    {type == "+" ? (
                       <td className={styles.green}>{sum}</td>
                     ) : (
                       <td className={styles.red}>{sum}</td>
@@ -94,7 +94,10 @@ export const Dashboard = () => {
           <AddTransactionButton addDashboard={addData} />
         </>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+        <>
+          <h2>There are no transactions</h2>
+          <AddTransactionButton addDashboard={addData} />
+        </>
       ) : null}
     </>
   );

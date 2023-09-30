@@ -1,20 +1,20 @@
-import styles from './DashboardMobile.module.css';
-import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { EditPen } from '../EditPen/EditPen';
-import { useEffect, useState } from 'react';
+import styles from "./DashboardMobile.module.css";
+import { DeleteButton } from "../DeleteButton/DeleteButton";
+import { EditPen } from "../EditPen/EditPen";
+import { useEffect, useState } from "react";
 import {
   getDayDashboard,
   getMonthDashboard,
   getYearDashboard,
-} from '../../services/DateFunctions';
-import { AddTransactionButton } from '../AddTransactionButton/AddTransactionButton';
-import { useDispatch } from 'react-redux';
+} from "../../services/DateFunctions";
+import { AddTransactionButton } from "../AddTransactionButton/AddTransactionButton";
+import { useDispatch } from "react-redux";
 import {
   getTransactions,
   removeTransaction,
-} from '../../redux/transactions/actions';
-import { nanoid } from 'nanoid';
-import useTransactions from '../../hook/useTransactions';
+} from "../../redux/transactions/actions";
+import { nanoid } from "nanoid";
+import useTransactions from "../../hook/useTransactions";
 
 export const DashboardMobile = () => {
   const { transactions, isTransactionsLoading } = useTransactions();
@@ -29,16 +29,16 @@ export const DashboardMobile = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = id => {
+  const deleteLine = (id) => {
     dispatch(removeTransaction(id));
-    setData(prevData => prevData.filter(({ _id }) => _id !== id));
+    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = data => {
-    setData(prevData => [data, ...prevData]);
+  const addData = (data) => {
+    setData((prevData) => [data, ...prevData]);
   };
 
-  const updateData = data => {
+  const updateData = (data) => {
     setData(data);
   };
 
@@ -52,7 +52,7 @@ export const DashboardMobile = () => {
                 <div key={_id ?? nanoid()} className={styles.element}>
                   <ul
                     className={
-                      type === '+'
+                      type === "+"
                         ? styles.greenElementList
                         : styles.redElementList
                     }
@@ -76,14 +76,14 @@ export const DashboardMobile = () => {
                       <span className={styles.listElementTitle}>Comment</span>
                       <span>
                         {comment.length > 15
-                          ? comment.substr(0, 15) + '...'
+                          ? comment.substr(0, 15) + "..."
                           : comment}
                       </span>
                     </li>
                     <li key={nanoid()} className={styles.listElement}>
                       <span className={styles.listElementTitle}>Sum</span>
                       <span
-                        className={type === '+' ? styles.green : styles.red}
+                        className={type === "+" ? styles.green : styles.red}
                       >
                         {sum}
                       </span>
@@ -114,7 +114,10 @@ export const DashboardMobile = () => {
           })}
         </div>
       ) : !isTransactionsLoading ? (
-        <h2>There are no transactions</h2>
+        <>
+          <h2>There are no transactions</h2>
+          <AddTransactionButton addDashboard={addData} />
+        </>
       ) : null}
     </>
   );

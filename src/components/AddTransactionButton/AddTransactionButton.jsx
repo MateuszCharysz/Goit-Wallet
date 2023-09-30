@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import styles from '../AddTransactionButton/AddTransactionButton.module.css';
-import { ModalAddTransaction } from '../ModalAddTransaction/ModalAddTransaction';
-import { getDay, getMonth, getDefYear } from '../../services/DateFunctions';
-import { createTransaction } from '../../redux/transactions/actions';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styles from "../AddTransactionButton/AddTransactionButton.module.css";
+import { ModalAddTransaction } from "../ModalAddTransaction/ModalAddTransaction";
+import { getDay, getMonth, getDefYear } from "../../services/DateFunctions";
+import { createTransaction } from "../../redux/transactions/actions";
 
 export const AddTransactionButton = ({ addDashboard }) => {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [data, setData] = useState();
 
-  const dateTrim = e => {
+  const dateTrim = (e) => {
     const selectedData = e.target.value.toString();
     const day = selectedData.substr(8, 2);
     const month = selectedData.substr(5, 2);
@@ -20,8 +20,9 @@ export const AddTransactionButton = ({ addDashboard }) => {
 
   const openModal = () => {
     setData({
-      type: '-',
-      category: 'Other expenses',
+      type: "-",
+      category: "Other expenses",
+      comment: "*",
       date: {
         day: getDay(),
         month: getMonth(),
@@ -31,17 +32,17 @@ export const AddTransactionButton = ({ addDashboard }) => {
     setModal(true);
   };
 
-  const closeModal = e => {
+  const closeModal = (e) => {
     if (e) e.preventDefault();
     setData({});
     setModal(false);
   };
 
   const sliderTypePlus = () =>
-    setData({ ...data, type: '+', category: 'Income' });
-  const sliderTypeMinus = () => setData({ ...data, type: '-' });
+    setData({ ...data, type: "+", category: "Income" });
+  const sliderTypeMinus = () => setData({ ...data, type: "-" });
 
-  const submitModal = e => {
+  const submitModal = (e) => {
     e.preventDefault();
     dispatch(createTransaction(data));
     addDashboard(data);
@@ -58,10 +59,10 @@ export const AddTransactionButton = ({ addDashboard }) => {
           onClose={closeModal}
           onChangeSliderPlus={sliderTypePlus}
           onChangeSliderMinus={sliderTypeMinus}
-          onChangeValue={e => setData({ ...data, sum: e.target.value })}
+          onChangeValue={(e) => setData({ ...data, sum: e.target.value })}
           onChangeDate={dateTrim}
-          onChangeComment={e => setData({ ...data, comment: e.target.value })}
-          onChangeCategory={e => setData({ ...data, category: e })}
+          onChangeComment={(e) => setData({ ...data, comment: e.target.value })}
+          onChangeCategory={(e) => setData({ ...data, category: e })}
         />
       )}
     </>
