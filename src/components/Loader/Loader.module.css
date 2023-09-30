@@ -1,10 +1,8 @@
 .loader {
   position: fixed;
-  top: 35%;
+  top: 40%;
   left: 50%;
-  z-index: 100;
+  z-index: 9999;
   margin-top: -50px;
   margin-left: -50px;
-  stroke: #4a56e2;
-  stroke-width: 2px;
 }
