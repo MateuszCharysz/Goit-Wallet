@@ -132,7 +132,7 @@ const RegistrationForm = () => {
           onChange={handleChange}
           required
         />
-        <div className={confirmPass ? css.confirmPass : ''}></div>
+        {confirmPass ? (<div className={css.confirmPass}></div>) : null}
         <Input
           text={
             <div className={css.registerLabel}>

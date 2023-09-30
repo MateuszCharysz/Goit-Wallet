@@ -52,7 +52,7 @@ import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
                     <section className={styles.modalForm}>
                         <label name="addTransForm">
                             {type==='+'?<></>:<SelectMenuModal onClick={e => setData({ ...data, category: e, id:id })} placeholder={'Select a category'}/>}
-                            <div  className={styles.formWrapper}>
+                            <div  className={styles.formContainer}>
                                 <input 
                                     type="number"
                                     name="sum" 

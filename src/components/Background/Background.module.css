@@ -1,20 +1,24 @@
-.background {
-}
 .backgroundOrange {
-	display: inline-block;
-	background: url(../../utils/elipse-orange.png);
-	background-repeat: no-repeat;
-	z-index: -1;
-	position: absolute;
-	top: 0;
-	right: 0;
+	display: none;
+	@media screen and (min-width: 768px) {
+		display: inline-block;
+		background: url(../../utils/elipse-orange.png);
+		background-repeat: no-repeat;
+		z-index: -10;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
 }
 .backgroundPurple {
-	display: inline-block;
-	background: url(../../utils/elipse-purple.png);
-	background-repeat: no-repeat;
-	z-index: -1;
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	display: none;
+	@media screen and (min-width: 768px) {
+		display: inline-block;
+		background: url(../../utils/elipse-purple.png);
+		background-repeat: no-repeat;
+		z-index: -10;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+	}
 }

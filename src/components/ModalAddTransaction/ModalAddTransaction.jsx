@@ -41,7 +41,7 @@ const sendCategory = (data) => {onChangeCategory(data)}
             <section className={styles.modalForm}>
                 <form onSubmit={onSubmit} className={styles.Form}>
                     {!count?<></>:<SelectMenuModal onClick={sendCategory} placeholder={'Select a category'}/>}
-                    <div  className={styles.formWrapper}>
+                    <div  className={styles.formContainer}>
                         <input 
                             type="number" 
                             name="number"

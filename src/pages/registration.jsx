@@ -7,8 +7,8 @@ import Notiflix from 'notiflix';
 import css from '../components/LoginRegisterForms/RegistrationForm.module.css';
 import logo from '../utils/Svg/logo.svg';
 import RegistrationForm from '../components/LoginRegisterForms/RegistrationForm';
-import frameTablet from '../utils/frame-registration/frame-tablet.png';
-import frameDesk from '../utils/frame-registration/frame-desktop.png';
+import tabletImg from '../utils/registration/appImg-tablet.png';
+import desktopImg from '../utils/registration/appImg-desktop.png';
 
 const Registration = () => {
   const { user, isRegistered } = useAuth();
@@ -32,11 +32,11 @@ const Registration = () => {
     <>
       <div className={css.registerContainer}>
         <div className={css.desktopContainer}>
-          <img src={frameDesk}></img>
+          <img src={desktopImg}></img>
           <span className={css.finance}>Finance App</span>
         </div>
         <div className={css.tabletContainer}>
-          <img src={frameTablet}></img>
+          <img src={tabletImg}></img>
           <span className={css.finance}>Finance App</span>
         </div>
         <div className={css.registerWrapper}>
