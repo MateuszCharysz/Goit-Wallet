@@ -1,5 +1,5 @@
 .wrapper{
-    position: relative;
+    /* position: relative; */
     display: flex;
     flex-direction: column;
     font-family: Circe;

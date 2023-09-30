@@ -28,9 +28,10 @@ const SharedLayoutPrivate = () => {
           <div className={css.smallContainer}>
             <div className={css.subContainer}>
               <Navigation />
-              <Media queries={{ medium: '(min-width: 768px)' }}>
+              <BalanceComponent/>
+              {/* <Media queries={{ medium: '(min-width: 768px)' }}>
                 {matches => matches.medium && <BalanceComponent />}
-              </Media>
+              </Media> */}
             </div>
             <Media queries={{ medium: '(min-width: 768px)' }}>
               {matches => matches.medium && <Currency />}
