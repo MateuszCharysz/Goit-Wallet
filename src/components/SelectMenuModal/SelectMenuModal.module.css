@@ -23,7 +23,8 @@ body{
     z-index: 55;
 }
 
-.selectBtn{
+.selectBtn,
+.selectBtnGrey{
     display: flex;
     background-color: white;
     padding: 10px 10px 0 10px;
@@ -32,7 +33,7 @@ body{
     width: 100%;
     justify-content: left;
     outline: none;
-    color: #BDBDBD;
+    color: black;
     font-weight: 400;
     font-size: 18px;
     border: 1px solid white;
@@ -40,14 +41,16 @@ body{
     cursor: pointer;
     z-index: 56;
 }
+.selectBtnGrey{
+    color: #979797;
+}
 
 .optionsContainer{
     background-color: white;
-    opacity: 70%;
+    opacity: 95%;
     border-radius: 20px;
     width: 90%;
     display: flex;
-    /* box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.10); */
     position: absolute;
     backdrop-filter: blur(20px);
     top:35px;

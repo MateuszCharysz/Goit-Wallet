@@ -8,10 +8,10 @@
     right:20px;
     bottom:20px;
     border: #24CCA7 1px solid;
-    box-shadow: 0 10px 20px -7px rgba(36, 204, 167, 1);
+    box-shadow: 0 10px 10px -7px rgba(36, 204, 167, 1);
 }
 .addButton::before{
-    content: "+";
+    content: url(../../utils/Svg/+.svg);
     color:white;
     position: absolute;
     height: 40px;

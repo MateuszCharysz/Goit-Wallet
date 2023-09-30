@@ -79,14 +79,13 @@ padding: 40px 0;
   }
 
   .slider:before {
-    content: "-";
+    content: url(../../utils/Svg/m.svg);
     position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     color:white;
     font-size: 40px;
-    /* content:url(""); */
     height: 44px;
     width: 44px;
     right: 0px;
@@ -100,7 +99,7 @@ padding: 40px 0;
 
   input:checked + .slider:before {
     transform: translateX(-36px);
-    content: "+";
+    content: url(../../utils/Svg/+.svg);
     background-color: #24CCA7;
     box-shadow: -10px 10px 20px -10px rgba(36, 204, 167, 1);
   }
@@ -171,12 +170,15 @@ padding: 40px 0;
     width: 100%;
     outline: none;
     border: 1px solid white;
-    color: #979797;
-    font-weight: 400;
+    color: black;
+    font-weight: 800;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
     @media screen and (min-width: 768px) {
       text-align: center;
     }
+  }
+  .formValue::placeholder{
+    color:#979797
   }
 
   .formDate{
@@ -186,7 +188,7 @@ padding: 40px 0;
       background-color: white;
       text-align: left;
       outline: none;
-       color: #979797;
+       color: black;
       font-weight: 400;
       border: 1px solid white;
       border-bottom: 1px solid rgba(0,0,0, 0.1);
@@ -195,18 +197,18 @@ padding: 40px 0;
       text-align: center;
     }
   }
+
   .formDate::before{
     position: absolute;
-    content: "";
+    content: url(../../utils/Svg/calendar.svg);
     height: 20px;
     width: 20px;
     right: 5px;
-    bottom: 5px;
+    bottom: 10px;
     background-color: white;
-    border: solid 2px #4A56E2;
-    border-radius: 2px;
+    /* border: solid 2px #4A56E2;
+    border-radius: 2px; */
     pointer-events: none;
-
   }
 
   .formComment{
@@ -218,13 +220,16 @@ padding: 40px 0;
     height: 85px;
     text-align: left;
     outline: none;
-    color: #979797;
+    color: black;
     font-weight: 400;
     border: 1px solid white;
     border-bottom: 1px solid rgba(0,0,0, 0.1);
     @media screen and (min-width: 768px) {
       height: 35px;
     }
+  }
+  .formComment::placeholder{
+    color: #979797;
   }
   .formCategoryContainer{
     background-color: transparent;
