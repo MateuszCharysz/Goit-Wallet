@@ -1,54 +1,54 @@
-import { useState } from 'react';
-import css from './DiagramTab.module.css';
-import ChartComponent from '../chart/Chart';
-import SelectStatisticsMenu from '../SelectStatisticsMenu/SelectStatisticsMenu';
-import { nanoid } from 'nanoid';
+import { useState } from "react";
+import css from "./DiagramTab.module.css";
+import ChartComponent from "../chart/Chart";
+import SelectStatisticsMenu from "../SelectStatisticsMenu/SelectStatisticsMenu";
+import { nanoid } from "nanoid";
 
 const DiagramTab = ({ transactions }) => {
   const categoryColors = {
-    'Main expenses': 'rgba(254, 208, 87, 1)',
-    'Products': 'rgba(255, 216, 208, 1)',
-    'Car': 'rgba(253, 148, 152, 1)',
-    'Self care': 'rgba(197, 186, 255, 1)',
-    'Child care': 'rgba(110, 120, 232, 1)',
-    'Household products': 'rgba(74, 86, 226, 1)',
-    'Education': 'rgba(129, 225, 255, 1)',
-    'Leisure': 'rgba(36, 204, 167, 1)',
-    'Other expenses': 'rgba(0, 173, 132, 1)',
+    "Main expenses": "rgba(254, 208, 87, 1)",
+    Products: "rgba(255, 216, 208, 1)",
+    Car: "rgba(253, 148, 152, 1)",
+    "Self care": "rgba(197, 186, 255, 1)",
+    "Child care": "rgba(110, 120, 232, 1)",
+    "Household products": "rgba(74, 86, 226, 1)",
+    Education: "rgba(129, 225, 255, 1)",
+    Leisure: "rgba(36, 204, 167, 1)",
+    "Other expenses": "rgba(0, 173, 132, 1)",
   };
 
-  const monthNameToNumber = monthName => {
+  const monthNameToNumber = (monthName) => {
     const months = {
-      January: '01',
-      February: '02',
-      March: '03',
-      April: '04',
-      May: '05',
-      June: '06',
-      July: '07',
-      August: '08',
-      September: '09',
-      October: '10',
-      November: '11',
-      December: '12',
+      January: "01",
+      February: "02",
+      March: "03",
+      April: "04",
+      May: "05",
+      June: "06",
+      July: "07",
+      August: "08",
+      September: "09",
+      October: "10",
+      November: "11",
+      December: "12",
     };
 
     return months[monthName];
   };
 
-  const [selectedMonth, setSelectedMonth] = useState('');
-  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedMonth, setSelectedMonth] = useState("");
+  const [selectedYear, setSelectedYear] = useState("");
 
-  const setMonth = data => {
+  const setMonth = (data) => {
     const numericMonth = monthNameToNumber(data);
     setSelectedMonth(numericMonth);
   };
 
-  const setYear = data => {
+  const setYear = (data) => {
     setSelectedYear(data);
   };
 
-  const filteredTransactions = transactions.filter(transaction => {
+  const filteredTransactions = transactions.filter((transaction) => {
     if (selectedMonth && selectedYear) {
       return (
         transaction.date.month === selectedMonth &&
@@ -62,11 +62,11 @@ const DiagramTab = ({ transactions }) => {
   const categorySums = {};
   let totalIncome = 0;
 
-  filteredTransactions.forEach(transaction => {
+  filteredTransactions.forEach((transaction) => {
     const category = transaction.category;
     const sum = parseFloat(transaction.sum);
 
-    if (category !== 'Income') {
+    if (category !== "Income") {
       if (!isNaN(sum)) {
         if (!categorySums[category]) {
           categorySums[category] = sum;
@@ -76,7 +76,7 @@ const DiagramTab = ({ transactions }) => {
       }
     }
 
-    if (category === 'Income') {
+    if (category === "Income") {
       if (!selectedMonth && !selectedYear) {
         totalIncome += sum;
       }
@@ -108,38 +108,41 @@ const DiagramTab = ({ transactions }) => {
   const uniqueCategories = [
     ...new Set(
       filteredTransactions
-        .filter(transaction => transaction.category !== 'Income')
-        .map(transaction => transaction.category)
+        .filter((transaction) => transaction.category !== "Income")
+        .map((transaction) => transaction.category)
     ),
   ];
 
+  const balanceValue = (totalIncome - parseFloat(totalSum)).toFixed(2);
   return (
     <>
-      <div className={css.chartContainer}>
+      <div className={css.titleChartContainer}>
         <h2 className={css.titleStatistics}>Statistics</h2>
-        {Object.keys(categorySums).length !== 0 ? (
-          <ChartComponent categorySums={categorySums} />
-        ) : (
-          <h2>There are no expenses</h2>
-        )}
-        {Object.keys(categorySums).length !== 0 ? (
-          <span className={css.balanceValue}>
-            PLN {totalIncome - parseFloat(totalSum)}
-          </span>
-        ) : (
-          <p>Please select another date to see your expenses</p>
-        )}
+        <div className={css.chartContainer}>
+          {Object.keys(categorySums).length !== 0 ? (
+            <ChartComponent categorySums={categorySums} />
+          ) : (
+            <h2 className={css.noDataInformation}>There are no expenses</h2>
+          )}
+          {Object.keys(categorySums).length !== 0 ? (
+            <span className={css.balanceValue}>PLN {balanceValue}</span>
+          ) : (
+            <p className={css.selectDataInformation}>
+              Please select another date to see your expenses
+            </p>
+          )}
+        </div>
       </div>
       <div className={css.tableDateContainer}>
         <div className={css.dateContainer}>
           <SelectStatisticsMenu
-            placeholder={'Month'}
-            type={'month'}
+            placeholder={"Month"}
+            type={"month"}
             setDate={setMonth}
           />
           <SelectStatisticsMenu
-            placeholder={'Year'}
-            type={'year'}
+            placeholder={"Year"}
+            type={"year"}
             setDate={setYear}
           />
         </div>
@@ -153,12 +156,12 @@ const DiagramTab = ({ transactions }) => {
               </tr>
             </thead>
             <tbody className={css.bodyStatisticsTable}>
-              {uniqueCategories.map(category => {
+              {uniqueCategories.map((category) => {
                 return (
                   <tr key={nanoid()}>
                     <td
                       className={css.categorySquare}
-                      style={{ '--category-color': categoryColors[category] }}
+                      style={{ "--category-color": categoryColors[category] }}
                     />
                     <td className={css.tableBodyCategory}>{category}</td>
                     <td className={css.tableBodySum}>
@@ -170,11 +173,11 @@ const DiagramTab = ({ transactions }) => {
             </tbody>
           </table>
           <div className={css.sumUp}>
-            <div>
+            <div className={css.containerExpensesIncome}>
               <strong className={css.sumUpExpenses}>Expenses:</strong>
               <span className={css.expensesValue}>{totalSum}</span>
             </div>
-            <div>
+            <div className={css.containerExpensesIncome}>
               <strong className={css.sumUpIncome}>Income:</strong>
               <span className={css.IncomeValue}>{totalIncome}</span>
             </div>
