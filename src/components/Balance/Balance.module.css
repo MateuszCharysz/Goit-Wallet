@@ -1,7 +1,5 @@
-@import '../../stylesheet/vars.css';
-@import '../../stylesheet/fonts.css';
-
-/*Mobile*/
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 
 .balance {
   background-color: var(--secondary-background-color);
@@ -26,13 +24,3 @@
   font-size: 30px;
   line-height: 1.5;
 }
-
-.balance__currency {
-  font-weight: 400;
-}
-
-/* Tablet
-@media screen and (min-width: 768px) {}
-
-Desktop
-@media screen and (min-width: 1280px) {} */
