@@ -54,6 +54,7 @@
 }
 .logoutYes {
 	background-color: #24cca7;
+	color: white;
 	padding: 10px 30px;
 	border-radius: 10px;
 }
@@ -63,6 +64,7 @@
 }
 .logoutNo {
 	background-color: #ff6596;
+	color: white;
 	padding: 10px 20px;
 	border-radius: 10px;
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useAuth from '../../hook/useAuth';
-import css from './RegistrationForm.module.css';
+import css from '../LoginRegisterForms/LoginRegister.module.css';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
@@ -14,6 +14,7 @@ import Svg from '../../utils/Svg/Svg';
 const RegistrationForm = () => {
   const { isRegistered } = useAuth();
   const [confirmPass, setConfirmPass] = useState(false);
+  const [confirmFail, setConfirmFail] = useState(false);
   const [inputs, setInputs] = useState({
     email: '',
     password: '',
@@ -28,12 +29,30 @@ const RegistrationForm = () => {
     }
   }, [isRegistered]);
 
-  const handleChange = ev => {
-    ev.preventDefault();
-    const { name, value } = ev.currentTarget;
+  const handleChange = e => {
+    e.preventDefault();
+    const { name, value } = e.currentTarget;
     setInputs(data => ({ ...data, [name]: value }));
   };
-
+  const handleConfirm = (e) => {
+    e.preventDefault();
+    handleChange(e);
+    const form = e.target.closest('form');
+    const password = form.elements.password.value.trim();
+    const confirm = form.elements.confirm.value.trim();
+    if (confirm !== password) {
+      setConfirmPass(false);
+      setConfirmFail(true);
+    }
+    if (confirm === password) {
+      setConfirmPass(true);
+      setConfirmFail(false);
+    }
+    if (confirm === '' && password === '') {
+      setConfirmFail(false);
+      setConfirmPass(false);
+    }
+  };
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -87,19 +106,12 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form
-      className={css.registerForm}
-      onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.registerInputs}>
         <Input
           text={
-            <div className={css.registerLabel}>
-              <Svg
-                className={css.icon}
-                icon='email'
-                fill='#e0e0e0'
-                size='24'
-              />
+            <div className={css.label}>
+              <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
           }
@@ -111,7 +123,7 @@ const RegistrationForm = () => {
         />
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon='password'
@@ -124,12 +136,12 @@ const RegistrationForm = () => {
           name='password'
           type='password'
           value={inputs.password}
-          onChange={handleChange}
+          onChange={handleConfirm}
           required
         />
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon='password'
@@ -142,21 +154,15 @@ const RegistrationForm = () => {
           name='confirm'
           type='password'
           value={inputs.confirm}
-          onChange={handleChange}
+          onChange={handleConfirm}
           required
         />
-        {confirmPass ? (
-          <div className={css.confirmPass}></div>
-        ) : null}
+        {confirmPass ? (<div className={css.confirmPass}></div>) : null}
+        {confirmFail ? (<div className={css.confirmFail}></div>) : null}
         <Input
           text={
-            <div className={css.registerLabel}>
-              <Svg
-                className={css.icon}
-                icon='name'
-                fill='#e0e0e0'
-                size='24'
-              />
+            <div className={css.label}>
+              <Svg className={css.icon} icon="name" fill="#e0e0e0" size="24" />
               <span>First Name</span>
             </div>
           }
@@ -168,8 +174,7 @@ const RegistrationForm = () => {
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain text='REGISTER' type='submit' />
-        <div className={css.spacingBt}></div>
+        <ButtonMain text="REGISTER" type="submit" />
         <Link to="/Goit-Wallet/">
           <ButtonSecondary text="LOG IN" />
         </Link>

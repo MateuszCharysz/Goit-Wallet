@@ -7,6 +7,7 @@ import PrivateRoute from '../components/PrivateRoute';
 import RestrictedRoute from '../components/RestrictedRoute';
 import Login from '../pages/login';
 import { refreshUser } from '../redux/auth/actions';
+import Background from '../components/Background/Background';
 
 const Registration = lazy(() => import('../pages/registration'));
 const DashBoard = lazy(() => import('../pages/dashboard'));
@@ -73,6 +74,7 @@ const App = () => {
           />
         </Route>
       </Routes>
+      <Background />
     </>
   );
 };

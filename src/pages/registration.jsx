@@ -4,19 +4,14 @@ import ButtonSecondary from '../components/ButtonSecondary';
 import Loader from '../components/Loader/Loader';
 import useAuth from '../hook/useAuth';
 import Notiflix from 'notiflix';
-import css from '../components/RegistrationForm/RegistrationForm.module.css';
+import css from '../components/LoginRegisterForms/LoginRegister.module.css';
 import logo from '../utils/Svg/logo.svg';
-import RegistrationForm from '../components/RegistrationForm/RegistrationForm';
-import frameTablet from '../utils/frame-registration/frame-tablet.png';
-import frameDesk from '../utils/frame-registration/frame-desktop.png';
-import ellipseTablet from '../utils/bg-tablet-login/ellipse-up.png';
-import ellipseDownT from '../utils/bg-tablet-login/ellipse-down.png';
-import ellipseDownD from '../utils/bg-desktop-login/ellipse.png';
-import ellipseDesktop from '../utils/bg-desktop-login/ellipse-up-desktop.png';
+import RegistrationForm from '../components/LoginRegisterForms/RegistrationForm';
+import tabletImg from '../utils/registration/appImg-tablet.png';
+import desktopImg from '../utils/registration/appImg-desktop.png';
 
 const Registration = () => {
-  const { user, isRegistered } = useAuth();
-  const [isLoading, setIsLoading] = useState(false);
+  const { user, isRegistered, isAuthLoading } = useAuth();
 
   const resend = async () => {
     try {
@@ -41,29 +36,20 @@ const Registration = () => {
 
   return (
     <>
-      <div className={css.registerContainer}>
-        <div className={css.ellipseTablet}>
-          <img src={ellipseTablet}></img>
-        </div>
-        <div className={css.ellipseDesktop}>
-          <img src={ellipseDesktop}></img>
+      <div className={css.container}>
+        <div className={css.tabletContainer}>
+          <img src={tabletImg}></img>
+          <span className={css.finance}>Finance App</span>
         </div>
         <div className={css.desktopContainer}>
-          <img src={frameDesk}></img>
+          <img src={desktopImg}></img>
           <span className={css.finance}>Finance App</span>
         </div>
-        <div className={css.tabletContainer}>
-          <img src={frameTablet}></img>
-          <span className={css.finance}>Finance App</span>
-        </div>
-        <div className={css.registerWrapper}>
-          <div className={css.logoContainer}>
-            <img
-              className={css.logo}
-              src={logo}
-              alt='wallet-logo'></img>
+        <div className={css.formContainer}>
+          <div className={css.registerWrapper}>
+            <img className={css.logo} src={logo} alt="wallet-logo"></img>
+            <RegistrationForm />
           </div>
-          <RegistrationForm />
           <div className={css.spacingBt}></div>
           {isRegistered && (
             <ButtonSecondary
@@ -71,14 +57,8 @@ const Registration = () => {
               onClick={resend}></ButtonSecondary>
           )}
         </div>
-        <div className={css.ellipseDownT}>
-          <img src={ellipseDownT}></img>
-        </div>
-        <div className={css.ellipseDownD}>
-          <img src={ellipseDownD}></img>
-        </div>
       </div>
-      <Loader isVisible={isLoading} />
+      <Loader isVisible={isAuthLoading} />
     </>
   );
 };

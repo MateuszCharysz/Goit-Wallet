@@ -5,7 +5,7 @@ import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
 import { login } from '../../redux/auth/actions';
-import css from './LoginForm.module.css';
+import css from '../LoginRegisterForms/LoginRegister.module.css';
 import { Link } from 'react-router-dom';
 import Notiflix from 'notiflix';
 import Svg from '../../utils/Svg/Svg';
@@ -47,17 +47,12 @@ const LoginForm = () => {
   };
 
   return (
-    <form className={css.loginForm} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.loginInputs}>
         <Input
           text={
-            <div className={css.loginLabel}>
-              <Svg
-                className={css.icon}
-                icon='email'
-                fill='#e0e0e0'
-                size='24'
-              />
+            <div className={css.label}>
+              <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
           }
@@ -69,7 +64,7 @@ const LoginForm = () => {
         />
         <Input
           text={
-            <div className={css.loginLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon='password'
@@ -87,10 +82,9 @@ const LoginForm = () => {
         />
       </div>
       <div className={css.buttons}>
-        <ButtonMain text='LOG IN' type='submit' />
-        <div className={css.spacingBtn}></div>
-        <Link to='/Goit-Wallet/register'>
-          <ButtonSecondary text='REGISTER' />
+        <ButtonMain text="LOG IN" type="submit" />
+        <Link to="/Goit-Wallet/register">
+          <ButtonSecondary text="REGISTER" />
         </Link>
       </div>
     </form>
