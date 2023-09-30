@@ -12,7 +12,7 @@ const Login = () => {
 
   return (
     <>
-      <div className={css.loginContainer}>
+      <div className={css.container}>
         <div className={css.tabletContainer}>
           <img src={tabletImg}></img>
           <span className={css.finance}>Finance App</span>

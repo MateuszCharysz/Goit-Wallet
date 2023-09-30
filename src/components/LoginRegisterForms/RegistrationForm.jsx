@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import useAuth from '../../hook/useAuth';
-import css from './RegistrationForm.module.css';
+import css from '../LoginRegisterForms/LoginRegister.module.css';
 import Input from '../Input';
 import ButtonMain from '../ButtonMain';
 import ButtonSecondary from '../ButtonSecondary';
@@ -81,11 +81,11 @@ const RegistrationForm = () => {
   };
 
   return (
-    <form className={css.registerForm} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.registerInputs}>
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
@@ -98,7 +98,7 @@ const RegistrationForm = () => {
         />
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon="password"
@@ -116,7 +116,7 @@ const RegistrationForm = () => {
         />
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon="password"
@@ -135,7 +135,7 @@ const RegistrationForm = () => {
         {confirmPass ? (<div className={css.confirmPass}></div>) : null}
         <Input
           text={
-            <div className={css.registerLabel}>
+            <div className={css.label}>
               <Svg className={css.icon} icon="name" fill="#e0e0e0" size="24" />
               <span>First Name</span>
             </div>

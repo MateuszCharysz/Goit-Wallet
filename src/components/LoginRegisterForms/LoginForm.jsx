@@ -43,11 +43,11 @@ const LoginForm = () => {
   };
 
   return (
-    <form className={css.loginForm} onSubmit={handleSubmit}>
+    <form className={css.form} onSubmit={handleSubmit}>
       <div className={css.loginInputs}>
         <Input
           text={
-            <div className={css.loginLabel}>
+            <div className={css.label}>
               <Svg className={css.icon} icon="email" fill="#e0e0e0" size="24" />
               <span>E-mail</span>
             </div>
@@ -60,7 +60,7 @@ const LoginForm = () => {
         />
         <Input
           text={
-            <div className={css.loginLabel}>
+            <div className={css.label}>
               <Svg
                 className={css.icon}
                 icon="password"
