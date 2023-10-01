@@ -24,8 +24,6 @@
 		width: 24px;
 	}
 }
-.icon:hover,
-.icon:focus,
 .navLink:focus .icon,
 .navLink:hover .icon {
 	fill: #4a56e2;
@@ -40,8 +38,9 @@
 }
 .navLink:global.active {
 	font-weight: bold;
+}
+.navLink:global.active .icon {
 	filter: drop-shadow(0 3px 10px rgba(74, 86, 226, 0.5));
-	/* TODO filter podświetla również text i tło wewnątrz ikony */
 }
 .text {
 	padding: 0;
