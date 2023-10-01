@@ -1,11 +1,12 @@
-import React from 'react';
-import LoginForm from '../components/LoginRegisterForms/LoginForm';
-import logo from '../utils/Svg/logo.svg';
-import css from '../components/LoginRegisterForms/LoginRegister.module.css';
-import tabletImg from '../utils/login/appImg-tablet.png';
-import desktopImg from '../utils//login/appImg-desktop.png';
-import Loader from '../components/Loader/Loader';
-import useAuth from '../hook/useAuth';
+import React from "react";
+import LoginForm from "../components/LoginRegisterForms/LoginForm";
+import logo from "../utils/Svg/logo.svg";
+import css from "../components/LoginRegisterForms/LoginRegister.module.css";
+import tabletImg from "../utils/login/appImg-tablet.png";
+import desktopImg from "../utils//login/appImg-desktop.png";
+import Loader from "../components/Loader/Loader";
+import useAuth from "../hook/useAuth";
+import TeamButton from "../components/TeamButton/TeamButton";
 
 const Login = () => {
   const { isAuthLoading } = useAuth();
@@ -23,7 +24,10 @@ const Login = () => {
         </div>
         <div className={css.formContainer}>
           <div className={css.loginWrapper}>
-            <img className={css.logo} src={logo} alt="wallet-logo"></img>
+            <div className={css.logoWrapper}>
+              <img className={css.logo} src={logo} alt="wallet-logo"></img>
+              <TeamButton />
+            </div>
             <LoginForm />
           </div>
         </div>
