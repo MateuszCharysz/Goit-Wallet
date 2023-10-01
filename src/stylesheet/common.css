@@ -37,11 +37,9 @@ button {
 	overflow: auto;
 	@media (min-width: 768px) {
 		max-height: 62vh;
-		/* overflow: auto; */
 	}
-	/* 
+
 	@media (min-width: 1280px) {
-		max-height: 62vh;
-		overflow: auto;
-	} */
+		max-height: 73vh;
+	}
 }
