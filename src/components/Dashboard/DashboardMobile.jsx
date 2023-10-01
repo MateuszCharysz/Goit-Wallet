@@ -122,10 +122,10 @@ export const DashboardMobile = () => {
                     </li>
                   </ul>
                 </div>
-                <AddTransactionButton addDashboard={addData} />
               </>
             );
           })}
+          <AddTransactionButton addDashboard={addData} />
         </div>
       ) : !isTransactionsLoading ? (
 

@@ -11,8 +11,8 @@ const HomeTab = () => {
     <div className={css.homeContainer}>
       <Media
         queries={{
-          small: '(max-width: 768px)',
-          medium: '(min-width: 769px)',
+          small: '(max-width: 767px)',
+          medium: '(min-width: 768px)',
         }}
       >
         {matches => (
