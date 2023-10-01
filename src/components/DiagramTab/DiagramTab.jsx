@@ -149,7 +149,7 @@ const DiagramTab = ({ transactions }) => {
             setDate={setYear}
           />
         </div>
-        <div className={css.tableContener}>
+        <div className={css.tableContainer}>
           <table>
             <thead className={css.theadStatistics}>
               <tr>
