@@ -62,11 +62,9 @@ const DiagramTab = ({ transactions }) => {
 
   const categorySums = {};
   let totalIncome = 0;
-
   filteredTransactions.forEach((transaction) => {
     const category = transaction.category;
     const sum = parseFloat(transaction.sum);
-
     if (category !== "Income") {
       if (!isNaN(sum)) {
         if (!categorySums[category]) {
@@ -170,7 +168,7 @@ const DiagramTab = ({ transactions }) => {
                     />
                     <td className={css.tableBodyCategory}>{category}</td>
                     <td className={css.tableBodySum}>
-                      {categorySums[category]}
+                      {categorySums[category].toFixed(2)}
                     </td>
                   </tr>
                 );
@@ -180,11 +178,11 @@ const DiagramTab = ({ transactions }) => {
           <div className={css.sumUp}>
             <div className={css.containerExpensesIncome}>
               <strong className={css.sumUpExpenses}>Expenses:</strong>
-              <span className={css.expensesValue}>{totalSum}</span>
+              <span className={css.expensesValue}>{totalSum.toFixed(2)}</span>
             </div>
             <div className={css.containerExpensesIncome}>
               <strong className={css.sumUpIncome}>Income:</strong>
-              <span className={css.IncomeValue}>{totalIncome}</span>
+              <span className={css.IncomeValue}>{totalIncome.toFixed(2)}</span>
             </div>
           </div>
         </div>
