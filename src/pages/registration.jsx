@@ -11,28 +11,7 @@ import tabletImg from '../utils/registration/appImg-tablet.png';
 import desktopImg from '../utils/registration/appImg-desktop.png';
 
 const Registration = () => {
-  const { user, isRegistered, isAuthLoading } = useAuth();
-
-  const resend = async () => {
-    try {
-      setIsLoading(true);
-      await axios.post(
-        'https://wallet-api.cyclic.cloud/api/users/reverify',
-        {
-          email: user.email,
-        }
-      );
-      Notiflix.Notify.success(
-        'Verification email has been resend'
-      );
-    } catch {
-      Notiflix.Notify.failure(
-        'Sorry, the email could not be resend'
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { isAuthLoading } = useAuth();
 
   return (
     <>
@@ -50,12 +29,6 @@ const Registration = () => {
             <img className={css.logo} src={logo} alt="wallet-logo"></img>
             <RegistrationForm />
           </div>
-          <div className={css.spacingBt}></div>
-          {isRegistered && (
-            <ButtonSecondary
-              text='Resend verification E-mail'
-              onClick={resend}></ButtonSecondary>
-          )}
         </div>
       </div>
       <Loader isVisible={isAuthLoading} />

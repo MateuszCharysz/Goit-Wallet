@@ -11,10 +11,6 @@
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
 }
-
-/* :root {
-	background-color: #e7eaf2;
-} */
 ul,
 ol {
 	list-style: none;
@@ -36,12 +32,6 @@ button {
 	border: none;
 	background: none;
 }
-
-.active {
-	font-weight: bold;
-	font-family: Circe;
-}
-
 .dashboardWrapper {
 	max-height: 62vh;
 	overflow: auto;
