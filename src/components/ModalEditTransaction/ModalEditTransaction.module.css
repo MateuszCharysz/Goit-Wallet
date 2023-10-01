@@ -67,7 +67,6 @@
 	align-items: center;
 }
 .modalForm {
-	/* background-color: green; */
 	display: flex;
 	justify-content: center;
 	max-width: 500px;

@@ -48,6 +48,5 @@ export const getYearDashboard = (date) => {
 
 export const getDefYear = () => {
   const year = new Date().getFullYear();
-  console.log(year);
   return year;
 };

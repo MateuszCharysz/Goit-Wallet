@@ -31,7 +31,6 @@ export const SelectMenuModal = ({ placeholder, onClick }) => {
     onClick(newName);
     return newName;
   };
-  // useEffect(()=>{console.log('dokonano zmiany')}),[name]
 
   return (
     <>
