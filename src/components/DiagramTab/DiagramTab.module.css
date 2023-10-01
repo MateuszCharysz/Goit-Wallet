@@ -265,6 +265,10 @@ vertical-align: middle;
     --category-color:rgba(0, 173, 132, 1);
 }
 
+.categorySquare[data-category="Entertainment"] {
+    --category-color: rgba(203, 242, 111);
+}
+
 .sumUp {
     padding-top: 16px;
 }
