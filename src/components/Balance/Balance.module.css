@@ -5,6 +5,11 @@
 	background-color: var(--secondary-background-color);
 	border-radius: 30px;
 	padding: 8px 32px;
+	position: sticky;
+
+	@media (min-width:768px) {
+		position: static;
+	}
 }
 
 .balance__text {
