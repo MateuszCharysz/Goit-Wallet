@@ -23,9 +23,7 @@ function ChartComponent({ categorySums }) {
       {
         data: [],
         backgroundColor: [],
-        borderColor: ["rgba(255, 255, 255, 1)"],
-        borderWidth: 1,
-        spacing: 1,
+        borderColor: [],
       },
     ],
   });
@@ -67,6 +65,7 @@ function ChartComponent({ categorySums }) {
             ...prevChartData.datasets[0],
             data: dataValues,
             backgroundColor: backgroundColors,
+            borderColor: backgroundColors,
           },
         ],
       }));
