@@ -129,12 +129,12 @@ figure:focus {
 		top:0px;
 	}
 	@media (max-width: 1278px) {
-		height: 50%;
-		top:300px;
+		height: 75%;
+		top:20vh;
 	}
 	@media (max-width: 1090px) {
-		height: 75%;
-		top:150px;
+		height: 95%;
+		top:0vh;
 	}
 }
 
