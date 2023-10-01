@@ -51,19 +51,19 @@ export const AddTransactionButton = ({ addDashboard }) => {
 
   return (
     <>
-      <button onClick={openModal} className={styles.addButton}></button>
+          <button onClick={openModal} className={styles.addButton}></button>
       {modal && (
-        <ModalAddTransaction
-          onSubmit={submitModal}
-          onCancel={closeModal}
-          onClose={closeModal}
-          onChangeSliderPlus={sliderTypePlus}
-          onChangeSliderMinus={sliderTypeMinus}
-          onChangeValue={(e) => setData({ ...data, sum: e.target.value })}
-          onChangeDate={dateTrim}
-          onChangeComment={(e) => setData({ ...data, comment: e.target.value })}
-          onChangeCategory={(e) => setData({ ...data, category: e })}
-        />
+          <ModalAddTransaction
+            onSubmit={submitModal}
+            onCancel={closeModal}
+            onClose={closeModal}
+            onChangeSliderPlus={sliderTypePlus}
+            onChangeSliderMinus={sliderTypeMinus}
+            onChangeValue={(e) => setData({ ...data, sum: e.target.value })}
+            onChangeDate={dateTrim}
+            onChangeComment={(e) => setData({ ...data, comment: e.target.value })}
+            onChangeCategory={(e) => setData({ ...data, category: e })}
+          />
       )}
     </>
   );
