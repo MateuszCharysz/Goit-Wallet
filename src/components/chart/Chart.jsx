@@ -15,7 +15,7 @@ function ChartComponent({ categorySums }) {
     Education: "rgba(129, 225, 255, 1)",
     Leisure: "rgba(36, 204, 167, 1)",
     "Other expenses": "rgba(0, 173, 132, 1)",
-    Entertainment: "rgba(203, 242, 111)",
+    Entertainment: "rgba(203, 242, 111, 1)",
   };
 
   const [chartData, setChartData] = useState({
