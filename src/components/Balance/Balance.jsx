@@ -1,20 +1,11 @@
-import useTransactions from "../../hook/useTransactions";
-import styles from "./Balance.module.css";
+import useTransactions from '../../hook/useTransactions';
+import styles from './Balance.module.css';
 
 const BalanceComponent = () => {
   const { balance } = useTransactions();
 
   const formatBalance = data => {
-    const numericValue = parseFloat(data);
-    const options = {
-      useGrouping: true,
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    };
-    const formattedValue = numericValue
-      .toLocaleString("pl-PL", options)
-      .replace(/,/g, ".");
-
+    const formattedValue = parseFloat(data).toFixed(2);
     return formattedValue;
   };
 
@@ -24,7 +15,7 @@ const BalanceComponent = () => {
       <div className={styles.balance__amount}>
         <p>
           {isNaN(formatBalance(balance))
-            ? "Loading..."
+            ? 'Loading...'
             : `PLN ${formatBalance(balance)}`}
         </p>
       </div>

@@ -38,3 +38,8 @@
 .categorySquare[data-category="Other expenses"] {
     --category-color:rgba(0, 173, 132, 1);
 }
+
+.categorySquare[data-category="Entertainment"] {
+    --category-color: rgba(203, 242, 111);
+}
+
