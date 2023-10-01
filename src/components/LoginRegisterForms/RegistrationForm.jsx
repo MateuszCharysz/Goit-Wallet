@@ -1,6 +1,6 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 import useAuth from '../../hook/useAuth';
 import css from '../LoginRegisterForms/LoginRegister.module.css';
 import Input from '../Input';
@@ -14,6 +14,8 @@ import Svg from '../../utils/Svg/Svg';
 
 const RegistrationForm = () => {
   const { user, isRegistered } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
+  const [confirmRegister, setConfirmRegister] = useState(false);
   const [confirmPass, setConfirmPass] = useState(false);
   const [confirmFail, setConfirmFail] = useState(false);
   const [inputs, setInputs] = useState({
@@ -27,42 +29,44 @@ const RegistrationForm = () => {
   const resend = async () => {
     try {
       setIsLoading(true);
-      await axios.post(
-        'https://wallet-api.cyclic.cloud/api/users/reverify',
-        {
-          email: user.email,
-        }
-      );
-      Notiflix.Notify.success(
-        'Verification email has been resend'
-      );
+      await axios.post('https://wallet-api.cyclic.cloud/api/users/reverify', {
+        email: user.email,
+      });
+      Notiflix.Notify.success('Verification email has been resend');
     } catch {
-      Notiflix.Notify.failure(
-        'Sorry, the email could not be resend'
-      );
+      Notiflix.Notify.failure('Sorry, the email could not be resend');
     } finally {
       setIsLoading(false);
     }
   };
 
-
   useEffect(() => {
-    if (isRegistered) {
+    if (isRegistered && confirmRegister) {
+      setConfirmPass(false);
+      Notiflix.Notify.success(
+        'Registration successful, please check your e-mail for confirmation',
+        { timeout: 5000 }
+      );
+    }
+
+    if (!isRegistered && confirmRegister) {
       setConfirmPass(false);
     }
-  }, [isRegistered]);
+  }, [isRegistered, confirmRegister]);
 
   const handleChange = e => {
     e.preventDefault();
     const { name, value } = e.currentTarget;
     setInputs(data => ({ ...data, [name]: value }));
   };
-  const handleConfirm = (e) => {
+
+  const handleConfirm = e => {
     e.preventDefault();
     handleChange(e);
     const form = e.target.closest('form');
-    const password = form.elements.password.value.trim();
-    const confirm = form.elements.confirm.value.trim();
+    const password = form.elements.password.value;
+    const confirm = form.elements.confirm.value;
+
     if (confirm !== password) {
       setConfirmPass(false);
       setConfirmFail(true);
@@ -76,6 +80,7 @@ const RegistrationForm = () => {
       setConfirmPass(false);
     }
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
@@ -84,11 +89,7 @@ const RegistrationForm = () => {
     const confirm = form.elements.confirm.value.trim();
     const name = form.elements.name.value.trim();
 
-    if (
-      !email.match(
-        /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/
-      )
-    ) {
+    if (!email.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
       return Notiflix.Notify.failure('Enter valid e-mail');
     }
     if (password.length < 6 || password.length > 12) {
@@ -98,19 +99,13 @@ const RegistrationForm = () => {
     }
     if (confirm !== password) {
       setConfirmPass(false);
-      return Notiflix.Notify.failure(
-        'Passwords need to match'
-      );
+      return Notiflix.Notify.failure('Passwords need to match');
     } else if (confirm === password) {
       setConfirmPass(true);
     }
-    if (!name.length) {
-      return Notiflix.Notify.failure('Enter name');
+    if (name.length < 1 || name.length > 12) {
+      return Notiflix.Notify.failure('Name must be between 1-12 characters');
     }
-
-    Notiflix.Notify.success(
-      'Registration successful, please check your e-mail for confirmation'
-    );
 
     dispatch(
       register({
@@ -119,6 +114,8 @@ const RegistrationForm = () => {
         password: inputs.password,
       })
     );
+
+    setConfirmRegister(true);
 
     setInputs({
       email: '',
@@ -138,8 +135,8 @@ const RegistrationForm = () => {
               <span>E-mail</span>
             </div>
           }
-          name='email'
-          type='email'
+          name="email"
+          type="email"
           value={inputs.email}
           onChange={handleChange}
           required
@@ -149,15 +146,15 @@ const RegistrationForm = () => {
             <div className={css.label}>
               <Svg
                 className={css.icon}
-                icon='password'
-                fill='#e0e0e0'
-                size='24'
+                icon="password"
+                fill="#e0e0e0"
+                size="24"
               />
               <span>Password</span>
             </div>
           }
-          name='password'
-          type='password'
+          name="password"
+          type="password"
           value={inputs.password}
           onChange={handleConfirm}
           required
@@ -167,21 +164,21 @@ const RegistrationForm = () => {
             <div className={css.label}>
               <Svg
                 className={css.icon}
-                icon='password'
-                fill='#e0e0e0'
-                size='24'
+                icon="password"
+                fill="#e0e0e0"
+                size="24"
               />
               <span>Confirm Password</span>
             </div>
           }
-          name='confirm'
-          type='password'
+          name="confirm"
+          type="password"
           value={inputs.confirm}
           onChange={handleConfirm}
           required
         />
-        {confirmPass ? (<div className={css.confirmPass}></div>) : null}
-        {confirmFail ? (<div className={css.confirmFail}></div>) : null}
+        {confirmPass ? <div className={css.confirmPass}></div> : null}
+        {confirmFail ? <div className={css.confirmFail}></div> : null}
         <Input
           text={
             <div className={css.label}>
@@ -189,8 +186,8 @@ const RegistrationForm = () => {
               <span>First Name</span>
             </div>
           }
-          name='name'
-          type='text'
+          name="name"
+          type="text"
           value={inputs.name}
           onChange={handleChange}
           required
@@ -204,9 +201,9 @@ const RegistrationForm = () => {
         {isRegistered && (
           <ResendButton
             className={css.resendButton}
-            text='Resend verification E-mail'
-            onClick={resend}>
-          </ResendButton>
+            text={isLoading ? 'Loading...' : 'Resend verification E-mail'}
+            onClick={resend}
+          ></ResendButton>
         )}
       </div>
     </form>
