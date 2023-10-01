@@ -37,16 +37,16 @@ const SharedLayoutPrivate = () => {
               {matches => matches.medium && <Currency />}
             </Media>
           </div>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-            <Loader isVisible={isAuthLoading || isTransactionsLoading} />
-          </Suspense>
-        </div>
           <Media queries={{ big: '(min-width: 1280px)' }}>
             {matches =>
               matches.big && <div className={css.verticalBorder}></div>
             }
           </Media>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+            <Loader isVisible={isAuthLoading || isTransactionsLoading} />
+          </Suspense>
+        </div>
       </div>
       <LogoutModal />
     </>
