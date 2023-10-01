@@ -266,7 +266,7 @@ vertical-align: middle;
 }
 
 .categorySquare[data-category="Entertainment"] {
-    --category-color: rgba(203, 242, 111);
+    --category-color: rgba(203, 242, 111, 1);
 }
 
 .sumUp {
