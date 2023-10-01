@@ -1,27 +1,25 @@
-.wrapperTeamButton{
-    position: absolute;
-	/* background-color: red; */
-    top: 0px;
-    right: 0px;
-    display: flex;
-    width: 200px;
-    height: 50px;
+.wrapperTeamButton {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display: flex;
+	width: 200px;
+	height: 50px;
 	opacity: 0;
 	transition: 1s;
 }
-.wrapperTeamButton::before{
-    content: '';
-    background-image: url(../../utils/heart.gif);
-    position: absolute;
-    background-size: contain;
-    display: flex;
-    height: 60px;
-    width: 60px;
-	top:-30px;
-	right:-60px;
-    cursor: pointer;
-	
+.wrapperTeamButton::before {
+	content: "";
+	background-image: url(../../utils/heart.gif);
+	position: absolute;
+	background-size: contain;
+	display: flex;
+	height: 60px;
+	width: 60px;
+	top: -30px;
+	right: -60px;
+	cursor: pointer;
 }
-.wrapperTeamButton:hover{
+.wrapperTeamButton:hover {
 	opacity: 1;
 }

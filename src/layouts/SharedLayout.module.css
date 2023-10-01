@@ -1,9 +1,7 @@
 .container {
-	/* background-color: var(--primary-background-color); */
 	background-color: rgba(238, 238, 238, 0.6);
 	backdrop-filter: blur(50px);
 	min-height: 100vh;
-	/* position: relative; */
 }
 
 .wrapper {
