@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import useTransactions from '../../hook/useTransactions';
-import styles from '../SelectStatisticsMenu/SelectStatisticsMenu.module.css';
-import { nanoid } from 'nanoid';
-import { getTransactions } from '../../redux/transactions/actions';
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import useTransactions from "../../hook/useTransactions";
+import styles from "../SelectStatisticsMenu/SelectStatisticsMenu.module.css";
+import { nanoid } from "nanoid";
+import { getTransactions } from "../../redux/transactions/actions";
 
 const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
   const { transactions } = useTransactions();
@@ -27,7 +27,7 @@ const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
     });
     const sortData = [...new Set(allData)].sort();
     const dataYear = [];
-    sortData.map(date => {
+    sortData.map((date) => {
       dataYear.push({ date: `${date}` });
     });
     return dataYear;
@@ -40,7 +40,7 @@ const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
     });
     const sortData = [...new Set(allData)].sort();
     const dataMonth = [];
-    sortData.map(date => {
+    sortData.map((date) => {
       dataMonth.push({ date: `${date}` });
     });
     return dataMonth;
@@ -51,7 +51,7 @@ const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
   const toggleModal = () => {
     setModal(!modal);
   };
-  const changeName = e => {
+  const changeName = (e) => {
     const newName = e.innerText;
     setName(newName);
     setDate(newName);
@@ -61,45 +61,50 @@ const SelectStatisticsMenu = ({ placeholder, type, setDate }) => {
   return (
     <>
       <div className={styles.wrapper}>
-        <div onClick={toggleModal} className={styles.selectBtn}>
+        <div
+          onClick={toggleModal}
+          className={
+            modal === false ? styles.selectBtn : styles.selectBtnActive
+          }
+        >
           <span>{name}</span>
         </div>
         {modal && (
           <div className={styles.optionsContainer}>
             <ul className={styles.options}>
-              {type === 'year' && dataYear.length > 0 ? (
+              {type === "year" && dataYear.length > 0 ? (
                 dataYear.map(({ date }) => {
                   return (
                     <li
                       key={nanoid()}
-                      onClick={e => changeName(e.target)}
+                      onClick={(e) => changeName(e.target)}
                       className={styles.option}
                     >
                       <span>{date}</span>
                     </li>
                   );
                 })
-              ) : type === 'month' && dataMonth.length > 0 ? (
+              ) : type === "month" && dataMonth.length > 0 ? (
                 dataMonth.map(({ date }) => {
                   const months = new Array(
-                    '0',
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December'
+                    "0",
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
                   );
                   return (
                     <li
                       key={nanoid()}
-                      onClick={e => changeName(e.target)}
+                      onClick={(e) => changeName(e.target)}
                       className={styles.option}
                     >
                       <span>{months[parseInt(date)]}</span>

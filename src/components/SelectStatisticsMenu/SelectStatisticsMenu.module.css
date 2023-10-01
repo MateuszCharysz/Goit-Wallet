@@ -15,7 +15,8 @@
 	}
 }
 
-.selectBtn {
+.selectBtn,
+.selectBtnActive {
 	display: flex;
 	background-color: transparent;
 	padding: 15px;
@@ -28,7 +29,26 @@
 	border: 1px solid black;
 	border-radius: 30px;
 	cursor: pointer;
+	position: relative;
 	z-index: 1;
+	
+}
+.selectBtn:before{
+	content: url(../../utils/Svg/arrow.svg);
+	position: absolute;
+	height: 20px;
+	right:20px;
+	bottom:15px;
+	transition: 0.5s;
+}
+.selectBtnActive:before{
+	content: url(../../utils/Svg/arrow.svg);
+	position: absolute;
+	height: 20px;
+	right:20px;
+	bottom:15px;
+	transition: 0.5s;
+	transform: rotate(180deg);
 }
 
 .optionsContainer {
