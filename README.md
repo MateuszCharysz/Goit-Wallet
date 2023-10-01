@@ -8,7 +8,7 @@ Skład zespołu:
  - Mariusz - dev - backend, swagger
  - Marta Schab - dev - diagram, testowanie
  - Marcin "P" Piórkowski - dev - transakcje - wyświetlanie, modale transakcji, team-modal
- - Marcin "Z" Zboroń - dev - Currency, Balanse, team-modal, obrabianie grafiki
+ - Marcin "Z" Zboroń - dev - Currency, Balance, team-modal, obrabianie grafiki
  - Bartek Brański - Code Review -scalanie, różne poprawki, rozwiązywanie konfliktów Github, header, modal logout,
 
 ## Wykorzystane technologie/biblioteki:
