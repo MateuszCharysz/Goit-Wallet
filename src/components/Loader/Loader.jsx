@@ -11,7 +11,7 @@ const Loader = ({ isVisible = true }) => {
       wrapperClass={css.loader}
       visible={isVisible}
       ariaLabel="oval-loading"
-      secondaryColor="#ff6596"
+      secondaryColor="#e77d9f"
       strokeWidth={3}
       strokeWidthSecondary={3}
     />

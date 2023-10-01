@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, Fragment } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Loader from '../components/Loader/Loader';
 import Header from '../components/Header/Header';
@@ -24,24 +24,29 @@ const SharedLayoutPrivate = () => {
     <>
       <Header />
       <div className={css.container}>
-        <div className={css.smallContainer}>
-          <div className={css.subContainer}>
-            <Navigation />
+        <div className={css.wrapper}>
+          <div className={css.smallContainer}>
+            <div className={css.subContainer}>
+              <Navigation />
+              <BalanceComponent/>
+              {/* <Media queries={{ medium: '(min-width: 768px)' }}>
+                {matches => matches.medium && <BalanceComponent />}
+              </Media> */}
+            </div>
             <Media queries={{ medium: '(min-width: 768px)' }}>
-              {matches => matches.medium && <BalanceComponent />}
+              {matches => matches.medium && <Currency />}
             </Media>
           </div>
-          <Media queries={{ medium: '(min-width: 768px)' }}>
-            {matches => matches.medium && <Currency />}
+          <Media queries={{ big: '(min-width: 1280px)' }}>
+            {matches =>
+              matches.big && <div className={css.verticalBorder}></div>
+            }
           </Media>
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+            <Loader isVisible={isAuthLoading || isTransactionsLoading} />
+          </Suspense>
         </div>
-        <Media queries={{ big: '(min-width: 1280px)' }}>
-          {matches => matches.big && <div className={css.verticalBorder}></div>}
-        </Media>
-        <Suspense fallback={<Loader />}>
-          <Outlet />
-          <Loader isVisible={isAuthLoading || isTransactionsLoading} />
-        </Suspense>
       </div>
       <LogoutModal />
     </>

@@ -24,7 +24,7 @@ const App = () => {
   return (
     <>
       <Routes>
-        <Route path="Goit-Wallet/" element={<SharedLayoutRestricted />}>
+        <Route path="/Goit-Wallet/" element={<SharedLayoutRestricted />}>
           <Route
             index
             element={
@@ -44,7 +44,7 @@ const App = () => {
             }
           />
         </Route>
-        <Route path="Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
+        <Route path="/Goit-Wallet/dashboard" element={<SharedLayoutPrivate />}>
           <Route
             index
             element={

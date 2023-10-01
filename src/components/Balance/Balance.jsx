@@ -1,34 +1,35 @@
-import React, { useEffect, useCallback } from 'react';
-import styles from './Balance.module.css';
+import useTransactions from "../../hook/useTransactions";
+import styles from "./Balance.module.css";
 
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectToken } from 'redux/auth/auth-selectors';
-// import { selectCurrentUser } from 'redux/user/user-selectors';
-// import { getCurrentUser } from 'redux/user/user-operations';
+const BalanceComponent = () => {
+  const { balance } = useTransactions();
 
-function BalanceComponent() {
-    // const user = useSelector(selectCurrentUser);
-    // const balance = user.balance;
-    // const dispatch = useDispatch();
-  
-    // const token = useSelector(selectToken);
-  
-    // const fetchCurrentUser = useCallback(async () => {
-    //   dispatch(getCurrentUser({ token }));
-    // }, [token, dispatch]);
-  
-    // useEffect(() => {
-    //   fetchCurrentUser();
-    // }, [fetchCurrentUser]);
-  
-    return (
-      <div className={styles.balance}>
-        <div className={styles.balance__text}>Your balance</div>
-        <div className={styles.balance__amount}>
-          <span className={styles.balance__currency}>₴</span> 1.000.000
-        </div>
+  const formatBalance = data => {
+    const numericValue = parseFloat(data);
+    const options = {
+      useGrouping: true,
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    };
+    const formattedValue = numericValue
+      .toLocaleString("pl-PL", options)
+      .replace(/,/g, ".");
+
+    return formattedValue;
+  };
+
+  return (
+    <div className={styles.balance}>
+      <div className={styles.balance__text}>Your balance</div>
+      <div className={styles.balance__amount}>
+        <p>
+          {isNaN(formatBalance(balance))
+            ? "Loading..."
+            : `PLN ${formatBalance(balance)}`}
+        </p>
       </div>
-    );
-  }
-  
-  export default BalanceComponent;
+    </div>
+  );
+};
+
+export default BalanceComponent;

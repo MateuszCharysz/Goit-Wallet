@@ -1,5 +1,5 @@
 .navigation {
-	display: inline-flex;
+	display: flex;
 }
 .navList {
 	padding: 0;

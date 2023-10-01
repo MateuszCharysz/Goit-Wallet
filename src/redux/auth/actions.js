@@ -79,7 +79,7 @@ export const refreshUser = createAsyncThunk(
       const res = await axios.get('/users/current');
       return res.data.result;
     } catch {
-      return thunkAPI.rejectWithValue('Unable to refresh user');
+      return thunkAPI.rejectWithValue('Refresh user failed');
     }
   }
 );

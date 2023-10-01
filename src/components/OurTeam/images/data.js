@@ -1,11 +1,11 @@
 import img1 from "../images/team/Mateusz.jpg";
 import img2 from "../images/team/Meggie.jpg";
 import img3 from "../images/team/Benjamin.png";
-import img4 from "../images/team/Marta.jpg";
+import img4 from "../images/team/marta2.jpg";
 import img5 from "../images/team/MarcinP.jpg";
 import img6 from "../images/team/Marcin.png";
 import img7 from "../images/team/Mariusz.jpg";
-import img8 from "../images/team/Bartek.png";
+import img8 from "../images/team/Bartek2.png";
 
 const teammates = [
 	{
@@ -35,7 +35,7 @@ const teammates = [
 	{
 		id: 4,
 		fullName: "Marta Schab",
-		position: "React Component Specialist",
+		position: "React Component Queen",
 		photo: img4,
 		linkedIn: "https://www.linkedin.com/in/marta-schab-854244275/",
 		gitHub: "https://github.com/MartaSch",
@@ -51,15 +51,15 @@ const teammates = [
 	{
 		id: 6,
 		fullName: "Marcin Zboroń",
-		position: "React Component Specialis",
+		position: "React Component Specialist",
 		photo: img6,
 		linkedIn: "https://www.linkedin.com/in/marcin-zboro%C5%84-aa9621141/",
 		gitHub: "https://github.com/MarcinZbor",
 	},
 	{
 		id: 7,
-		fullName: "Mariusz T",
-		position: "React Component Specialis",
+		fullName: "Mariusz ",
+		position: "Advanced Node.js Specialist",
 		photo: img7,
 		linkedIn: "https://www.linkedin.com/in/trocu/",
 		gitHub: "https://github.com/trocu",
@@ -67,7 +67,7 @@ const teammates = [
 	{
 		id: 8,
 		fullName: "Bartek Brański",
-		position: "React Component Specialis",
+		position: "React Component Specialist",
 		photo: img8,
 		linkedIn: "https://www.linkedin.com/in/barteknr1/",
 		gitHub: "https://github.com/barteknr1",
