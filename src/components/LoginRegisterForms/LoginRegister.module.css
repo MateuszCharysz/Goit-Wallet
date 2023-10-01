@@ -55,8 +55,8 @@
 		backdrop-filter: blur(50px);
 	}
 }
-.logoWrapper{
-	position:relative;
+.logoWrapper {
+	position: relative;
 }
 .loginWrapper {
 	background-color: white;
@@ -148,14 +148,14 @@
 	}
 }
 
-.buttons button {
+.buttons:not:last-child button {
 	font-size: 18px;
 	@media screen and (min-width: 768px) {
 		width: 300px;
 	}
 }
 .resendButton {
-	width: 250px;
+	width: 200px;
 	background-color: #24cca7;
 	color: white;
 	padding: 5px 5px;
