@@ -8,9 +8,10 @@ import RestrictedRoute from '../components/RestrictedRoute';
 import Login from '../pages/login';
 import { refreshUser } from '../redux/auth/actions';
 import Background from '../components/Background/Background';
+// import HomeTab from '../pages/tabs/homeTab';
 
 const Registration = lazy(() => import('../pages/registration'));
-const DashBoard = lazy(() => import('../pages/dashboard'));
+const HomeTab = lazy(() => import('../pages/tabs/homeTab'));
 const Currency = lazy(() => import('../components/Currency/Currency'));
 const Statistics = lazy(() => import('../pages/statistics'));
 
@@ -50,7 +51,7 @@ const App = () => {
             element={
               <PrivateRoute
                 redirectTo="/Goit-Wallet/"
-                component={<DashBoard />}
+                component={<HomeTab />}
               />
             }
           />
