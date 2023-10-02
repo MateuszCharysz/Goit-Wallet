@@ -10,7 +10,7 @@ figure {
 figure:hover,
 figure:focus {
   transform: scale(1.03);
-  box-shadow: 1px 1px 15px 1px rgb(192, 255, 231);
+  box-shadow: 1px 1px 5px 1px #4a56e2;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -24,14 +24,12 @@ figure:focus {
   max-width: 200px;
   height: 250px;
   width: 100%;
-  color: rgb(0, 0, 0);
   font-size: 1rem;
   font-weight: 900;
   text-align: center;
   border-radius: 25px;
   line-height: 1.4em;
-  border: 1px solid rgb(228, 228, 228);
-  background-color: #ffffff;
+  background-color: white;
   backdrop-filter: blur(50px);
   cursor: default;
   box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
@@ -67,6 +65,7 @@ figure:focus {
 .member h3 {
   margin: 0 0 5px;
   font-weight: 400;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 }
 .member h3 span {
   display: block;
@@ -92,7 +91,7 @@ figure:focus {
   transition: all 0.35s ease;
 }
 .member:hover .background,
-.member.hover .background {
+.member:hover .background {
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
   cursor: pointer;
@@ -100,7 +99,7 @@ figure:focus {
 
 .content {
   position: fixed;
-  background-color: white;
+  background-color: rgba(0, 0, 0, 0.4);
   left: 5%;
   top: 5%;
   width: 90%;
@@ -120,13 +119,13 @@ figure:focus {
     left: 5%;
     top: 0%;
     width: 90%;
-    height:100%;
+    height: 100%;
   }
   @media screen and (min-width: 1280px) {
-    left:-45%;
+    left: -45%;
     top: 2.5%;
     width: 1100px;
-    height:100%;
+    height: 100%;
   }
 }
 
@@ -139,15 +138,19 @@ figure:focus {
   position: absolute;
   top: 0;
   right: 10px;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   display: flex;
-  border-radius: 20px;
+  border-radius: 10px;
+  margin-top: 15px;
   transition: 0.25s linear;
-  background-color: #ffffff;
+  background-color: white;
   cursor: pointer;
   background-image: url(../../../utils/x.png);
-  background-size: contain;
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
 }
 .close:hover {
   background-image: url(../../../utils/x.gif);
@@ -158,8 +161,13 @@ figure:focus {
   background-color: rgb(36, 204, 167);
   border-radius: 15px;
   gap: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 }
 .icons a i {
   color: white;
-  opacity: 0.85;
+  opacity: 0.9;
+}
+
+.icons a i:hover {
+  transform: scale(1.3);
 }
