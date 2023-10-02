@@ -6,16 +6,11 @@ import { GreenButton } from "../Greenbutton/GreenButton";
 import { CancelButton } from "../CancelButton/CancelButton";
 import { SelectMenuModal } from "../SelectMenuModal/SelectMenuModal";
 
-export const ModalEditTransaction = ({
-  type,
-  onClose,
-  id,
-  updateDashboard,
-}) => {
+export const ModalEditTransaction = ({ type, onClose, id }) => {
   const dispatch = useDispatch();
   const [data, setData] = useState();
 
-  const dateTrim = (e) => {
+  const dateTrim = e => {
     const selectedData = e.target.value.toString();
     const day = selectedData.substr(8, 2);
     const month = selectedData.substr(5, 2);
@@ -23,11 +18,10 @@ export const ModalEditTransaction = ({
     setData({ ...data, date: { day: day, month: month, year: year }, id: id });
   };
 
-  const submitModal = (e) => {
+  const submitModal = e => {
     e.preventDefault();
     const dataId = data.id;
     dispatch(updateTransaction({ id: dataId, body: data }));
-    updateDashboard(data);
     onClose();
   };
 
@@ -55,7 +49,7 @@ export const ModalEditTransaction = ({
                 <></>
               ) : (
                 <SelectMenuModal
-                  onClick={(e) => setData({ ...data, category: e, id: id })}
+                  onClick={e => setData({ ...data, category: e, id: id })}
                   placeholder={"Select a category"}
                 />
               )}
@@ -65,7 +59,7 @@ export const ModalEditTransaction = ({
                   name="sum"
                   step="0.01"
                   max="999999999999"
-                  onChange={(e) =>
+                  onChange={e =>
                     setData({ ...data, sum: e.target.value, id: id })
                   }
                   placeholder="0.00"
@@ -82,7 +76,7 @@ export const ModalEditTransaction = ({
                 type="text"
                 placeholder="Comment"
                 name="comment"
-                onChange={(e) =>
+                onChange={e =>
                   setData({ ...data, comment: e.target.value, id: id })
                 }
                 className={styles.formComment}

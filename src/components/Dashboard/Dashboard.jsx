@@ -29,20 +29,11 @@ export const Dashboard = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = (id) => {
+  const deleteLine = id => {
     dispatch(removeTransaction(id));
-    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = (data) => {
-    setData((prevData) => [data, ...prevData]);
-  };
-
-  const updateData = (data) => {
-    setData(data);
-  };
-
-  const formatSum = (data) => {
+  const formatSum = data => {
     const numericValue = parseFloat(data);
     const options = {
       useGrouping: true,
@@ -89,11 +80,7 @@ export const Dashboard = () => {
                     )}
                     <td>
                       <span className={styles.buttonContainer}>
-                        <EditPen
-                          id={_id}
-                          type={type}
-                          updateDashboard={updateData}
-                        />
+                        <EditPen id={_id} type={type} />
                         <DeleteButton
                           onClick={() => deleteLine(_id)}
                           name="Delete"
@@ -105,15 +92,13 @@ export const Dashboard = () => {
               })}
             </tbody>
           </table>
-          <AddTransactionButton addDashboard={addData} />
+          <AddTransactionButton />
         </>
       ) : !isTransactionsLoading ? (
-
         <div className={styles.dashboardClass}>
           <h2>There are no transactions</h2>
-          <AddTransactionButton addDashboard={addData} />
+          <AddTransactionButton />
         </div>
-
       ) : null}
     </>
   );
