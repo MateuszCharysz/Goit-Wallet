@@ -1,19 +1,18 @@
-import { Routes, Route } from 'react-router-dom';
-import React, { lazy, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import SharedLayoutRestricted from './SharedLayoutRest';
-import SharedLayoutPrivate from './SharedLayoutPriv';
-import PrivateRoute from '../components/PrivateRoute';
-import RestrictedRoute from '../components/RestrictedRoute';
-import Login from '../pages/login';
-import { refreshUser } from '../redux/auth/actions';
-import Background from '../components/Background/Background';
-// import HomeTab from '../pages/tabs/homeTab';
+import { Routes, Route } from "react-router-dom";
+import React, { lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import SharedLayoutRestricted from "./SharedLayoutRest";
+import SharedLayoutPrivate from "./SharedLayoutPriv";
+import PrivateRoute from "../components/PrivateRoute";
+import RestrictedRoute from "../components/RestrictedRoute";
+import Login from "../pages/login";
+import { refreshUser } from "../redux/auth/actions";
+import Background from "../components/Background/Background";
 
-const Registration = lazy(() => import('../pages/registration'));
-const HomeTab = lazy(() => import('../pages/tabs/homeTab'));
-const Currency = lazy(() => import('../components/Currency/Currency'));
-const Statistics = lazy(() => import('../pages/statistics'));
+const Registration = lazy(() => import("../pages/registration"));
+const HomeTab = lazy(() => import("../pages/tabs/homeTab"));
+const Currency = lazy(() => import("../components/Currency/Currency"));
+const Statistics = lazy(() => import("../pages/statistics"));
 
 const App = () => {
   const dispatch = useDispatch();

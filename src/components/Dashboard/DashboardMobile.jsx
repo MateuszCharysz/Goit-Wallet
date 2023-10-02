@@ -29,20 +29,11 @@ export const DashboardMobile = () => {
     setData(transactions);
   }, [transactions]);
 
-  const deleteLine = (id) => {
+  const deleteLine = id => {
     dispatch(removeTransaction(id));
-    setData((prevData) => prevData.filter(({ _id }) => _id !== id));
   };
 
-  const addData = (data) => {
-    setData((prevData) => [data, ...prevData]);
-  };
-
-  const updateData = (data) => {
-    setData(data);
-  };
-
-  const formatSum = (data) => {
+  const formatSum = data => {
     const numericValue = parseFloat(data);
     const options = {
       useGrouping: true,
@@ -65,28 +56,29 @@ export const DashboardMobile = () => {
               <>
                 <div key={_id ?? nanoid()} className={styles.element}>
                   <ul
+                    key={nanoid()}
                     className={
                       type === "+"
                         ? styles.greenElementList
                         : styles.redElementList
                     }
                   >
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <span className={styles.listElementTitle}>Date</span>
                       <span>
                         {getDayDashboard(date)}.{getMonthDashboard(date)}.
                         {getYearDashboard(date)}
                       </span>
                     </li>
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <span className={styles.listElementTitle}>Type</span>
                       <span>{type}</span>
                     </li>
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <span className={styles.listElementTitle}>Category</span>
                       <span>{category}</span>
                     </li>
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <span className={styles.listElementTitle}>Comment</span>
                       <span>
                         {comment.length > 15
@@ -94,7 +86,7 @@ export const DashboardMobile = () => {
                           : comment}
                       </span>
                     </li>
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <span className={styles.listElementTitle}>Sum</span>
                       <span
                         className={type === "+" ? styles.green : styles.red}
@@ -102,18 +94,14 @@ export const DashboardMobile = () => {
                         {formatSum(sum)}
                       </span>
                     </li>
-                    <li key={nanoid()} className={styles.listElement}>
+                    <li className={styles.listElement}>
                       <DeleteButton
                         onClick={() => deleteLine(_id)}
                         name="Delete"
                       />
-                      <ul className={styles.editList}>
+                      <ul key={nanoid()} className={styles.editList}>
                         <li>
-                          <EditPen
-                            id={_id}
-                            type={type}
-                            updateDashboard={updateData}
-                          />
+                          <EditPen id={_id} type={type} />
                         </li>
                         <li>
                           <span>Edit</span>
@@ -125,13 +113,12 @@ export const DashboardMobile = () => {
               </>
             );
           })}
-          <AddTransactionButton addDashboard={addData} />
+          <AddTransactionButton />
         </div>
       ) : !isTransactionsLoading ? (
-
         <div>
           <h2>There are no transactions</h2>
-          <AddTransactionButton addDashboard={addData} />
+          <AddTransactionButton />
         </div>
       ) : null}
     </>

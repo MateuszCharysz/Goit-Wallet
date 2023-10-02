@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import styles from '../EditPen/EditPen.module.css';
-import editImage from '../../assets/edit.svg';
-import { ModalEditTransaction } from '../ModalEditTransaction/ModalEditTransaction';
+import React, { useState } from "react";
+import styles from "../EditPen/EditPen.module.css";
+import editImage from "../../assets/edit.svg";
+import { ModalEditTransaction } from "../ModalEditTransaction/ModalEditTransaction";
 
-export const EditPen = ({ id, type, updateDashboard }) => {
+export const EditPen = ({ id, type }) => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
@@ -23,12 +23,7 @@ export const EditPen = ({ id, type, updateDashboard }) => {
         onClick={openModal}
       />
       {modal && (
-        <ModalEditTransaction
-          type={type}
-          id={id}
-          onClose={closeModal}
-          updateDashboard={updateDashboard}
-        />
+        <ModalEditTransaction type={type} id={id} onClose={closeModal} />
       )}
     </>
   );
