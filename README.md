@@ -3,7 +3,7 @@ Zrobione na podstawie  [Vite template](https://github.com/MateuszCharysz/Vite-Te
 ## Zespół
 Skład zespołu:
  - Mateusz Charysz - Team Lead - scalanie, różne poprawki, rozwiązywanie konfliktów Github, HTML + CSS, testowanie
- - Maggie Wesołowska - Scrum Master - Login, Register, tło, MUI ex-zelot:)
+ - Maggie Wesołowska - Scrum Master - Login, Register, tło, MUI enthusiast:)
  - Beniamin Brzeziński - dev - backend, redux, elementy logiczne, serwer docelowy, uwierzytelnianie, private/restricted routes
  - Mariusz - dev - backend, swagger
  - Marta Schab - dev - diagram, testowanie
