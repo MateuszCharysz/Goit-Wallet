@@ -29,7 +29,7 @@ const RegistrationForm = () => {
   const resend = async () => {
     try {
       setIsLoading(true);
-      await axios.post('https://wallet-api.cyclic.cloud/api/users/reverify', {
+      await axios.post('/users/reverify', {
         email: user.email,
       });
       Notiflix.Notify.success('Verification email has been resend');
